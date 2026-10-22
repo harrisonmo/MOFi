@@ -1,6 +1,13 @@
 <h1 align="center">MOFi: An AI Harness for Autonomous Materials Research</h1>
 
 <p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/images/mofi-logo-dark.svg">
+    <img src="docs/images/mofi-logo-light.svg" alt="MOFi wordmark built from metal nodes, organic linkers and porous framework cages" width="720">
+  </picture>
+</p>
+
+<p align="center">
   <strong>M</strong>aterials <strong>O</strong>ptimization through <strong>F</strong>eedback-driven <strong>i</strong>ntelligence (MOFi)
 </p>
 
