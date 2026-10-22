@@ -1,7 +1,4 @@
 <h1 align="center">MOFi: An AI Harness for Autonomous Materials Research</h1>
-<p align="center">
-  <strong>M</strong>aterials <strong>O</strong>ptimization through <strong>F</strong>eedback-driven <strong>i</strong>ntelligence
-</p>
 
 <p align="center">
   <picture>
@@ -10,12 +7,16 @@
   </picture>
 </p>
 
+<hr>
+
 <p align="center">
   <a href="docs/README.md"><strong>Documentation</strong></a>
   &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-  <a href="LICENSE"><strong>Apache 2.0</strong></a>
-  &nbsp;&nbsp;&middot;&nbsp;&nbsp;
   <a href="#setup"><strong>Setup</strong></a>
+</p>
+
+<p align="center">
+  <strong>M</strong>aterials <strong>O</strong>ptimization through <strong>F</strong>eedback-driven <strong>i</strong>ntelligence
 </p>
 
 **MOFi** is a research harness that connects AI agents, materials simulation tools, and feedback loops to study autonomous improvement.
