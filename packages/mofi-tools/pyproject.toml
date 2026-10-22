@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77,<85"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mofi-tools"
+version = "0.1.0"
+description = "MOFi scientific tools and a local Model Context Protocol server"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{name = "MOFi contributors"}]
+dependencies = ["mcp>=1.30,<2", "jsonschema>=4.23,<5", "anyio>=4.5,<5"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Chemistry",
+]
+
+[project.urls]
+Repository = "https://github.com/harrisonmo/MOFi"
+Documentation = "https://github.com/harrisonmo/MOFi/blob/main/docs/MCP_TOOLS.md"
+
+[project.scripts]
+mofi-tools = "mofi_tools.cli:main"
+mofi-mcp = "mofi_tools.cli:mcp_main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+mofi_tools = ["data/*.csv", "data/*.json"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

@@ -1,0 +1,45 @@
+name: MCP package checks
+
+on:
+  push:
+    paths:
+      - "packages/mofi-tools/**"
+      - "rsi/science/mof_databases.py"
+      - "datasets/catalogs/**"
+      - "tools/science/mof-database-catalog-v1.json"
+      - "scripts/sync_mcp_catalog.py"
+      - ".github/workflows/mcp-package.yml"
+  pull_request:
+    paths:
+      - "packages/mofi-tools/**"
+      - "rsi/science/mof_databases.py"
+      - "datasets/catalogs/**"
+      - "tools/science/mof-database-catalog-v1.json"
+      - "scripts/sync_mcp_catalog.py"
+      - ".github/workflows/mcp-package.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: "3.12"
+      - run: python -m pip install build twine pytest
+      - run: python scripts/sync_mcp_catalog.py --check
+      - run: python -m pip install ./packages/mofi-tools
+      - run: python -m pytest -c packages/mofi-tools/pyproject.toml packages/mofi-tools/tests -q
+      - run: python -m build packages/mofi-tools --outdir dist
+      - run: python -m twine check dist/*
+      - name: Install the wheel in an isolated environment
+        run: |
+          python -m venv /tmp/mofi-wheel-check
+          /tmp/mofi-wheel-check/bin/python -m pip install dist/*.whl
+          cd /tmp
+          /tmp/mofi-wheel-check/bin/python -m mofi_tools catalog
+          /tmp/mofi-wheel-check/bin/python -m mofi_tools query --arguments '{"name_contains":"QMOF"}'

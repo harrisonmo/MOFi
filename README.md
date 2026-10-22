@@ -106,6 +106,28 @@ Freeze tasks, scientific targets, budgets and promotion criteria before each com
 | `Crystal-Builder/` | Separate dependency checkout, not bundled|
 | `runs/`, `artifacts/` | Ignored local raw logs and generated artifacts|
 
+### MCP tools and Python package
+
+MOFi can expose its tools to **Codex, Claude Code and Claude Desktop** through a
+local stdio MCP server. The separate `mofi-tools` distribution is prepared for
+PyPI packaging and is **not yet published**; the unrelated PyPI package named
+`mofi` is not this project. Install from this repository:
+
+```bash
+python -m pip install ./packages/mofi-tools
+mofi-tools catalog
+mofi-tools query --arguments '{"name_contains":"QMOF"}'
+mofi-mcp
+```
+
+The standalone package bundles the pinned MOF database survey and its metadata
+query tool. Supply `--workspace`, `--science-python`, `--hub-config` and a
+client-specific `--session` to expose available scientific hub tools with their
+existing budgets and evidence checks. Engines and Crystal-Builder remain
+separate installations. See [MCP configuration and packaging](docs/MCP_TOOLS.md)
+for client registration, tool availability, build validation and future release
+steps. No public PyPI or MCP Registry publication is performed by this setup.
+
 ### Setup
 
 Current process containment targets Windows. The workspace is a single [uv](https://docs.astral.sh/uv/) project on Python 3.12 (`pyproject.toml`, `uv.lock`) with a separate Crystal-Builder checkout installed editable. In PowerShell:

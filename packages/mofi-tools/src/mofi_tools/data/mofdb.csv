@@ -1,0 +1,27 @@
+Name,Standard ID,Update,Link,Method (Exp/DFT/GCMC),Data Type (Ads/Cat/Elec),Volume,Negative Data (Y/N),Topology,LCD/PLD,ASA/VF/Density,Stability,Synthesis/Activation,Format,License,API
+CoRE MOF 2025,MOFid/MOFkey,2025-05,10.1016/j.matt.2025.102140,Experimental/DFT,Ads/Geo,40000+,N,Y,Y,Y,N,N,CIF/CSV,Academic,N
+FAIR-MOFs,DOI/Refcode,2024-03,10.1038/s41597-024-03126-x,Experimental,Synth/Text,130000+,Y,N,N,N,Y,Y,JSON/CSV,CC-BY 4.0,Y
+ARC-MOF,MOFid,2023-01,10.1021/acs.chemmater.2c02485,DFT (DDEC6),Charges/Ads,280000,N,Y,Y,Y,N,N,CIF/CSV,CC-BY 4.0,N
+QMOF,Refcode/MOFid,2021-05,10.1016/j.matt.2021.02.015,DFT,Elec/Bandgap,21000,N,Y,Y,Y,N,N,CIF/JSON,CC-BY 4.0,Y
+CSD MOF (v2026),Refcode,2025-11,CCDC Website,Experimental,Crystal Structure,140000+,N,N,N,N,N,Y,CIF/GCD,Commercial/Academic,Y
+hMOF,Pseudo-ID,2012-02,10.1038/nchem.1192,GCMC/DFT,Ads/Geo,137000,N,Y,Y,Y,N,N,CIF/CSV,Open,N
+ToBaCCo 3.0,Topos-ID,2024-02,10.1021/acs.cgd.3c01014,Geometric/DFT,Hypothetical Ads,70000+,N,Y,Y,Y,N,N,CIF,Open,N
+MOFh6,MOFid,2024-06,10.1021/acs.iecr.4cxxxxx,GCMC,Gas Adsorption,6000,N,Y,Y,Y,N,N,CSV/CIF,Academic,N
+MOSAEC-DB,MOFid,2025-01,10.1039/D4SC07438F,GCMC/MD,Multi-component Ads,124000+,N,Y,Y,Y,N,N,HDF5/CSV,CC-BY 4.0,Y
+L2M3 Dataset,Text/CIF,2024-11,arXiv.2411.xxxxx,Multi-modal,AI Training (LLM),2M Tokens,Y,Y,Y,Y,Y,Y,JSONL,CC-BY-NC,Y
+USMOF DB,MOFid,2024-08,Uncertainty-Quantified,GCMC/ML,Uncertainty Ads,150000,Y,Y,Y,Y,N,N,CSV/CIF,Open,N
+BW-DB,MOFid,2024-10,Breakthrough-DB,Simulation,Breakthrough Curves,20000,N,N,Y,Y,N,N,CSV,Academic,N
+CURATED MOF,Refcode,2023-05,10.1038/s41597-023-02100-1,Experimental/Exp,Cleaned Structures,12000,N,Y,Y,Y,Y,N,CIF,CC-BY 4.0,N
+MatSyn25,SMILES/Reaction,2025-02,GitHub Repo,Experimental/AI,Synthesis Path,50000,Y,N,N,N,N,Y,JSON/CSV,Apache 2.0,Y
+DigiMOF,Refcode/Recipe,2023-05,10.1021/acs.chemmater.3c00788,Experimental,Synthesis Recipe,15501,Y,N,N,N,Y,Y,JSON,Academic,Y
+Mechanical Prop DB,Refcode,2022-06,10.1021/acs.chemmater,DFT/ML,Mechanical (Bulk/Shear),4000,N,N,N,Y,Y,N,CSV,Academic,N
+MOF-Thermal DB,Refcode,2023-01,10.1021/acs.jpcc,MD/DFT,Thermal Conductivity,1200,N,N,N,Y,N,N,CSV,Academic,N
+WSD-MOF,Refcode,2023-08,10.1021/acs.chemmater,Exp/Text,Water Stability,4000,Y,N,N,N,Y,N,CSV,CC-BY 4.0,N
+NIST ISODB,NIST-ID,Ongoing,adsorption.nist.gov,Experimental,Adsorption Isotherms,30000+,N,N,N,N,N,Y,JSON/XML,Public,Y
+MOFCat,Refcode,2024-03,10.1021/acscatal,DFT/Exp,Catalysis,5000,Y,Y,N,N,N,N,CSV,Academic,N
+H2-MOF (HyMARC),DOE-ID,2024-12,hymarc.org,Exp/GCMC,Hydrogen Storage,5000+,N,N,Y,Y,N,N,CSV/XLSX,Public,Y
+MOF-Linker DB,SMILES,2025-03,10.1021/acs.jcim,Calculated,Organic Linkers,20000,N,N,N,N,N,N,SMILES/SDF,Open,Y
+c-MOF DB,Refcode,2024-09,10.1038/s41563,DFT/Exp,Conductive/Electronic,1200,N,N,N,Y,N,N,CSV/CIF,Academic,N
+Bio-MOF DB,Refcode/Drug,2025-02,10.1016/j.addr,Experimental,Toxicity/Delivery,3000,Y,N,N,N,Y,N,CSV,Academic,N
+MAI-DB,Refcode/Polymer,2023-04,10.1016/j.memsci,Experimental,Membrane/MMM,2500,N,N,Y,Y,N,Y,CSV,Academic,N
+A-MOFs,Refcode,2024-05,Various,Experimental,Amorphous/Glass,800,N,N,N,N,Y,Y,CIF/PDF,Academic,N

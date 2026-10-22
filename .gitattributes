@@ -2,4 +2,5 @@
 *.sh text eol=lf
 configs/micro-mlip-*.json text eol=lf
 datasets/catalogs/mofdb.csv -text
+packages/mofi-tools/src/mofi_tools/data/mofdb.csv -text
 *.csv whitespace=cr-at-eol

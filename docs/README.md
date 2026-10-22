@@ -1,5 +1,7 @@
 # Documentation
 
+- [MCP tools, Codex/Claude registration and Python packaging](MCP_TOOLS.md)
+
 - [Architecture](ARCHITECTURE.md)
 - [Environment](ENVIRONMENT.md)
 - [Component and input boundaries](COMPONENTS.md)

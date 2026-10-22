@@ -34,3 +34,8 @@ Thumbs.db
 
 # Optional ARIA runtime
 .venv-aria/
+
+# Python distribution build products
+build/
+dist/
+*.egg-info/
