@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 580" width="1240" height="580" role="img" aria-labelledby="title desc">
+  <title id="title">MOFi system design</title>
+  <desc id="desc">The Evolution Loop diagnoses failures, proposes changes and versions a candidate, which is deployed into the Research Loop. The Research Loop acts on a scientific environment and records results and provenance as evidence for independent evaluation. The evaluator, budget ledger and fixed promotion gate feed back to the Evolution Loop to accept the candidate or retain its parent.</desc>
+  <style>
+    .lattice { stroke: #1E88E5; stroke-width: 1.5; fill: none; }
+    .lattice-node { fill: #1E88E5; }
+    .panel-title { font: 700 21px "Segoe UI", "Helvetica Neue", Arial, sans-serif; text-anchor: middle; }
+    .node-title { font: 700 19px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #14205A; text-anchor: middle; }
+    .node-detail { font: 400 16px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #3D5A99; text-anchor: middle; }
+    .flow-label { font: 600 16px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #3D5A99; }
+    .link-label { font: 700 17px "Segoe UI", "Helvetica Neue", Arial, sans-serif; fill: #14205A; text-anchor: middle; }
+    .panel-evo { fill: #F3F8FE; stroke: #A9CDF5; stroke-width: 2; }
+    .node-evo { fill: #DCEBFB; stroke: #14205A; stroke-width: 3; stroke-linejoin: round; }
+    .flow-evo { fill: none; stroke: #1E88E5; stroke-width: 4; stroke-linecap: round; }
+    .title-evo { fill: #1565C0; }
+    .panel-res { fill: #F0FAF6; stroke: #A6DDCB; stroke-width: 2; }
+    .node-res { fill: #C9F0E6; stroke: #14205A; stroke-width: 3; stroke-linejoin: round; }
+    .flow-res { fill: none; stroke: #2BB59A; stroke-width: 4; stroke-linecap: round; }
+    .title-res { fill: #17806B; }
+    .panel-evl { fill: #FFF8EC; stroke: #F2CF92; stroke-width: 2; }
+    .node-evl { fill: #FFE9C2; stroke: #14205A; stroke-width: 3; stroke-linejoin: round; }
+    .flow-evl { fill: none; stroke: #E39A1F; stroke-width: 4; stroke-linecap: round; }
+    .title-evl { fill: #A86400; }
+  </style>
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path class="lattice" d="M0 0 H60 M0 0 V60"/>
+      <circle class="lattice-node" cx="0" cy="0" r="3"/>
+    </pattern>
+    <radialGradient id="fade" cx="50%" cy="50%" r="60%">
+      <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="fade-mask"><rect width="1240" height="580" fill="url(#fade)"/></mask>
+    <marker id="arrow-evo" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#1E88E5"/></marker>
+    <marker id="node-evo" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="3" markerHeight="3"><circle cx="5" cy="5" r="4" fill="#1E88E5" stroke="#14205A" stroke-width="1.2"/></marker>
+    <marker id="arrow-res" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#2BB59A"/></marker>
+    <marker id="node-res" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="3" markerHeight="3"><circle cx="5" cy="5" r="4" fill="#2BB59A" stroke="#14205A" stroke-width="1.2"/></marker>
+    <marker id="arrow-evl" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#E39A1F"/></marker>
+    <marker id="node-evl" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="3" markerHeight="3"><circle cx="5" cy="5" r="4" fill="#E39A1F" stroke="#14205A" stroke-width="1.2"/></marker>
+  </defs>
+  <rect width="1240" height="580" fill="url(#grid)" opacity="0.1" mask="url(#fade-mask)"/>
+  <!-- Evolution Loop · outer -->
+  <rect class="panel-evo" x="40" y="20" width="320" height="460" rx="22"/>
+  <text class="panel-title title-evo" x="200.0" y="60">Evolution Loop · outer</text>
+  <rect class="node-evo" x="65.0" y="84" width="270" height="80" rx="16"/>
+  <text class="node-title" x="200.0" y="120">Diagnose failures</text>
+  <text class="node-detail" x="200.0" y="144">from trajectories</text>
+  <rect class="node-evo" x="65.0" y="220" width="270" height="100" rx="16"/>
+  <text class="node-title" x="200.0" y="255">Propose changes</text>
+  <text class="node-detail" x="200.0" y="279">prompt · data · tool</text>
+  <text class="node-detail" x="200.0" y="301">workflow · model</text>
+  <path class="node-evo" d="M65.0 386 A135.0 10 0 0 1 335.0 386 V442 A135.0 10 0 0 1 65.0 442 Z"/><path class="node-evo" fill="none" d="M65.0 386 A135.0 10 0 0 0 335.0 386"/>
+  <text class="node-title" x="200.0" y="426">Versioned candidate</text>
+  <path class="flow-evo" d="M200.0 170 V212" marker-start="url(#node-evo)" marker-end="url(#arrow-evo)"/>
+  <path class="flow-evo" d="M200.0 326 V368" marker-start="url(#node-evo)" marker-end="url(#arrow-evo)"/>
+  <!-- Research Loop · inner -->
+  <rect class="panel-res" x="460" y="20" width="320" height="460" rx="22"/>
+  <text class="panel-title title-res" x="620.0" y="60">Research Loop · inner</text>
+  <rect class="node-res" x="485.0" y="84" width="270" height="80" rx="16"/>
+  <text class="node-title" x="620.0" y="131">Act, observe, decide</text>
+  <rect class="node-res" x="485.0" y="220" width="270" height="100" rx="16"/>
+  <text class="node-title" x="620.0" y="255">Scientific environment</text>
+  <text class="node-detail" x="620.0" y="279">Crystal-Builder · UFF</text>
+  <text class="node-detail" x="620.0" y="301">GCMC · frozen seeds</text>
+  <rect class="node-res" x="485.0" y="376" width="270" height="76" rx="16"/>
+  <text class="node-title" x="620.0" y="421">Results and provenance</text>
+  <path class="flow-res" d="M580.0 170 V212" marker-start="url(#node-res)" marker-end="url(#arrow-res)"/>
+  <path class="flow-res" d="M660.0 214 V172" marker-start="url(#node-res)" marker-end="url(#arrow-res)"/>
+  <text class="flow-label" x="568.0" y="198.0" text-anchor="end">calculations</text>
+  <text class="flow-label" x="672.0" y="198.0">diagnostics</text>
+  <path class="flow-res" d="M620.0 326 V368" marker-start="url(#node-res)" marker-end="url(#arrow-res)"/>
+  <!-- Independent evaluation -->
+  <rect class="panel-evl" x="880" y="20" width="320" height="460" rx="22"/>
+  <text class="panel-title title-evl" x="1040.0" y="60">Independent evaluation</text>
+  <rect class="node-evl" x="905.0" y="84" width="270" height="80" rx="16"/>
+  <text class="node-title" x="1040.0" y="120">Evaluator</text>
+  <text class="node-detail" x="1040.0" y="144">frozen scores and labels</text>
+  <rect class="node-evl" x="905.0" y="220" width="270" height="100" rx="16"/>
+  <text class="node-title" x="1040.0" y="266">Budget ledger</text>
+  <text class="node-detail" x="1040.0" y="290">tokens · science units</text>
+  <polygon class="node-evl" points="905.0,414.0 931.0,376 1149.0,376 1175.0,414.0 1149.0,452 931.0,452"/>
+  <text class="node-title" x="1040.0" y="421">Fixed promotion gate</text>
+  <path class="flow-evl" d="M1040.0 170 V212" marker-start="url(#node-evl)" marker-end="url(#arrow-evl)"/>
+  <path class="flow-evl" d="M1040.0 326 V368" marker-start="url(#node-evl)" marker-end="url(#arrow-evl)"/>
+  <!-- Links between loops. -->
+  <path class="flow-evo" stroke-width="6" d="M368 270.0 H450" marker-start="url(#node-evo)" marker-end="url(#arrow-evo)"/>
+  <text class="link-label" x="410" y="230.0">deploy</text>
+  <text class="link-label" x="410" y="252.0">candidate</text>
+  <path class="flow-res" stroke-width="6" d="M788 270.0 H870" marker-start="url(#node-res)" marker-end="url(#arrow-res)"/>
+  <text class="link-label" x="830" y="252.0">evidence</text>
+  <path class="flow-evl" stroke-dasharray="2 12" stroke-width="5" d="M1040.0 486 V514 Q1040.0 530 1024.0 530 H216.0 Q200.0 530 200.0 514 V492" marker-start="url(#node-evl)" marker-end="url(#arrow-evl)"/>
+  <text class="link-label" x="620" y="562">feedback · accept or retain parent</text>
+</svg>

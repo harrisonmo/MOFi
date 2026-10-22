@@ -55,49 +55,10 @@ The existing Evolution/Research Loop harness provides execution, evidence, budge
 
 ### System design
 
-```mermaid
-flowchart LR
-    %% Subgraphs are declared right-to-left so the layout places them left-to-right.
-    %% Links stay between subgraphs so each keeps its internal TB direction.
-    subgraph EVAL["Independent evaluation"]
-        direction TB
-        V["<b>Evaluator</b><br/>frozen scores and labels"]
-        L["<b>Budget ledger</b><br/>tokens · science units"]
-        G{"<b>Fixed<br/>promotion gate</b>"}
-        V --> L --> G
-    end
-    subgraph RES["Research Loop · inner"]
-        direction TB
-        R["<b>Act, observe,<br/>decide</b>"]
-        S["<b>Scientific environment</b><br/>Crystal-Builder · UFF<br/>GCMC · frozen seeds"]
-        O["<b>Results and<br/>provenance</b>"]
-        R -->|"calculations"| S
-        S -->|"diagnostics"| R
-        S --> O
-    end
-    subgraph EVO["Evolution Loop · outer"]
-        direction TB
-        D["<b>Diagnose failures</b><br/>from trajectories"]
-        E["<b>Propose changes</b><br/>prompt · data · tool<br/>workflow · model"]
-        C[("<b>Versioned<br/>candidate</b>")]
-        D --> E --> C
-    end
-
-    EVO ===>|"deploy candidate"| RES
-    RES ===>|"evidence"| EVAL
-    EVAL -.->|"feedback · accept<br/>or retain parent"| EVO
-
-    classDef evo fill:#e8defc,stroke:#7c4dcc,stroke-width:2px,color:#2d1660
-    classDef res fill:#d6f0e6,stroke:#2e8b62,stroke-width:2px,color:#0f3d2a
-    classDef evl fill:#fde7cf,stroke:#d9822b,stroke-width:2px,color:#5a3000
-    class D,E,C evo
-    class R,S,O res
-    class V,L,G evl
-
-    style EVO fill:#f6f2fe,stroke:#b9a3e8,stroke-width:1px,color:#4b2a99
-    style RES fill:#f0faf5,stroke:#9fd4bb,stroke-width:1px,color:#1d6b49
-    style EVAL fill:#fff6ec,stroke:#f0c08a,stroke-width:1px,color:#8a4b00
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/images/system-design-dark.svg">
+  <img src="docs/images/system-design-light.svg" alt="System design: the Evolution Loop diagnoses failures, proposes changes and versions a candidate; the Research Loop runs it against the scientific environment and records results and provenance; independent evaluation scores the evidence, tracks the budget and applies a fixed promotion gate, then feeds back to accept the candidate or retain its parent">
+</picture>
 
 - **Evolution Loop:** diagnose failures; generate bounded changes; request unit tests and benchmarks; compare candidates; maintain versions and rollback. A fixed controller enforces budgets and promotion rules.
 - **Research Loop:** construct MOFs, inspect structures, select calculations, respond to failures and analyze evidence. The screening path uses Crystal-Builder with bounded UFF calculations. A separate optional [methane GCMC adapter](docs/GCMC_METHANE.md) uses RASPA3; G1/G2 prediction experiments and the bounded MLIP evidence remain separate tracks. Other scientific engines are not all integrated into the screening loop.
