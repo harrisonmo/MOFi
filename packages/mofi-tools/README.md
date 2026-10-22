@@ -1,8 +1,21 @@
 # MOFi tools
 
 `mofi-tools` provides a local Model Context Protocol server for MOFi's bounded
-scientific tools. This package is prepared for distribution and is **not yet
-published to PyPI**. The unrelated PyPI package named `mofi` is not this project.
+scientific tools. The unrelated PyPI package named `mofi` is not this project.
+
+<!-- mcp-name: io.github.harrisonmo/mofi -->
+
+## Install from PyPI
+
+```bash
+python -m pip install mofi-tools==0.1.0
+mofi-tools catalog
+mofi-mcp
+```
+
+With uv, run the stdio server using `uvx --from mofi-tools==0.1.0 mofi-tools serve`.
+The public MCP Registry identity is `io.github.harrisonmo/mofi`; its package
+metadata is maintained in the repository's `server.json`.
 
 ## Install from source
 
@@ -42,7 +55,7 @@ standard error. Native jobs keep the hub's existing interruption accounting; a
 client timeout does not prove that a calculation stopped or refund its budget.
 
 See [MCP setup and packaging](https://github.com/harrisonmo/MOFi/blob/main/docs/MCP_TOOLS.md)
-for Codex, Claude Code, Claude Desktop, building and future publication steps.
+for Codex, Claude Code, Claude Desktop, building and release steps.
 
 Original code uses Apache-2.0; see LICENSE and NOTICE. Scientific dependencies
 retain their own licenses. No credentials, model weights, engine binaries,

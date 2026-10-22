@@ -1,0 +1,24 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.harrisonmo/mofi",
+  "title": "MOFi",
+  "description": "Query MOF database survey metadata and connect a bounded MOFi scientific workspace.",
+  "repository": {
+    "url": "https://github.com/harrisonmo/MOFi",
+    "source": "github",
+    "subfolder": "packages/mofi-tools"
+  },
+  "websiteUrl": "https://github.com/harrisonmo/MOFi#readme",
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "mofi-tools",
+      "version": "0.1.0",
+      "runtimeHint": "uvx",
+      "packageArguments": [{"type": "positional", "value": "serve"}],
+      "transport": {"type": "stdio"}
+    }
+  ]
+}

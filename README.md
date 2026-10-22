@@ -182,24 +182,26 @@ available scientific tools with their existing budgets and evidence checks.
 Engines and Crystal-Builder remain separate installations. See the
 [MCP configuration guide](docs/MCP_TOOLS.md#register-with-codex) for Codex,
 [Claude setup](docs/MCP_TOOLS.md#register-with-claude) and tool availability.
-Local registration does not publish a server to the public MCP Registry.
+The public registry name is `io.github.harrisonmo/mofi`; see
+[registry metadata](server.json) and [release instructions](docs/MCP_TOOLS.md#public-releases).
 
 ### Python package
 
 The standalone [`mofi-tools`](packages/mofi-tools/README.md) distribution contains
-the pinned MOF database survey and MCP adapter. It is prepared for packaging and
-is **not yet published to PyPI**; the unrelated PyPI package named `mofi` is not
-this project. Install it into a Python environment from this repository:
+the pinned MOF database survey and MCP adapter. Its PyPI distribution name is
+[`mofi-tools`](https://pypi.org/project/mofi-tools/); the unrelated package named
+`mofi` is not this project. Install a published release with:
 
 ```bash
-python -m pip install ./packages/mofi-tools
+python -m pip install mofi-tools==0.1.0
 mofi-tools catalog
 mofi-tools query --arguments '{"name_contains":"QMOF"}'
 ```
 
 See [Python package details](packages/mofi-tools/README.md) and
 [building and verification](docs/MCP_TOOLS.md#build-and-verify-without-publishing)
-for wheel/source builds, isolated installation checks and later release steps.
+for wheel/source builds, isolated installation checks and release steps.
+For a source installation, use `python -m pip install ./packages/mofi-tools`.
 No PyPI upload is performed by setup or package installation.
 
 Start with [Architecture](docs/ARCHITECTURE.md), [Documentation index](docs/README.md), [Component and input boundaries](docs/COMPONENTS.md), and [Contributing](CONTRIBUTING.md).
@@ -207,6 +209,6 @@ Start with [Architecture](docs/ARCHITECTURE.md), [Documentation index](docs/READ
 Acknowledgement:
 Metal–organic frameworks (MOFs) using [Crystal-Builder](https://github.com/harrisonmo/Crystal-Builder)
 
-Original project code and documentation use **Apache License 2.0**; see [LICENSE](LICENSE). Crystal-Builder remains a separate MIT-licensed project. Dependencies and source materials retain their own terms; see [Third-party notices](THIRD_PARTY_NOTICES.md). GitHub visibility is initially private.
+Original project code and documentation use **Apache License 2.0**; see [LICENSE](LICENSE). Crystal-Builder remains a separate MIT-licensed project. Dependencies and source materials retain their own terms; see [Third-party notices](THIRD_PARTY_NOTICES.md).
 
 [Apache-2.0](LICENSE)

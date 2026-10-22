@@ -1,0 +1,86 @@
+name: Publish Python package and MCP server
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: Release operation
+        type: choice
+        options: [validate, pypi-and-mcp, mcp-only]
+        default: validate
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mofi-public-release
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: "3.12"
+      - run: python -m pip install build twine pytest
+      - run: python scripts/sync_mcp_catalog.py --check
+      - run: python scripts/check_release_metadata.py
+      - run: python -m pip install ./packages/mofi-tools
+      - run: python -m pytest -c packages/mofi-tools/pyproject.toml packages/mofi-tools/tests -q
+      - run: python -m build packages/mofi-tools --outdir dist
+      - run: python -m twine check dist/*
+      - name: Verify the installed wheel over stdio MCP
+        run: |
+          python -m venv /tmp/mofi-release-check
+          /tmp/mofi-release-check/bin/python -m pip install dist/*.whl
+          python scripts/verify_mcp_installation.py --python /tmp/mofi-release-check/bin/python
+      - uses: actions/upload-artifact@v7.0.2
+        with:
+          name: python-distributions
+          path: dist/*
+          if-no-files-found: error
+
+  pypi:
+    needs: build
+    if: inputs.target == 'pypi-and-mcp'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: pypi
+      url: https://pypi.org/project/mofi-tools/
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v8.0.2
+        with:
+          name: python-distributions
+          path: dist
+      - uses: pypa/gh-action-pypi-publish@v1.14.3
+        with:
+          skip-existing: true
+
+  mcp:
+    needs: [build, pypi]
+    if: >-
+      always() && needs.build.result == 'success' &&
+      ((inputs.target == 'pypi-and-mcp' && needs.pypi.result == 'success') ||
+      inputs.target == 'mcp-only')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Install the official MCP publisher
+        run: |
+          curl --fail --location --output publisher.tar.gz https://github.com/modelcontextprotocol/registry/releases/download/v1.8.1/mcp-publisher_linux_amd64.tar.gz
+          echo 'a06c9096dcb9727c13555b6be26c7effa707b01f06a4c561ba7a3635443cf2cc  publisher.tar.gz' | sha256sum --check
+          tar -xzf publisher.tar.gz mcp-publisher
+      - run: ./mcp-publisher validate
+      - run: ./mcp-publisher login github-oidc
+      - run: ./mcp-publisher publish

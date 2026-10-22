@@ -1,17 +1,19 @@
 # MCP tools and Python packaging
 
 MOFi supplies a stdio MCP server and a separate Python distribution project,
-`packages/mofi-tools/`. The proposed distribution name is **mofi-tools**, version
-**0.1.0**. It has not been published to PyPI or the public MCP Registry. The
+`packages/mofi-tools/`. The distribution name is **mofi-tools**, version
+**0.1.0**, and the public MCP identity is **io.github.harrisonmo/mofi**. The
 unrelated [mofi package on PyPI](https://pypi.org/project/mofi/) is not MOFi.
-The GitHub repository remains private. No publishing workflow runs automatically.
+Public release availability is shown on [PyPI](https://pypi.org/project/mofi-tools/)
+and the [MCP Registry API](https://registry.modelcontextprotocol.io/v0.1/servers/io.github.harrisonmo%2Fmofi/versions/latest).
+Publication is manually triggered; setup never uploads packages.
 
 ## Install and inspect
 
-Use Python 3.12 or newer, from a cloned MOFi repository:
+Use Python 3.12 or newer to install a published release:
 
 ```bash
-python -m pip install ./packages/mofi-tools
+python -m pip install mofi-tools==0.1.0
 mofi-tools --version
 mofi-tools catalog
 mofi-tools query --arguments '{"name_contains":"QMOF"}'
@@ -21,6 +23,13 @@ This installs only the portable catalog and MCP adapter dependencies. It does
 not change the root uv project or install any simulator, checkpoint or model
 backend. `mofi-mcp` and `python -m mofi_tools serve` start the same stdio server.
 The package is independent of the current working directory.
+
+For source installation, run `python -m pip install ./packages/mofi-tools` from
+the cloned repository. With uv, start the standalone MCP profile using:
+
+```bash
+uvx --from mofi-tools==0.1.0 mofi-tools serve
+```
 
 The standalone profile provides:
 
@@ -124,12 +133,37 @@ CSV, hash annotations, tool schema and Apache notices. They exclude the source
 workspace, credentials, environments, run records, trained models and scientific
 engine binaries. The asset synchronization check prevents the small packaged
 catalog snapshot from drifting from the workspace source. Install and exercise
-the built wheel outside the repository before a future publication.
+the built wheel outside the repository before publication.
 
-When public release is authorized, recheck name availability, choose the target
-PyPI account, configure a Trusted Publisher or supported upload credentials,
-and publish the already verified artifacts. A private GitHub repository does not
-make a PyPI package private. Public MCP Registry publication is a separate step
-and requires a published package plus verified namespace ownership. Neither
-publication is performed by local Codex/Claude registration. See the
-[Python packaging guide](https://packaging.python.org/en/latest/tutorials/packaging-projects/).
+## Public releases
+
+The manually dispatched [release workflow](../.github/workflows/release.yml)
+builds and tests the distribution, checks metadata and starts the installed wheel
+over MCP from outside the source tree. Only `main` can run a release.
+
+Before the first PyPI upload, the account owner must add a pending GitHub Trusted
+Publisher under PyPI account settings with these exact fields:
+
+| Field | Value |
+|---|---|
+| PyPI project | `mofi-tools` |
+| GitHub owner | `harrisonmo` |
+| Repository | `MOFi` |
+| Workflow filename | `release.yml` |
+| Environment | `pypi` |
+
+Choose `validate` to build without publishing, or `pypi-and-mcp` to upload the
+validated artifacts and then publish `server.json` to the official MCP Registry.
+The PyPI job uses Trusted Publishing and the MCP job uses GitHub OIDC; neither
+needs a stored upload token. `mcp-only` retries registry publication after a
+successful PyPI upload. Registry validation checks the ownership marker embedded
+in the package description. The publisher binary is pinned to version 1.8.1 and
+its SHA-256 is checked before execution.
+
+For later versions, update `pyproject.toml`, `mofi_tools.__version__`, `server.json`
+and the versioned installation examples together. Run
+`python scripts/check_release_metadata.py` before dispatch. Published package
+files cannot be replaced; use a new version for package changes. A rerun skips
+already uploaded PyPI artifacts, while MCP versions must be checked before
+retrying publication. See [PyPI Trusted Publishing](https://docs.pypi.org/trusted-publishers/)
+and [MCP publishing](https://modelcontextprotocol.io/registry/quickstart).
