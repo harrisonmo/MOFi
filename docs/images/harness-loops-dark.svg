@@ -46,13 +46,13 @@
   <text class="title" x="600" y="62">Harness loops</text>
 
   <!-- Outer (evolution) loop: evaluation feeds back into strategy improvement. -->
-  <path class="outer" d="M1000 236 C1000 120 200 120 200 222" marker-start="url(#node-blue)" marker-end="url(#arrow-blue)"/>
-  <text class="loop-label" x="600" y="128">Outer loop</text>
-  <text class="flow-label" x="600" y="196" text-anchor="middle">Feedback</text>
+  <path class="outer" d="M1000 234 V196 Q1000 152 956 152 H244 Q200 152 200 196 V231" marker-start="url(#node-blue)" marker-end="url(#arrow-blue)"/>
+  <text class="loop-label" x="600" y="134">Outer loop</text>
+  <text class="flow-label" x="600" y="186" text-anchor="middle">Feedback</text>
 
   <!-- Main pipeline. -->
-  <path class="outer" d="M370 286 H422" marker-end="url(#arrow-blue)"/>
-  <path class="outer" d="M770 286 H822" marker-end="url(#arrow-blue)"/>
+  <path class="outer" d="M371 286 H426" marker-start="url(#node-blue)" marker-end="url(#arrow-blue)"/>
+  <path class="outer" d="M771 286 H826" marker-start="url(#node-blue)" marker-end="url(#arrow-blue)"/>
   <rect class="box" x="35" y="240" width="330" height="92" rx="18"/>
   <rect class="box" x="435" y="240" width="330" height="92" rx="18"/>
   <rect class="box" x="835" y="240" width="330" height="92" rx="18"/>
@@ -61,10 +61,10 @@
   <text class="box-text" x="1000" y="286">Evaluate results</text>
 
   <!-- Inner (research) loop: actions go to tools, observations come back. -->
-  <path class="inner" d="M548 340 C516 380 516 410 546 438" marker-start="url(#node-teal)" marker-end="url(#arrow-teal)"/>
-  <path class="inner" d="M652 444 C684 410 684 380 654 346" marker-start="url(#node-teal)" marker-end="url(#arrow-teal)"/>
-  <text class="flow-label" x="508" y="398" text-anchor="end">Actions</text>
-  <text class="flow-label" x="692" y="398">Observations</text>
+  <path class="inner" d="M555 338 V443" marker-start="url(#node-teal)" marker-end="url(#arrow-teal)"/>
+  <path class="inner" d="M645 446 V341" marker-start="url(#node-teal)" marker-end="url(#arrow-teal)"/>
+  <text class="flow-label" x="538" y="399" text-anchor="end">Actions</text>
+  <text class="flow-label" x="662" y="399">Observations</text>
   <rect class="tools" x="455" y="452" width="290" height="88" rx="18"/>
   <text class="box-text" x="600" y="496">Use tools</text>
   <text class="loop-label" x="600" y="580">Inner loop</text>
