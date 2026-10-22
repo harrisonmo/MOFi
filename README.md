@@ -10,7 +10,13 @@
   </picture>
 </p>
 
-
+<p align="center">
+  <a href="docs/README.md"><strong>Documentation</strong></a>
+  &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+  <a href="LICENSE"><strong>Apache 2.0</strong></a>
+  &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+  <a href="#setup"><strong>Setup</strong></a>
+</p>
 
 **MOFi** is a research harness that connects AI agents, materials simulation tools, and feedback loops to study autonomous improvement.
 It investigates physics-grounded agentic improvement loops as a proof of concept for **AI recursive self-improvement (RSI)**. We start from building an AI harness with the longer-term aim of autonomous materials research capabilities through scientific feedback.
