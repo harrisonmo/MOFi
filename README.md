@@ -1,4 +1,7 @@
 <h1 align="center">MOFi: An AI Harness for Autonomous Materials Research</h1>
+<p align="center">
+  <strong>M</strong>aterials <strong>O</strong>ptimization through <strong>F</strong>eedback-driven <strong>i</strong>ntelligence
+</p>
 
 <p align="center">
   <picture>
@@ -7,8 +10,6 @@
   </picture>
 </p>
 
-<hr>
-
 <p align="center">
   <a href="docs/README.md"><img alt="Documentation" src="https://img.shields.io/badge/Documentation-1565C0?style=for-the-badge&amp;logo=readthedocs&amp;logoColor=white"></a>
   <a href="#setup"><img alt="Setup" src="https://img.shields.io/badge/Setup-17806B?style=for-the-badge&amp;logo=uv&amp;logoColor=white"></a>
@@ -16,9 +17,7 @@
   <a href="#python-package"><img alt="Python Package" src="https://img.shields.io/badge/Python_Package-A86400?style=for-the-badge&amp;logo=pypi&amp;logoColor=white"></a>
 </p>
 
-<p align="center">
-  <strong>M</strong>aterials <strong>O</strong>ptimization through <strong>F</strong>eedback-driven <strong>i</strong>ntelligence
-</p>
+
 
 **MOFi** is a research harness that connects AI agents, materials simulation tools, and feedback loops to study autonomous improvement.
 It investigates physics-grounded agentic improvement loops as a proof of concept for **AI recursive self-improvement (RSI)**. We start from building an AI harness with the longer-term aim of autonomous materials research capabilities through scientific feedback.
