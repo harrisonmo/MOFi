@@ -17,7 +17,13 @@
   <a href="#python-package"><img alt="Python Package" src="docs/images/badges/python-package.svg"></a>
 </p>
 
+### Quick setup
 
+```bash
+pip install mofi-tools
+```
+
+Requires Python 3.12 or newer. This installs the MOF database survey and MCP server; see [Python package](#python-package) for usage and [Setup](#setup) for the full research harness.
 
 **MOFi** is a research harness that connects AI agents, materials simulation tools, and feedback loops to study autonomous improvement.
 It investigates physics-grounded agentic improvement loops as a proof of concept for **AI recursive self-improvement (RSI)**. We start from building an AI harness with the longer-term aim of autonomous materials research capabilities through scientific feedback.
