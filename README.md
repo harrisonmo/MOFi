@@ -10,13 +10,10 @@
 <hr>
 
 <p align="center">
-  <a href="docs/README.md"><strong>Documentation</strong></a>
-  &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-  <a href="#setup"><strong>Setup</strong></a>
-  &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-  <a href="#mcp-tools"><strong>MCP Tools</strong></a>
-  &nbsp;&nbsp;&middot;&nbsp;&nbsp;
-  <a href="#python-package"><strong>Python Package</strong></a>
+  <a href="docs/README.md"><img alt="Documentation" src="https://img.shields.io/badge/Documentation-1565C0?style=for-the-badge&amp;logo=readthedocs&amp;logoColor=white"></a>
+  <a href="#setup"><img alt="Setup" src="https://img.shields.io/badge/Setup-17806B?style=for-the-badge&amp;logo=uv&amp;logoColor=white"></a>
+  <a href="#mcp-tools"><img alt="MCP Tools" src="https://img.shields.io/badge/MCP_Tools-2A3A8C?style=for-the-badge&amp;logo=modelcontextprotocol&amp;logoColor=white"></a>
+  <a href="#python-package"><img alt="Python Package" src="https://img.shields.io/badge/Python_Package-A86400?style=for-the-badge&amp;logo=pypi&amp;logoColor=white"></a>
 </p>
 
 <p align="center">
