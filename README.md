@@ -22,7 +22,10 @@ It investigates physics-grounded agentic improvement loops as a proof of concept
 
 **Team:** Qiankun Mo, Yi Cao, Xingfei Wei, and Junsung Lim.
 
-![Harness loops](docs/images/harness-loops.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/images/harness-loops-dark.svg">
+  <img src="docs/images/harness-loops-light.svg" alt="Harness loops: the outer loop improves strategies, runs scientific tasks and evaluates results with feedback; the inner loop exchanges actions and observations with tools">
+</picture>
 
 **MOFi**: An **Outer (Evolution) Loop** proposes versioned improvements to models, tools, and workflows. An **Inner (Research) Loop** applies them in a reproducible scientific environment. An **independent evaluator** assesses the evidence against fixed criteria and tracks computational costs. Both loops use LLMs through supported API or CLI interfaces.
 
