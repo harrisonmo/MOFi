@@ -4,8 +4,8 @@ MOFi supplies a stdio MCP server and a separate Python distribution project,
 `packages/mofi-tools/`. The distribution name is **mofi-tools**, version
 **0.1.0**, and the public MCP identity is **io.github.harrisonmo/mofi**. The
 unrelated [mofi package on PyPI](https://pypi.org/project/mofi/) is not MOFi.
-Public release availability is shown on [PyPI](https://pypi.org/project/mofi-tools/)
-and the [MCP Registry API](https://registry.modelcontextprotocol.io/v0.1/servers/io.github.harrisonmo%2Fmofi/versions/latest).
+Version **0.1.0** is published on [PyPI](https://pypi.org/project/mofi-tools/0.1.0/)
+and active in the [MCP Registry](https://registry.modelcontextprotocol.io/v0.1/servers/io.github.harrisonmo%2Fmofi/versions/latest).
 Publication is manually triggered; setup never uploads packages.
 
 ## Install and inspect

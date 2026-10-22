@@ -182,14 +182,16 @@ available scientific tools with their existing budgets and evidence checks.
 Engines and Crystal-Builder remain separate installations. See the
 [MCP configuration guide](docs/MCP_TOOLS.md#register-with-codex) for Codex,
 [Claude setup](docs/MCP_TOOLS.md#register-with-claude) and tool availability.
-The public registry name is `io.github.harrisonmo/mofi`; see
-[registry metadata](server.json) and [release instructions](docs/MCP_TOOLS.md#public-releases).
+The published [MCP Registry entry](https://registry.modelcontextprotocol.io/v0.1/servers/io.github.harrisonmo%2Fmofi/versions/latest)
+is `io.github.harrisonmo/mofi` (version **0.1.0**). See [registry metadata](server.json)
+and [release instructions](docs/MCP_TOOLS.md#public-releases).
 
 ### Python package
 
 The standalone [`mofi-tools`](packages/mofi-tools/README.md) distribution contains
 the pinned MOF database survey and MCP adapter. Its PyPI distribution name is
-[`mofi-tools`](https://pypi.org/project/mofi-tools/); the unrelated package named
+[`mofi-tools`](https://pypi.org/project/mofi-tools/), with version **0.1.0** available;
+the unrelated package named
 `mofi` is not this project. Install a published release with:
 
 ```bash
