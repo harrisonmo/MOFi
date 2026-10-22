@@ -1,0 +1,1067 @@
+{
+  "scope": "Public development screening; related pools reuse eight framework identities",
+  "pools": [
+    {
+      "id": "m7-dev-01",
+      "split": "development",
+      "seed": 7300,
+      "candidates": [
+        {
+          "framework_id": "mil-88b",
+          "canonical": "mil-88b-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mil-88b-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cr",
+              "H",
+              "O"
+            ],
+            "n_atoms": 120,
+            "incomplete_record": false
+          },
+          "id": "c01"
+        },
+        {
+          "framework_id": "mof5",
+          "canonical": "mof5-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof5-duplicate.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "H",
+              "O",
+              "Zn"
+            ],
+            "n_atoms": 425,
+            "incomplete_record": false
+          },
+          "id": "c02"
+        },
+        {
+          "framework_id": "mof-74",
+          "canonical": "mof-74-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof-74-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "H",
+              "O",
+              "Zn"
+            ],
+            "n_atoms": 54,
+            "incomplete_record": false
+          },
+          "id": "c03"
+        },
+        {
+          "framework_id": "sifsix-1-cu",
+          "canonical": "sifsix-1-cu-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "sifsix-1-cu-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cu",
+              "F",
+              "H",
+              "N",
+              "Si"
+            ],
+            "n_atoms": 48,
+            "incomplete_record": false
+          },
+          "id": "c04"
+        },
+        {
+          "framework_id": "mn-btt",
+          "canonical": "mn-btt-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mn-btt-compound.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cl",
+              "D",
+              "H",
+              "Mn",
+              "N",
+              "O"
+            ],
+            "n_atoms": 281,
+            "incomplete_record": false
+          },
+          "id": "c05"
+        },
+        {
+          "framework_id": "ni",
+          "canonical": "ni-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "ni-compound.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cl",
+              "D",
+              "H",
+              "N",
+              "Ni",
+              "O"
+            ],
+            "n_atoms": 103,
+            "incomplete_record": false
+          },
+          "id": "c06"
+        },
+        {
+          "framework_id": "sifsix-3-ni",
+          "canonical": "sifsix-3-ni-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "sifsix-3-ni-duplicate.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "F",
+              "H",
+              "N",
+              "Ni",
+              "Si"
+            ],
+            "n_atoms": 29,
+            "incomplete_record": false
+          },
+          "id": "c07"
+        },
+        {
+          "framework_id": "mof-808",
+          "canonical": "mof-808-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof-808-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "H",
+              "O",
+              "Zr"
+            ],
+            "n_atoms": 312,
+            "incomplete_record": false
+          },
+          "id": "c08"
+        }
+      ]
+    },
+    {
+      "id": "m7-dev-02",
+      "split": "development",
+      "seed": 7301,
+      "candidates": [
+        {
+          "framework_id": "mof5",
+          "canonical": "mof5-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof5-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "H",
+              "O",
+              "Zn"
+            ],
+            "n_atoms": 424,
+            "incomplete_record": false
+          },
+          "id": "c01"
+        },
+        {
+          "framework_id": "mof-808",
+          "canonical": "mof-808-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof-808-duplicate.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "H",
+              "O",
+              "Zr"
+            ],
+            "n_atoms": 313,
+            "incomplete_record": false
+          },
+          "id": "c02"
+        },
+        {
+          "framework_id": "sifsix-1-cu",
+          "canonical": "sifsix-1-cu-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "sifsix-1-cu-compound.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cu",
+              "D",
+              "F",
+              "H",
+              "N",
+              "Si"
+            ],
+            "n_atoms": 49,
+            "incomplete_record": false
+          },
+          "id": "c03"
+        },
+        {
+          "framework_id": "mn-btt",
+          "canonical": "mn-btt-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mn-btt-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cl",
+              "H",
+              "Mn",
+              "N",
+              "O"
+            ],
+            "n_atoms": 280,
+            "incomplete_record": false
+          },
+          "id": "c04"
+        },
+        {
+          "framework_id": "sifsix-3-ni",
+          "canonical": "sifsix-3-ni-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "sifsix-3-ni-compound.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "D",
+              "F",
+              "H",
+              "N",
+              "Ni",
+              "Si"
+            ],
+            "n_atoms": 29,
+            "incomplete_record": false
+          },
+          "id": "c05"
+        },
+        {
+          "framework_id": "ni",
+          "canonical": "ni-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "ni-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cl",
+              "H",
+              "N",
+              "Ni",
+              "O"
+            ],
+            "n_atoms": 102,
+            "incomplete_record": false
+          },
+          "id": "c06"
+        },
+        {
+          "framework_id": "mil-88b",
+          "canonical": "mil-88b-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mil-88b-duplicate.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cr",
+              "H",
+              "O"
+            ],
+            "n_atoms": 121,
+            "incomplete_record": false
+          },
+          "id": "c07"
+        },
+        {
+          "framework_id": "mof-74",
+          "canonical": "mof-74-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof-74-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "H",
+              "O",
+              "Zn"
+            ],
+            "n_atoms": 54,
+            "incomplete_record": false
+          },
+          "id": "c08"
+        }
+      ]
+    },
+    {
+      "id": "m7-dev-03",
+      "split": "development",
+      "seed": 7302,
+      "candidates": [
+        {
+          "framework_id": "sifsix-1-cu",
+          "canonical": "sifsix-1-cu-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "sifsix-1-cu-duplicate.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cu",
+              "F",
+              "H",
+              "N",
+              "Si"
+            ],
+            "n_atoms": 49,
+            "incomplete_record": false
+          },
+          "id": "c01"
+        },
+        {
+          "framework_id": "sifsix-3-ni",
+          "canonical": "sifsix-3-ni-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "sifsix-3-ni-duplicate.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "F",
+              "H",
+              "N",
+              "Ni",
+              "Si"
+            ],
+            "n_atoms": 29,
+            "incomplete_record": false
+          },
+          "id": "c02"
+        },
+        {
+          "framework_id": "mof5",
+          "canonical": "mof5-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof5-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "H",
+              "O",
+              "Zn"
+            ],
+            "n_atoms": 424,
+            "incomplete_record": false
+          },
+          "id": "c03"
+        },
+        {
+          "framework_id": "mof-808",
+          "canonical": "mof-808-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof-808-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "H",
+              "O",
+              "Zr"
+            ],
+            "n_atoms": 312,
+            "incomplete_record": false
+          },
+          "id": "c04"
+        },
+        {
+          "framework_id": "mil-88b",
+          "canonical": "mil-88b-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mil-88b-compound.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cr",
+              "D",
+              "H",
+              "O"
+            ],
+            "n_atoms": 121,
+            "incomplete_record": false
+          },
+          "id": "c05"
+        },
+        {
+          "framework_id": "ni",
+          "canonical": "ni-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "ni-compound.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cl",
+              "D",
+              "H",
+              "N",
+              "Ni",
+              "O"
+            ],
+            "n_atoms": 103,
+            "incomplete_record": false
+          },
+          "id": "c06"
+        },
+        {
+          "framework_id": "mn-btt",
+          "canonical": "mn-btt-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mn-btt-compound.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cl",
+              "D",
+              "H",
+              "Mn",
+              "N",
+              "O"
+            ],
+            "n_atoms": 281,
+            "incomplete_record": false
+          },
+          "id": "c07"
+        },
+        {
+          "framework_id": "mof-74",
+          "canonical": "mof-74-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof-74-duplicate.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "H",
+              "O",
+              "Zn"
+            ],
+            "n_atoms": 55,
+            "incomplete_record": false
+          },
+          "id": "c08"
+        }
+      ]
+    },
+    {
+      "id": "m7-dev-04",
+      "split": "development",
+      "seed": 7303,
+      "candidates": [
+        {
+          "framework_id": "sifsix-3-ni",
+          "canonical": "sifsix-3-ni-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "sifsix-3-ni-compound.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "D",
+              "F",
+              "H",
+              "N",
+              "Ni",
+              "Si"
+            ],
+            "n_atoms": 29,
+            "incomplete_record": false
+          },
+          "id": "c01"
+        },
+        {
+          "framework_id": "mof-808",
+          "canonical": "mof-808-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof-808-duplicate.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "H",
+              "O",
+              "Zr"
+            ],
+            "n_atoms": 313,
+            "incomplete_record": false
+          },
+          "id": "c02"
+        },
+        {
+          "framework_id": "ni",
+          "canonical": "ni-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "ni-compound.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cl",
+              "D",
+              "H",
+              "N",
+              "Ni",
+              "O"
+            ],
+            "n_atoms": 103,
+            "incomplete_record": false
+          },
+          "id": "c03"
+        },
+        {
+          "framework_id": "sifsix-1-cu",
+          "canonical": "sifsix-1-cu-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "sifsix-1-cu-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cu",
+              "F",
+              "H",
+              "N",
+              "Si"
+            ],
+            "n_atoms": 48,
+            "incomplete_record": false
+          },
+          "id": "c04"
+        },
+        {
+          "framework_id": "mn-btt",
+          "canonical": "mn-btt-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mn-btt-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cl",
+              "H",
+              "Mn",
+              "N",
+              "O"
+            ],
+            "n_atoms": 280,
+            "incomplete_record": false
+          },
+          "id": "c05"
+        },
+        {
+          "framework_id": "mil-88b",
+          "canonical": "mil-88b-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mil-88b-duplicate.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cr",
+              "H",
+              "O"
+            ],
+            "n_atoms": 121,
+            "incomplete_record": false
+          },
+          "id": "c06"
+        },
+        {
+          "framework_id": "mof-74",
+          "canonical": "mof-74-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof-74-duplicate.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "H",
+              "O",
+              "Zn"
+            ],
+            "n_atoms": 55,
+            "incomplete_record": false
+          },
+          "id": "c07"
+        },
+        {
+          "framework_id": "mof5",
+          "canonical": "mof5-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof5-compound.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "D",
+              "H",
+              "O",
+              "Zn"
+            ],
+            "n_atoms": 425,
+            "incomplete_record": false
+          },
+          "id": "c08"
+        }
+      ]
+    },
+    {
+      "id": "m7-dev-05",
+      "split": "development",
+      "seed": 7304,
+      "candidates": [
+        {
+          "framework_id": "mof-74",
+          "canonical": "mof-74-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof-74-incomplete.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "H",
+              "O",
+              "Zn"
+            ],
+            "n_atoms": 53,
+            "incomplete_record": true
+          },
+          "id": "c01"
+        },
+        {
+          "framework_id": "sifsix-3-ni",
+          "canonical": "sifsix-3-ni-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "sifsix-3-ni-duplicate.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "F",
+              "H",
+              "N",
+              "Ni",
+              "Si"
+            ],
+            "n_atoms": 29,
+            "incomplete_record": false
+          },
+          "id": "c02"
+        },
+        {
+          "framework_id": "ni",
+          "canonical": "ni-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "ni-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cl",
+              "H",
+              "N",
+              "Ni",
+              "O"
+            ],
+            "n_atoms": 102,
+            "incomplete_record": false
+          },
+          "id": "c03"
+        },
+        {
+          "framework_id": "mn-btt",
+          "canonical": "mn-btt-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mn-btt-compound.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cl",
+              "D",
+              "H",
+              "Mn",
+              "N",
+              "O"
+            ],
+            "n_atoms": 281,
+            "incomplete_record": false
+          },
+          "id": "c04"
+        },
+        {
+          "framework_id": "mil-88b",
+          "canonical": "mil-88b-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mil-88b-incomplete.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cr",
+              "H",
+              "O"
+            ],
+            "n_atoms": 119,
+            "incomplete_record": true
+          },
+          "id": "c05"
+        },
+        {
+          "framework_id": "mof5",
+          "canonical": "mof5-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof5-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "H",
+              "O",
+              "Zn"
+            ],
+            "n_atoms": 424,
+            "incomplete_record": false
+          },
+          "id": "c06"
+        },
+        {
+          "framework_id": "sifsix-1-cu",
+          "canonical": "sifsix-1-cu-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "sifsix-1-cu-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cu",
+              "F",
+              "H",
+              "N",
+              "Si"
+            ],
+            "n_atoms": 48,
+            "incomplete_record": false
+          },
+          "id": "c07"
+        },
+        {
+          "framework_id": "mof-808",
+          "canonical": "mof-808-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof-808-duplicate.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "H",
+              "O",
+              "Zr"
+            ],
+            "n_atoms": 313,
+            "incomplete_record": false
+          },
+          "id": "c08"
+        }
+      ]
+    },
+    {
+      "id": "m7-dev-06",
+      "split": "development",
+      "seed": 7305,
+      "candidates": [
+        {
+          "framework_id": "mil-88b",
+          "canonical": "mil-88b-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mil-88b-compound.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cr",
+              "D",
+              "H",
+              "O"
+            ],
+            "n_atoms": 121,
+            "incomplete_record": false
+          },
+          "id": "c01"
+        },
+        {
+          "framework_id": "mn-btt",
+          "canonical": "mn-btt-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mn-btt-duplicate.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cl",
+              "H",
+              "Mn",
+              "N",
+              "O"
+            ],
+            "n_atoms": 281,
+            "incomplete_record": false
+          },
+          "id": "c02"
+        },
+        {
+          "framework_id": "mof-808",
+          "canonical": "mof-808-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof-808-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "H",
+              "O",
+              "Zr"
+            ],
+            "n_atoms": 312,
+            "incomplete_record": false
+          },
+          "id": "c03"
+        },
+        {
+          "framework_id": "mof5",
+          "canonical": "mof5-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof5-duplicate.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "H",
+              "O",
+              "Zn"
+            ],
+            "n_atoms": 425,
+            "incomplete_record": false
+          },
+          "id": "c04"
+        },
+        {
+          "framework_id": "ni",
+          "canonical": "ni-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "ni-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cl",
+              "H",
+              "N",
+              "Ni",
+              "O"
+            ],
+            "n_atoms": 102,
+            "incomplete_record": false
+          },
+          "id": "c05"
+        },
+        {
+          "framework_id": "sifsix-1-cu",
+          "canonical": "sifsix-1-cu-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "sifsix-1-cu-incomplete.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "Cu",
+              "F",
+              "H",
+              "N",
+              "Si"
+            ],
+            "n_atoms": 47,
+            "incomplete_record": true
+          },
+          "id": "c06"
+        },
+        {
+          "framework_id": "sifsix-3-ni",
+          "canonical": "sifsix-3-ni-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "sifsix-3-ni-incomplete.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "F",
+              "H",
+              "N",
+              "Ni",
+              "Si"
+            ],
+            "n_atoms": 27,
+            "incomplete_record": true
+          },
+          "id": "c07"
+        },
+        {
+          "framework_id": "mof-74",
+          "canonical": "mof-74-base.xtalproj",
+          "initialization": {
+            "kind": "open",
+            "root": "m7_fixture",
+            "path": "mof-74-base.xtalproj"
+          },
+          "catalog": {
+            "elements": [
+              "C",
+              "H",
+              "O",
+              "Zn"
+            ],
+            "n_atoms": 54,
+            "incomplete_record": false
+          },
+          "id": "c08"
+        }
+      ]
+    }
+  ]
+}

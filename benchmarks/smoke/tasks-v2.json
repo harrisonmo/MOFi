@@ -1,0 +1,276 @@
+{
+  "schema_version": 2,
+  "split_note": "Predeclared operational validation; distinct structures but both builds share pcu topology, so this is not a generalization holdout.",
+  "tasks": [
+    {
+      "id": "normal-mof5",
+      "split": "development",
+      "source_family": "MOF-5",
+      "instruction": "Inspect MOF-5 and save it without changing the atoms.",
+      "initialization": {
+        "kind": "open",
+        "path": "resources/samples/MOF-5.cif"
+      },
+      "reference_actions": [
+        {
+          "verb": "inspect"
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "expect": {
+        "status": "completed",
+        "atoms_unchanged": true,
+        "absent_codes": [
+          "COINCIDENT_ATOMS",
+          "MISSING_HYDROGENS"
+        ],
+        "formula": "C24H12O13Zn4",
+        "n_atoms": 424
+      },
+      "reference_report": {
+        "status": "completed",
+        "diagnostic_codes": [],
+        "summary": "Reference replay reports the independently checked scientific outcome."
+      }
+    },
+    {
+      "id": "copies-and-hydrogens",
+      "split": "development",
+      "source_family": "Ni2Cl2BTDD",
+      "instruction": "Inspect the deposited Ni2Cl2BTDD and prepare an ordered, pore-solvent-free primitive-cell model for a force-field calculation. Explicitly apply duplicate merging, deuterium-to-hydrogen conversion, primitive-cell reduction, disorder ordering, pore-solvent removal, and missing-hydrogen addition using Crystal-Builder's preparation steps. These changes are authorized; do not add terminal ligands. Save the prepared structure and report the initial problems and changes.",
+      "initialization": {
+        "kind": "open",
+        "path": "resources/samples/Ni2Cl2BTDD.cif"
+      },
+      "reference_actions": [
+        {
+          "verb": "inspect"
+        },
+        {
+          "verb": "prepare",
+          "steps": [
+            "duplicates",
+            "deuterium",
+            "primitive",
+            "disorder",
+            "solvent",
+            "hydrogens"
+          ]
+        },
+        {
+          "verb": "inspect"
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "expect": {
+        "status": "completed",
+        "n_atoms": 102,
+        "absent_codes": [
+          "COINCIDENT_ATOMS",
+          "MISSING_HYDROGENS"
+        ],
+        "report_codes": [
+          "COINCIDENT_ATOMS"
+        ],
+        "required_actions": [
+          "prepare"
+        ],
+        "formula": "C6H4ClN3NiO2"
+      },
+      "reference_report": {
+        "status": "completed",
+        "diagnostic_codes": [
+          "COINCIDENT_ATOMS"
+        ],
+        "summary": "Reference replay reports the independently checked scientific outcome."
+      }
+    },
+    {
+      "id": "build-overlap",
+      "split": "development",
+      "source_family": "pcu-N16-E198",
+      "instruction": "Inspect the requested one-cell pcu/N16/E198 build. Relax only if the build is valid; otherwise preserve it and report the blocking problem. Do not change the requested net or repeat.",
+      "initialization": {
+        "kind": "build",
+        "action": "mof.build",
+        "params": {
+          "topology": "pcu",
+          "nodes": "N16",
+          "edges": "E198"
+        }
+      },
+      "reference_actions": [
+        {
+          "verb": "inspect"
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "expect": {
+        "status": "blocked",
+        "n_atoms": 173,
+        "report_codes": [
+          "BUILD_OVERLAP"
+        ],
+        "forbidden_actions": [
+          "optimize"
+        ],
+        "formula": "C78H72O13S6Zn4",
+        "present_codes": [
+          "CLOSE_CONTACT"
+        ]
+      },
+      "reference_report": {
+        "status": "blocked",
+        "diagnostic_codes": [
+          "BUILD_OVERLAP"
+        ],
+        "summary": "Reference replay reports the independently checked scientific outcome."
+      }
+    },
+    {
+      "id": "short-relax",
+      "split": "validation",
+      "source_family": "MIL53",
+      "instruction": "Relax MIL53 with UFF for at most three steps, save it, and report whether this short calculation converged.",
+      "initialization": {
+        "kind": "open",
+        "path": "resources/samples/MIL53.cif"
+      },
+      "reference_actions": [
+        {
+          "verb": "inspect"
+        },
+        {
+          "verb": "optimize",
+          "max_steps": 3
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "expect": {
+        "status": "not_converged",
+        "n_atoms": 104,
+        "atoms_unchanged": true,
+        "report_codes": [
+          "NOT_CONVERGED"
+        ],
+        "required_actions": [
+          "optimize"
+        ],
+        "formula": "C24H12Ni3O13"
+      },
+      "reference_report": {
+        "status": "not_converged",
+        "diagnostic_codes": [
+          "NOT_CONVERGED"
+        ],
+        "summary": "Reference replay reports the independently checked scientific outcome."
+      }
+    },
+    {
+      "id": "open-trimers",
+      "split": "validation",
+      "source_family": "MIL88B",
+      "instruction": "Prepare deposited MIL-88B as an ordered, pore-solvent-free primitive-cell model using explicit duplicate merging, deuterium-to-hydrogen conversion, primitive-cell reduction, disorder ordering, pore-solvent removal, and missing-hydrogen addition. Complete these authorized preparation steps and save the result before requesting further input. Do not add missing terminal ligands or optimize. Report any remaining open trimers and charge-neutrality concerns that require a chemistry decision.",
+      "initialization": {
+        "kind": "open",
+        "path": "resources/samples/cod/MIL-88B.cif"
+      },
+      "reference_actions": [
+        {
+          "verb": "inspect"
+        },
+        {
+          "verb": "prepare",
+          "steps": [
+            "duplicates",
+            "deuterium",
+            "primitive",
+            "disorder",
+            "solvent",
+            "hydrogens"
+          ]
+        },
+        {
+          "verb": "inspect"
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "expect": {
+        "status": "needs_input",
+        "n_atoms": 110,
+        "present_codes": [
+          "OPEN_TRIMERS"
+        ],
+        "report_codes": [
+          "OPEN_TRIMERS",
+          "CELL_NOT_NEUTRAL"
+        ],
+        "required_actions": [
+          "prepare"
+        ],
+        "forbidden_actions": [
+          "optimize"
+        ],
+        "formula": "C24H12Cr3O16"
+      },
+      "reference_report": {
+        "status": "needs_input",
+        "diagnostic_codes": [
+          "OPEN_TRIMERS",
+          "CELL_NOT_NEUTRAL"
+        ],
+        "summary": "Reference replay reports the independently checked scientific outcome."
+      }
+    },
+    {
+      "id": "valid-build",
+      "split": "validation",
+      "source_family": "pcu-N59-E32",
+      "instruction": "Inspect the requested pcu/N59/E32 build and save the valid structure. No optimization is requested.",
+      "initialization": {
+        "kind": "build",
+        "action": "mof.build",
+        "params": {
+          "topology": "pcu",
+          "nodes": "N59",
+          "edges": "E32"
+        }
+      },
+      "reference_actions": [
+        {
+          "verb": "inspect"
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "expect": {
+        "status": "completed",
+        "absent_codes": [
+          "COINCIDENT_ATOMS",
+          "CLOSE_CONTACT"
+        ],
+        "forbidden_actions": [
+          "optimize"
+        ],
+        "formula": "C30H12CdO6",
+        "n_atoms": 98
+      },
+      "reference_report": {
+        "status": "completed",
+        "diagnostic_codes": [],
+        "summary": "Reference replay reports the independently checked scientific outcome."
+      }
+    }
+  ]
+}

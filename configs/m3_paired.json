@@ -1,0 +1,11 @@
+{
+  "model": "gpt-6-astra",
+  "reasoning": "high",
+  "cli_timeout_seconds": 180,
+  "science_timeout_seconds": 120,
+  "max_observed_tokens": 125000,
+  "max_actions_per_task": 4,
+  "baseline_prompt": "You are a materials research agent. Complete the assigned task using only the available scientific actions. Base your decisions and final report on observed scientific evidence. Preserve the intended chemistry and report limitations honestly.",
+  "tasks_path": "benchmarks/paired/tasks.json",
+  "science_seed": 0
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "csv": "mofdb.csv",
+  "csv_sha256": "2fe064e63a9c1ebe48ad588deac898dc54dfbe8ee1cf8e9c62ca738ac2a08cf9",
+  "provenance": "Survey table of public and commercial MOF databases supplied by the user on 2026-10-22 (file mofdb.csv). Stored byte-for-byte; no row was edited.",
+  "verification": "Unverified secondary metadata. Link status below was assigned by format inspection only; no DOI, URL, record count, date, license or Y/N flag was resolved or checked against the source publication.",
+  "link_status_values": {
+    "doi": "Complete DOI by format; not resolved online",
+    "doi_incomplete": "Journal prefix only; the article suffix is missing",
+    "doi_placeholder": "DOI with a placeholder suffix (xxxxx)",
+    "arxiv_placeholder": "arXiv identifier with a placeholder number (xxxxx)",
+    "website": "Bare website domain, not a citable record",
+    "label_only": "Free-text label; no locator"
+  },
+  "link_status": {
+    "CoRE MOF 2025": "doi",
+    "FAIR-MOFs": "doi",
+    "ARC-MOF": "doi",
+    "QMOF": "doi",
+    "CSD MOF (v2026)": "label_only",
+    "hMOF": "doi",
+    "ToBaCCo 3.0": "doi",
+    "MOFh6": "doi_placeholder",
+    "MOSAEC-DB": "doi",
+    "L2M3 Dataset": "arxiv_placeholder",
+    "USMOF DB": "label_only",
+    "BW-DB": "label_only",
+    "CURATED MOF": "doi",
+    "MatSyn25": "label_only",
+    "DigiMOF": "doi",
+    "Mechanical Prop DB": "doi_incomplete",
+    "MOF-Thermal DB": "doi_incomplete",
+    "WSD-MOF": "doi_incomplete",
+    "NIST ISODB": "website",
+    "MOFCat": "doi_incomplete",
+    "H2-MOF (HyMARC)": "website",
+    "MOF-Linker DB": "doi_incomplete",
+    "c-MOF DB": "doi_incomplete",
+    "Bio-MOF DB": "doi_incomplete",
+    "MAI-DB": "doi_incomplete",
+    "A-MOFs": "label_only"
+  }
+}

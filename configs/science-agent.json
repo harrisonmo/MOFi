@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "backend": "codex_cli",
+  "model": "gpt-6-astra",
+  "reasoning": "high",
+  "cli_timeout_seconds": 300,
+  "max_steps": 6,
+  "max_total_tokens": 400000,
+  "max_observation_chars": 6000
+}

@@ -1,0 +1,36 @@
+.python/
+.uv-cache/
+installation-checks/
+Crystal-Builder/
+runs/
+artifacts/
+datasets/raw/
+*.env
+.env*
+!.env.example
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.py[cod]
+.venv-gnn/
+.venv-jarzynski/
+.venv-gcmc/
+datasets/processed/
+
+
+# Local credentials, environments, and editor state
+.venv/
+venv/
+.codex/
+.aws/
+auth.json
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+
+# Local Valency OAuth credentials
+.valency/
+
+# Optional ARIA runtime
+.venv-aria/

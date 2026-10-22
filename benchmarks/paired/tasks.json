@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "report_protocol_version": 3,
+  "scope": "Frozen public four-task matched-ceiling pilot; no held-out generalization.",
+  "tasks": [
+    {
+      "id": "conditional-clean",
+      "split": "development",
+      "source_family": "MOF-5",
+      "instruction": "Inspect the current structure. If COINCIDENT_ATOMS is present, prepare an ordered, pore-solvent-free primitive cell using duplicates, deuterium, primitive, disorder, solvent, and hydrogens. Otherwise preserve the structure without preparation. Inspect the result, save it, and stop. Do not optimize or add terminal ligands.",
+      "initialization": {
+        "kind": "open",
+        "path": "resources/samples/MOF-5.cif"
+      },
+      "reference_actions": [
+        {
+          "verb": "stop"
+        }
+      ],
+      "expect": {
+        "atoms_unchanged": true,
+        "absent_codes": [
+          "COINCIDENT_ATOMS",
+          "MISSING_HYDROGENS"
+        ],
+        "formula": "C24H12O13Zn4",
+        "n_atoms": 424,
+        "task_completed": true,
+        "scientific_status": "not_assessed",
+        "forbidden_actions": [
+          "optimize",
+          "prepare"
+        ]
+      },
+      "reference_report": {
+        "diagnostic_codes": [],
+        "summary": "Reference replay reports the independently checked scientific outcome.",
+        "task_completed": true,
+        "scientific_status": "not_assessed"
+      }
+    },
+    {
+      "id": "conditional-repair",
+      "split": "development",
+      "source_family": "Ni2Cl2BTDD",
+      "instruction": "Inspect the current structure. If COINCIDENT_ATOMS is present, prepare an ordered, pore-solvent-free primitive cell using duplicates, deuterium, primitive, disorder, solvent, and hydrogens. Otherwise preserve the structure without preparation. Inspect the result, save it, and stop. Do not optimize or add terminal ligands.",
+      "initialization": {
+        "kind": "open",
+        "path": "resources/samples/Ni2Cl2BTDD.cif"
+      },
+      "reference_actions": [
+        {
+          "verb": "prepare",
+          "steps": [
+            "duplicates",
+            "deuterium",
+            "primitive",
+            "disorder",
+            "solvent",
+            "hydrogens"
+          ]
+        },
+        {
+          "verb": "inspect"
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "expect": {
+        "n_atoms": 102,
+        "absent_codes": [
+          "COINCIDENT_ATOMS",
+          "MISSING_HYDROGENS"
+        ],
+        "report_codes": [
+          "COINCIDENT_ATOMS"
+        ],
+        "required_actions": [
+          "prepare"
+        ],
+        "formula": "C6H4ClN3NiO2",
+        "task_completed": true,
+        "scientific_status": "not_assessed",
+        "forbidden_actions": [
+          "optimize"
+        ]
+      },
+      "reference_report": {
+        "diagnostic_codes": [
+          "COINCIDENT_ATOMS"
+        ],
+        "summary": "Reference replay reports the independently checked scientific outcome.",
+        "task_completed": true,
+        "scientific_status": "not_assessed"
+      }
+    },
+    {
+      "id": "real-duplicate-recovery",
+      "split": "development",
+      "source_family": "Ni2Cl2BTDD",
+      "instruction": "Attempt a one-step UFF relaxation on the deposited structure first to obtain the actual engine response. If it refuses because of coincident atoms, repair the structure with the authorized duplicates, deuterium, primitive, disorder, solvent, and hydrogens preparation steps, then retry one step and save. Do not add terminal ligands. Completion requires both preparation when needed and a successful calculation, even if unconverged. Report the refusal and final convergence honestly.",
+      "initialization": {
+        "kind": "open",
+        "path": "resources/samples/Ni2Cl2BTDD.cif"
+      },
+      "reference_actions": [
+        {
+          "verb": "optimize",
+          "max_steps": 1
+        },
+        {
+          "verb": "prepare",
+          "steps": [
+            "duplicates",
+            "deuterium",
+            "primitive",
+            "disorder",
+            "solvent",
+            "hydrogens"
+          ]
+        },
+        {
+          "verb": "optimize",
+          "max_steps": 1
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "expect": {
+        "n_atoms": 102,
+        "absent_codes": [
+          "COINCIDENT_ATOMS",
+          "MISSING_HYDROGENS"
+        ],
+        "report_codes": [
+          "CALCULATION_REFUSED",
+          "NOT_CONVERGED"
+        ],
+        "required_actions": [
+          "prepare",
+          "optimize"
+        ],
+        "formula": "C6H4ClN3NiO2",
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "forbidden_actions": [],
+        "recovery_contract": "duplicate_repair",
+        "optimization_steps_per_attempt": 1,
+        "max_optimization_attempts": 2
+      },
+      "reference_report": {
+        "diagnostic_codes": [
+          "CALCULATION_REFUSED",
+          "NOT_CONVERGED"
+        ],
+        "summary": "The engine refused overlapping atoms; preparation repaired the input and a one-step retry ran without convergence.",
+        "task_completed": true,
+        "scientific_status": "not_converged"
+      },
+      "action_budget": 4
+    },
+    {
+      "id": "budget-blocked-recovery",
+      "split": "validation",
+      "source_family": "Ni2Cl2BTDD",
+      "instruction": "Attempt a one-step UFF relaxation on the deposited structure first to obtain the actual engine response. If it refuses because of coincident atoms, repair the structure with the authorized duplicates, deuterium, primitive, disorder, solvent, and hydrogens preparation steps, then retry one step and save. Do not add terminal ligands. Completion requires both preparation when needed and a successful calculation, even if unconverged. Report the refusal and final convergence honestly. This episode has only one action available. If the budget prevents repair and retry, report task_completed=false and preserve the structure; do not claim that the requested relaxation succeeded.",
+      "initialization": {
+        "kind": "open",
+        "path": "resources/samples/Ni2Cl2BTDD.cif"
+      },
+      "reference_actions": [
+        {
+          "verb": "optimize",
+          "max_steps": 1
+        }
+      ],
+      "expect": {
+        "task_completed": false,
+        "scientific_status": "blocked",
+        "recovery_contract": "budget_blocked_duplicate",
+        "termination": "action_budget",
+        "atoms_unchanged": true,
+        "present_codes": [
+          "COINCIDENT_ATOMS"
+        ],
+        "report_codes": [
+          "CALCULATION_REFUSED"
+        ],
+        "required_actions": [
+          "optimize"
+        ],
+        "forbidden_actions": [
+          "prepare"
+        ],
+        "optimization_steps_per_attempt": 1,
+        "max_optimization_attempts": 1
+      },
+      "reference_report": {
+        "task_completed": false,
+        "scientific_status": "blocked",
+        "diagnostic_codes": [
+          "CALCULATION_REFUSED"
+        ],
+        "summary": "The real engine refused coincident atoms. No action budget remains for repair or retry; the requested work is incomplete."
+      },
+      "action_budget": 1
+    }
+  ]
+}

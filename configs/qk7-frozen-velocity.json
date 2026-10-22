@@ -1,0 +1,24 @@
+{
+  "experiment": "QK7-frozen-velocity",
+  "seeds": [
+    17,
+    29,
+    43
+  ],
+  "arms": [
+    "parent",
+    "joint",
+    "score_only"
+  ],
+  "continuation_updates": 600,
+  "batch_size": 64,
+  "learning_rate": 0.001,
+  "paths": 128,
+  "steps": 32,
+  "streams": [
+    101000,
+    211000
+  ],
+  "seconds_limit": 900,
+  "gate": "At least5% lower MAE than parent on both splits, no seed/split regression above10%, no increase in low ESS. Also report comparison with matched600-update joint continuation; no equal-cost superiority claim without timing."
+}

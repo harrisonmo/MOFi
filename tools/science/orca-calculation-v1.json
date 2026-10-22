@@ -1,0 +1,28 @@
+{
+  "id": "orca_calculation",
+  "version": 1,
+  "contract": "orca-calculation-v1",
+  "handler": "rsi.science.hub",
+  "description": "Molecular DFT with ORCA 6 on one nonperiodic library structure (a molecule or a cluster cut from a framework; ORCA has no periodic boundary conditions). You choose the structure, task (energy, gradient, or geometry optimization), functional, basis set, dispersion correction, RI approximation, SCF convergence, optimization level and cycle limit, whether to compute harmonic frequencies, charge, spin multiplicity and the compute request. Returns the final energy (Eh and eV), SCF and optimization convergence, maximum force, HOMO-LUMO gap, and with frequencies the imaginary-mode count, lowest mode, zero-point energy, enthalpy and Gibbs free energy, all re-read by the controller from ORCA's own output; full forces, frequencies and geometry stay in the evidence. 3c composite methods (R2SCAN-3C, B97-3C, PBEH-3C) bring their own basis and dispersion: pass basis and dispersion null. Cost grows steeply with atoms and basis size, and frequencies cost several gradients; screen with a 3c method before a large basis. Energies from different functionals or basis sets are not comparable, and a molecular result does not by itself describe the periodic framework.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "structure_id": {"type": "string", "description": "Nonperiodic structure from the library."},
+      "task": {"type": "string", "enum": ["energy", "gradient", "optimize"], "description": "energy for a single point, gradient to add forces, optimize for a geometry optimization."},
+      "functional": {"type": "string", "description": "ORCA functional keyword."},
+      "basis": {"type": ["string", "null"], "description": "Orbital basis set; null only for a 3c composite method."},
+      "dispersion": {"type": ["string", "null"], "enum": ["D3BJ", "D3ZERO", "D4", null], "description": "Dispersion correction; null for none or for a functional that already includes one."},
+      "ri": {"type": ["string", "null"], "enum": ["RIJCOSX", "RI", "RIJK", "NORI", null], "description": "Resolution-of-identity approximation; null keeps ORCA's default (RI-J for pure, RIJCOSX for hybrid functionals)."},
+      "scf_convergence": {"type": ["string", "null"], "enum": ["NormalSCF", "StrongSCF", "TightSCF", "VeryTightSCF", null], "description": "SCF convergence threshold; null keeps ORCA's default, which tightens itself for optimizations and frequencies."},
+      "opt_level": {"type": ["string", "null"], "enum": ["LooseOpt", "Opt", "TightOpt", "VeryTightOpt", null], "description": "Optimization convergence level for task optimize; null otherwise."},
+      "max_opt_cycles": {"type": ["integer", "null"], "description": "Optimization cycle limit for task optimize; null otherwise."},
+      "frequencies": {"type": "boolean", "description": "Harmonic frequencies and thermochemistry (298.15 K, 1 atm) at the final geometry; only meaningful at a stationary point."},
+      "charge": {"type": "integer", "description": "Total charge in elementary charges."},
+      "spin_multiplicity": {"type": "integer", "description": "2S+1; it must match the electron count parity."},
+      "cpus": {"type": "integer", "description": "MPI processes for the job; memory per process is fixed by the controller."},
+      "wall_seconds": {"type": "number", "description": "Wall-time limit; cpus x wall_seconds is reserved from the compute budget. A timed-out run is reported as an error."}
+    },
+    "required": ["structure_id", "task", "functional", "basis", "dispersion", "ri", "scf_convergence", "opt_level", "max_opt_cycles", "frequencies", "charge", "spin_multiplicity", "cpus", "wall_seconds"],
+    "additionalProperties": false
+  }
+}

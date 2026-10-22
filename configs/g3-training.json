@@ -1,0 +1,30 @@
+{
+  "schema": "g3-training-v1",
+  "dataset_manifest_sha256": "514e0c5383cf91f7973f0ea975dae1ddbe08c261edea9cca22b2991c98b8a48e",
+  "model": "SmoothPeriodicMPNN",
+  "cutoff": 8.0,
+  "width": 64,
+  "layers": 3,
+  "radial": 32,
+  "seeds": [
+    17,
+    29,
+    43
+  ],
+  "calibration_structures": 128,
+  "calibration_epochs": 3,
+  "calibration_seconds": 900,
+  "formal_seconds": 3600,
+  "trial_seconds": 900,
+  "audit_seconds": 300,
+  "admission_overhead_factor": 1.25,
+  "admission_warmup_epochs_excluded": 1,
+  "max_peak_allocated_gib": 20,
+  "max_epochs": 50,
+  "patience": 10,
+  "batch_size": 16,
+  "lr": 0.001,
+  "weight_decay": 1e-05,
+  "heldout_evaluation": false,
+  "hyperparameter_search_trials": 0
+}

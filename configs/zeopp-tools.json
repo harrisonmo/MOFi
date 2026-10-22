@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "tasks": {
+    "hkust1-n2": "zeopp/hkust1-n2.json",
+    "zif8-n2": "zeopp/zif8-n2.json",
+    "uio66-n2": "zeopp/uio66-n2.json",
+    "mof5-n2": "zeopp/mof5-n2.json"
+  },
+  "session_budget": {"max_calls": 4, "max_reserved_wall_seconds": 3600}
+}

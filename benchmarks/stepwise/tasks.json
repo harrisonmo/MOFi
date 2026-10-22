@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "report_protocol_version": 3,
+  "scope": "Public engineering fixtures; injected failure is not a physical engine failure. No generalization claim.",
+  "tasks": [
+    {
+      "id": "conditional-clean",
+      "split": "development",
+      "source_family": "MOF-5",
+      "instruction": "Inspect the current structure. If COINCIDENT_ATOMS is present, prepare an ordered, pore-solvent-free primitive cell using duplicates, deuterium, primitive, disorder, solvent, and hydrogens. Otherwise preserve the structure without preparation. Inspect the result, save it, and stop. Do not optimize or add terminal ligands.",
+      "initialization": {
+        "kind": "open",
+        "path": "resources/samples/MOF-5.cif"
+      },
+      "reference_actions": [
+        {
+          "verb": "stop"
+        }
+      ],
+      "expect": {
+        "atoms_unchanged": true,
+        "absent_codes": [
+          "COINCIDENT_ATOMS",
+          "MISSING_HYDROGENS"
+        ],
+        "formula": "C24H12O13Zn4",
+        "n_atoms": 424,
+        "task_completed": true,
+        "scientific_status": "not_assessed",
+        "forbidden_actions": [
+          "optimize",
+          "prepare"
+        ]
+      },
+      "reference_report": {
+        "diagnostic_codes": [],
+        "summary": "Reference replay reports the independently checked scientific outcome.",
+        "task_completed": true,
+        "scientific_status": "not_assessed"
+      }
+    },
+    {
+      "id": "conditional-repair",
+      "split": "development",
+      "source_family": "Ni2Cl2BTDD",
+      "instruction": "Inspect the current structure. If COINCIDENT_ATOMS is present, prepare an ordered, pore-solvent-free primitive cell using duplicates, deuterium, primitive, disorder, solvent, and hydrogens. Otherwise preserve the structure without preparation. Inspect the result, save it, and stop. Do not optimize or add terminal ligands.",
+      "initialization": {
+        "kind": "open",
+        "path": "resources/samples/Ni2Cl2BTDD.cif"
+      },
+      "reference_actions": [
+        {
+          "verb": "prepare",
+          "steps": [
+            "duplicates",
+            "deuterium",
+            "primitive",
+            "disorder",
+            "solvent",
+            "hydrogens"
+          ]
+        },
+        {
+          "verb": "inspect"
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "expect": {
+        "n_atoms": 102,
+        "absent_codes": [
+          "COINCIDENT_ATOMS",
+          "MISSING_HYDROGENS"
+        ],
+        "report_codes": [
+          "COINCIDENT_ATOMS"
+        ],
+        "required_actions": [
+          "prepare"
+        ],
+        "formula": "C6H4ClN3NiO2",
+        "task_completed": true,
+        "scientific_status": "not_assessed",
+        "forbidden_actions": [
+          "optimize"
+        ]
+      },
+      "reference_report": {
+        "diagnostic_codes": [
+          "COINCIDENT_ATOMS"
+        ],
+        "summary": "Reference replay reports the independently checked scientific outcome.",
+        "task_completed": true,
+        "scientific_status": "not_assessed"
+      }
+    },
+    {
+      "id": "recover-transient-engine",
+      "split": "validation",
+      "source_family": "MIL53",
+      "instruction": "Run a one-step UFF relaxation and save the result. If the execution service explicitly reports a retryable failure without changing the structure, retry the same one-step calculation once. Stop after a successful calculation, even if unconverged; report both failures and convergence honestly. Do not prepare or alter chemistry.",
+      "initialization": {
+        "kind": "open",
+        "path": "resources/samples/MIL53.cif"
+      },
+      "reference_actions": [
+        {
+          "verb": "optimize",
+          "max_steps": 1
+        },
+        {
+          "verb": "optimize",
+          "max_steps": 1
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "expect": {
+        "n_atoms": 104,
+        "atoms_unchanged": true,
+        "report_codes": [
+          "NOT_CONVERGED",
+          "SIMULATED_ENGINE_UNAVAILABLE"
+        ],
+        "required_actions": [
+          "optimize"
+        ],
+        "formula": "C24H12Ni3O13",
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "forbidden_actions": [
+          "prepare"
+        ],
+        "optimization_steps_per_attempt": 1,
+        "max_optimization_attempts": 2
+      },
+      "reference_report": {
+        "diagnostic_codes": [
+          "NOT_CONVERGED",
+          "SIMULATED_ENGINE_UNAVAILABLE"
+        ],
+        "summary": "Reference replay reports the independently checked scientific outcome.",
+        "task_completed": true,
+        "scientific_status": "not_converged"
+      },
+      "fault_fixture": "first_optimize_unavailable"
+    }
+  ]
+}

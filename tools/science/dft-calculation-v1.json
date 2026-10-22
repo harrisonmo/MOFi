@@ -1,0 +1,28 @@
+{
+  "id": "dft_calculation",
+  "version": 1,
+  "contract": "dft-calculation-v1",
+  "handler": "rsi.science.hub",
+  "description": "Energy, forces or fixed-cell relaxation of one library structure with ASE and GPAW or CP2K. You choose the structure, backend, functional, cutoff, k-points, charge, spin, which elements stay fixed, the optimizer and the compute request. Returns the energy (eV), maximum free force (eV/Angstrom), SCF and force convergence recomputed by the controller from native logs, steps, evidence and cost. Cost grows roughly with the cube of the atom count; check atom counts in the catalog and start with single points. The emt backend is a fast non-DFT test surrogate (is_dft false). A converged calculation does not establish that the method is adequate for the scientific question.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "structure_id": {"type": "string", "description": "Structure from the library; it must fit the atom limit."},
+      "backend": {"type": "string", "description": "Engine to run."},
+      "task": {"type": "string", "enum": ["single_point", "optimize"], "description": "single_point for energy and forces; optimize for a fixed-cell relaxation."},
+      "xc": {"type": ["string", "null"], "description": "Exchange-correlation functional; null only for emt."},
+      "cutoff_ev": {"type": ["number", "null"], "description": "Plane-wave cutoff (GPAW) or density cutoff (CP2K) in eV; null only for emt."},
+      "kpts": {"type": ["array", "null"], "items": {"type": "integer"}, "description": "Three positive Monkhorst-Pack k-point counts for GPAW, or null for the Gamma point (required for CP2K and emt)."},
+      "charge": {"type": "integer", "description": "Total charge in elementary charges."},
+      "spin_multiplicity": {"type": "integer", "description": "2S+1; it must match the electron count parity."},
+      "fixed_elements": {"type": "array", "items": {"type": "string"}, "description": "Element symbols whose atoms stay fixed during optimization; may be empty."},
+      "optimizer": {"type": ["string", "null"], "enum": ["BFGS", "LBFGS", "FIRE", null], "description": "Optimizer for task optimize; null for single_point."},
+      "fmax_ev_per_angstrom": {"type": ["number", "null"], "description": "Force convergence threshold for optimize; null for single_point."},
+      "max_steps": {"type": ["integer", "null"], "description": "Optimizer step limit for optimize; null for single_point."},
+      "cpus": {"type": "integer", "description": "CPU cores for the job."},
+      "wall_seconds": {"type": "number", "description": "Wall-time limit; cpus x wall_seconds is reserved from the compute budget. A timed-out run is reported as an error with its last checkpoint as evidence."}
+    },
+    "required": ["structure_id", "backend", "task", "xc", "cutoff_ev", "kpts", "charge", "spin_multiplicity", "fixed_elements", "optimizer", "fmax_ev_per_angstrom", "max_steps", "cpus", "wall_seconds"],
+    "additionalProperties": false
+  }
+}

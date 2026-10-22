@@ -1,0 +1,26 @@
+[
+  {
+    "sha256": "92e5ae33fd3808070d2adf3d90e469363fc47780087284f1492fd6263f3ee2a7",
+    "name": "MOF-74",
+    "phase": "source_bytes_only_not_calibrated",
+    "path": "Crystal-Builder/resources/samples/prepared/MOF-74.cif"
+  },
+  {
+    "sha256": "c5b40a902277396ac5866e32a737883e03241d05a47968e7e5916b50a12f278d",
+    "name": "MOF-808",
+    "phase": "source_bytes_only_not_calibrated",
+    "path": "Crystal-Builder/resources/samples/prepared/MOF-808.cif"
+  },
+  {
+    "sha256": "58fcd95b76b4807d2a9ba77a26b8e04507412ff959ff84ce7e6cc6b626f6e7ab",
+    "name": "Al-soc-MOF-1",
+    "phase": "source_bytes_only_not_calibrated",
+    "path": "Crystal-Builder/resources/samples/prepared/Al-soc-MOF-1.cif"
+  },
+  {
+    "sha256": "dbb3114763ebbf8762334c4bab46a276ad44e7af0e11063fe3ef937b719a713c",
+    "name": "pbz-MOF-1",
+    "phase": "source_bytes_only_not_calibrated",
+    "path": "Crystal-Builder/resources/samples/prepared/pbz-MOF-1.cif"
+  }
+]

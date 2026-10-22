@@ -1,0 +1,22 @@
+{
+  "id": "zeopp_pore_geometry",
+  "version": 2,
+  "contract": "zeopp-pore-geometry-v2",
+  "handler": "rsi.science.hub",
+  "description": "Pore geometry of one rigid framework from the structure library with Zeo++ (one Voronoi decomposition, built-in radii). You choose the structure, probe radius, sampling and time limit. Returns largest included/free sphere diameters (Angstrom), percolating channels and dimensionality, accessible/non-accessible surface area (m2/g), probe-occupiable pore volume (cm3/g), pore size distribution, pocket-blocking sphere count, caution flags, evidence and cost. Cheap (seconds to minutes on one CPU), so use it to screen structures before GCMC or DFT. Geometry only: it does not predict adsorption, and every number depends on the probe radius you choose.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "structure_id": {"type": "string", "description": "Structure from the library; Zeo++ needs a CIF entry."},
+      "probe_radius_angstrom": {"type": "number", "description": "Probe radius for channel accessibility, surface area and pore volume. The repository N2 recipes use 1.86."},
+      "psd_probe_radius_angstrom": {"type": "number", "description": "Probe radius for the pore size distribution."},
+      "sampling": {"type": "string", "enum": ["fast", "standard", "fine"], "description": "Monte Carlo sample counts: fast for screening, standard matches the validated recipes, fine for final numbers."},
+      "high_accuracy": {"type": "boolean", "description": "Zeo++ -ha; recommended for frameworks with mixed atom sizes."},
+      "block_pockets": {"type": "boolean", "description": "Also compute RASPA blocking spheres for inaccessible pockets (needed before GCMC)."},
+      "grid_crosscheck_spacing_angstrom": {"type": ["number", "null"], "description": "Independent distance-grid check of surface area and volume at this spacing, or null to skip. Slower for large cells."},
+      "timeout_seconds": {"type": "number", "description": "Wall-time limit for the Zeo++ job; it is reserved from the compute budget."}
+    },
+    "required": ["structure_id", "probe_radius_angstrom", "psd_probe_radius_angstrom", "sampling", "high_accuracy", "block_pockets", "grid_crosscheck_spacing_angstrom", "timeout_seconds"],
+    "additionalProperties": false
+  }
+}

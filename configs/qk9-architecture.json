@@ -1,0 +1,12 @@
+{
+  "seeds": [17, 29, 43],
+  "architectures": {"shared": 32, "branched": 27, "independent": 22},
+  "parameters": {"shared": 17412, "branched": 17878, "independent": 16812},
+  "updates": 1200,
+  "streams": [101000, 211000, 307000, 409000],
+  "paths": 128,
+  "steps": 32,
+  "final_four": {"graphs": 48, "nodes": 4, "seed": 190019, "ood": false},
+  "final_six": {"graphs": 48, "nodes": 6, "seed": 190029, "ood": true},
+  "seconds_limit": 1800
+}

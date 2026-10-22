@@ -1,0 +1,12 @@
+{
+  "name": "RASPA3 official MFI methane example",
+  "source": "iRASPA/RASPA3@564b89329c1fd302b12c382995ad08d25d2c41ba/examples/basic/8_mc_adsorption_of_methane_in_mfi/force_field.json; O/Si: Bai et al. J. Phys. Chem. C 2013, 117, 24375-24387; CH4: Martin et al. J. Chem. Phys. 2001, 114, 7174-7181",
+  "framework_types": {
+    "O": {"element": "O", "epsilon_k": 53.0, "sigma_angstrom": 3.30},
+    "Si": {"element": "Si", "epsilon_k": 22.0, "sigma_angstrom": 2.30}
+  },
+  "element_types": {"O": "O", "Si": "Si"},
+  "methane": {"epsilon_k": 158.5, "sigma_angstrom": 3.72},
+  "shifted": true,
+  "tail_corrections": false
+}

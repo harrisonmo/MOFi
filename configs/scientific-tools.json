@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "tasks": {"methane-mfi-example": "methane-gcmc-example.json"},
+  "session_budget": {
+    "max_calls": 1,
+    "max_total_cycles": 90000,
+    "max_reserved_wall_seconds": 3600
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "version": 2,
+  "nodes": [
+    {
+      "id": "basis",
+      "op": "basis",
+      "inputs": [
+        "A",
+        "B"
+      ],
+      "config": "{}"
+    },
+    {
+      "id": "origins",
+      "op": "origins",
+      "inputs": [
+        "A",
+        "B",
+        "basis"
+      ],
+      "config": "{}"
+    },
+    {
+      "id": "distances",
+      "op": "distances",
+      "inputs": [
+        "A",
+        "B",
+        "basis",
+        "origins"
+      ],
+      "config": "{}"
+    },
+    {
+      "id": "assignment",
+      "op": "assignment",
+      "inputs": [
+        "A",
+        "B",
+        "distances"
+      ],
+      "config": "{}"
+    },
+    {
+      "id": "alignment",
+      "op": "alignment",
+      "inputs": [
+        "A",
+        "B",
+        "basis",
+        "origins",
+        "assignment"
+      ],
+      "config": "{}"
+    },
+    {
+      "id": "site_delta",
+      "op": "site_delta",
+      "inputs": [
+        "A",
+        "B",
+        "alignment"
+      ],
+      "config": "{}"
+    },
+    {
+      "id": "edge_delta",
+      "op": "edge_delta",
+      "inputs": [
+        "A",
+        "B",
+        "alignment"
+      ],
+      "config": "{}"
+    },
+    {
+      "id": "components",
+      "op": "components",
+      "inputs": [
+        "A"
+      ],
+      "config": "{}"
+    },
+    {
+      "id": "neighborhood",
+      "op": "neighborhood",
+      "inputs": [
+        "A",
+        "site_delta",
+        "edge_delta"
+      ],
+      "config": "{}"
+    }
+  ],
+  "outputs": [
+    "alignment",
+    "site_delta",
+    "edge_delta",
+    "components",
+    "neighborhood"
+  ]
+}

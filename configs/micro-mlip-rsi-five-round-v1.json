@@ -1,0 +1,156 @@
+{
+  "schema": "micro-mlip-rsi-five-round-v1",
+  "benchmark_id": "micro-mlip-rsi-rmd17-five-round-v1",
+  "status": "IMPLEMENTATION_IN_PROGRESS_NOT_EXECUTED",
+  "scientific_question": "With exactly five cumulative MACE trainings, matched initial labels, matched final label budget, matched seeds, and no intermediate test access, does a validation-conditioned RSI policy improve final independent rMD17 error or convergence relative to static, manual, and diagnostic-removed controls?",
+  "parent_benchmark": {
+    "config_path": "configs/micro-mlip-rsi-v1.json",
+    "config_sha256": "792920b573438aa0c4754042d3ae254a4a60b7a8deec46c2e758a35701ce15e7",
+    "dataset_manifest_sha256": "1202260c4a740b1dad04471d7c3972fb7aefe5350ff9d74fae62fc91945ac242",
+    "data_protocol": {
+      "split_seed": 20261020,
+      "source_train_frames": 1000,
+      "source_test_frames": 1000,
+      "train_pool_size": 768,
+      "validation_size": 128,
+      "reserve_size": 104
+    }
+  },
+  "source_dataset": {
+    "name": "revised MD17 (rMD17)",
+    "version": "predefined train/test split 01 from andersx/rmd17-npz",
+    "electronic_structure_level": "PBE/def2-SVP",
+    "scope_boundary": "A fast molecular-potential loop benchmark. It is not a MOF or adsorption-energy result."
+  },
+  "molecule_roles": {
+    "ethanol": "development",
+    "malonaldehyde": "development",
+    "toluene": "policy_holdout"
+  },
+  "raw_files": {
+    "ethanol": {
+      "train": {"filename": "rmd17_ethanol_train_01.npz", "sha256": "096946747b8d9dcfa042b44f8debbd3da387dfe1586b659e3be789cc4927316a"},
+      "test": {"filename": "rmd17_ethanol_test_01.npz", "sha256": "c3594a0f93d5992e02f9eb671392fb2e5021b3fa4f902417886966d1e4f64e1e"}
+    },
+    "malonaldehyde": {
+      "train": {"filename": "rmd17_malonaldehyde_train_01.npz", "sha256": "95723385cdfd7f8446a84cdff607f14901e4c2b3949db7a965147dc5098d8ee1"},
+      "test": {"filename": "rmd17_malonaldehyde_test_01.npz", "sha256": "147404574d4fe3204dea7eb3799426d264e36b7900012f27fd2d26a26832fdaf"}
+    },
+    "toluene": {
+      "train": {"filename": "rmd17_toluene_train_01.npz", "sha256": "24d0642f897a1da1fdc4dbdd0a9c2a7f6082dd88e02954b12896a45a7a5fbac7"},
+      "test": {"filename": "rmd17_toluene_test_01.npz", "sha256": "8a658b9bf1b7a5c1abaa03846ee6302725e02bdcd2ab720ef94da0be55625faa"}
+    }
+  },
+  "five_round_data_protocol": {
+    "round_count": 5,
+    "adaptive_rounds": [2, 3, 4, 5],
+    "initial_labels": 128,
+    "labels_added_per_adaptive_round": 64,
+    "final_labels": 384,
+    "selection_seed": 20261020,
+    "selection_strategies": ["random", "geometry_coverage"],
+    "selection_information": "Atomic numbers and coordinates only. Unqueried energy and force labels are never admissible selection inputs.",
+    "training_semantics": "Each stage retrains the same recipe from scratch on its cumulative selected labels. Checkpoint warm-starting is intentionally not used in v1."
+  },
+  "scientific_environment": {
+    "runtime_boundary": "Do not launch CPU or GPU training concurrently with the active formal MOF MACE campaign without a fresh shared-resource check.",
+    "training": {
+      "max_num_epochs": 20,
+      "early_stopping_patience": 5,
+      "batch_size": 32,
+      "valid_batch_size": 32,
+      "default_dtype": "float32",
+      "energy_key": "REF_energy",
+      "forces_key": "REF_forces",
+      "loss": "weighted",
+      "energy_weight": 1.0,
+      "forces_weight": 10.0,
+      "seeds": [20261020, 20261021, 20261022]
+    },
+    "methods": {
+      "scratch_micro": {
+        "status": "READY_FOR_CPU_ADMISSION",
+        "foundation": false,
+        "e0s": "average",
+        "r_max_A": 5.0,
+        "num_interactions": 2,
+        "hidden_irreps": "32x0e + 32x1o",
+        "lr": 0.01,
+        "ema": true,
+        "ema_decay": 0.99,
+        "clip_grad": 10.0
+      },
+      "foundation_naive": {
+        "status": "BLOCKED_PENDING_PINNED_FOUNDATION_ARTIFACT",
+        "foundation": true,
+        "e0s": "estimated",
+        "lr": 0.001,
+        "ema": true,
+        "ema_decay": 0.999,
+        "clip_grad": 1.0
+      },
+      "lora_rank4": {
+        "status": "BLOCKED_PENDING_PINNED_FOUNDATION_ARTIFACT",
+        "foundation": true,
+        "e0s": "estimated",
+        "lr": 0.005,
+        "ema": true,
+        "ema_decay": 0.995,
+        "clip_grad": 10.0,
+        "lora_rank": 4,
+        "lora_alpha": 1.0
+      },
+      "layer_freeze5": {
+        "status": "BLOCKED_PENDING_PINNED_FOUNDATION_ARTIFACT",
+        "foundation": true,
+        "e0s": "estimated",
+        "lr": 0.001,
+        "ema": true,
+        "ema_decay": 0.999,
+        "clip_grad": 1.0,
+        "freeze": 5
+      }
+    }
+  },
+  "validation_residual_diagnostic": {
+    "schema": "micro-mlip-validation-residual-v1",
+    "energy_mae_threshold_meV_per_atom": 10.0,
+    "force_mae_threshold_meV_per_A": 115.0,
+    "force_tail_ratio_threshold": 1.45,
+    "relative_improvement_floor": 0.03,
+    "information_policy": "Only validation receipts and prior validation receipts are admissible. This classifier provides an operational sampling hypothesis, not a physical causal diagnosis."
+  },
+  "four_arm_research_loop": {
+    "arms": ["fixed", "outer_generated", "manual_control", "removed"],
+    "per_arm_training_rounds": 5,
+    "equal_budget_invariants": [
+      "same molecule, source partition, initial 128 labels, validation set, seed, MACE recipe, and five cumulative label totals",
+      "same four acquisition opportunities of 64 labels and final 384-label budget",
+      "same independent evaluator and test-release barrier",
+      "no automatic retry, replacement, or selective early stopping"
+    ],
+    "test_release": "For a policy-holdout seed, test evaluation begins only after all four arms have closed round 5 training and validation receipts.",
+    "failure_policy": "A failed stage closes the campaign as FAILED_NO_AUTO_RETRY; it may not be silently rerun or replaced."
+  },
+  "five_axes": {
+    "design": "A 2^(5-1) resolution-V screening registry uses generator Model = Prompt × Data × Tool × Workflow. Main effects are not aliased with two-factor interactions; the 16-cell registry is executed only after every level passes its admission gate.",
+    "prompt": {"low": "fixed generic decision wording", "high": "structured residual-mechanism wording with evidence and non-causal interpretation boundary"},
+    "data": {"low": "random acquisition only", "high": "label-blind random-or-geometry coverage acquisition with provenance"},
+    "tool": {"low": "raw validation metric receipt only", "high": "registered validation_residual_v1 diagnostic; outer-generated compositions must pass a separate typed interface gate"},
+    "workflow": {"low": "static five-stage schedule", "high": "five-stage conditional policy using only registered validation residuals"},
+    "model": {"low": "scratch_micro", "high": "pinned foundation adaptation; not runnable until a foundation artifact, model hash, and matching micro recipe are admitted"},
+    "interpretation": "The current five-round implementation admits the scratch block and the Prompt/Data/Tool/Workflow contrasts. The complete 16-cell five-axis screen is explicitly blocked rather than fabricated until the model-high level is reproducible."
+  },
+  "analysis_contract": {
+    "primary": ["final independent test force component MAE", "final independent test energy MAE", "validation learning curve across all five rounds"],
+    "secondary": ["time to validation threshold", "cumulative training wall time", "residual-class/action traces", "failure and cost ledger"],
+    "pairing": "Molecule × seed × initial label set is the paired unit. Methods are not independent replicates.",
+    "claim_boundary": "A completed scratch block supports a benchmark and control-mechanism conclusion only. It does not establish MOF adsorption accuracy or a general physical cause of an error pattern."
+  },
+  "artifact_contract": {
+    "data": ["dataset_manifest.json", "dataset_validation.json", "all prefix extxyz SHA256 values"],
+    "episode": ["state.json", "one training receipt and validation receipt per round", "four action-decision receipts", "budget ledger"],
+    "release": ["all final independent evaluation receipts", "pairing verification", "machine-readable summary"],
+    "report": ["tables", "curve data", "figure QA ledger", "claim-to-artifact provenance"]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "target_material": "MoS2",
+  "target_property": "high carrier mobility",
+  "constraints": {
+    "method": "CVD"
+  }
+}

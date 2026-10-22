@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "catalog_path": "../runs/aria/catalog.json",
+  "kg_path": null,
+  "model": "qwen2:7b",
+  "mode": "aria",
+  "allow_external_search": false,
+  "allowed_tools": ["predict", "design", "diagnose"],
+  "max_calls": 10,
+  "timeout_seconds": 180,
+  "max_reserved_wall_seconds": 1800,
+  "max_response_bytes": 262144
+}

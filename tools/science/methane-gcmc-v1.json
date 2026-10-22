@@ -1,0 +1,13 @@
+{
+  "id": "methane_gcmc_capacity",
+  "version": 1,
+  "contract": "methane-gcmc-capacity-v1",
+  "handler": "rsi.gcmc",
+  "description": "Calculate absolute methane uptake and pressure-swing working capacity for one controller-approved task using native RASPA3 GCMC. Returns mmol/g of dry framework, seed statistics, evidence paths and calculation costs. Completion does not establish sampling convergence.",
+  "parameters": {
+    "type": "object",
+    "properties": {"task_id": {"type": "string", "description": "Identifier from the controller-approved task catalog."}},
+    "required": ["task_id"],
+    "additionalProperties": false
+  }
+}

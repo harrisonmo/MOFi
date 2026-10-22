@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "structure": "../examples/gcmc/MFI_SI.cif",
+  "force_field": "../examples/gcmc/mfi-force-field.json",
+  "temperature_k": 298.0,
+  "pressures_bar": [5.8, 65.0],
+  "loading_pressure_bar": 65.0,
+  "unloading_pressure_bar": 5.8,
+  "seeds": [101, 202, 303],
+  "initialization_cycles": 5000,
+  "production_cycles": 10000,
+  "blocks": 5,
+  "cutoff_angstrom": 12.0,
+  "fugacity_coefficients": null,
+  "budget": {
+    "max_jobs": 6,
+    "max_total_cycles": 90000,
+    "timeout_seconds_per_job": 600,
+    "max_wall_seconds": 3600,
+    "max_supercell_atoms": 20000
+  }
+}

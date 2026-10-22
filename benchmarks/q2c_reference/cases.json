@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "visibility": "public_engineering_validation",
+  "provenance": "Analytically constructed small graphs and rational coordinates; no material files or candidate output used",
+  "graph_cases": [
+    {"id": "finite_dimer", "atoms": 2, "edges": [[0,1,0,0,0]], "rank": 0, "index": 1},
+    {"id": "chain", "atoms": 1, "edges": [[0,0,1,0,0]], "rank": 1, "index": 1},
+    {"id": "even_chain", "atoms": 1, "edges": [[0,0,2,0,0]], "rank": 1, "index": 2},
+    {"id": "two_generators_chain", "atoms": 1, "edges": [[0,0,1,0,0],[0,0,2,0,0]], "rank": 1, "index": 1},
+    {"id": "square_layer", "atoms": 1, "edges": [[0,0,1,0,0],[0,0,0,1,0]], "rank": 2, "index": 1},
+    {"id": "even_layer", "atoms": 1, "edges": [[0,0,2,0,0],[0,0,0,2,0]], "rank": 2, "index": 4},
+    {"id": "cubic", "atoms": 1, "edges": [[0,0,1,0,0],[0,0,0,1,0],[0,0,0,0,1]], "rank": 3, "index": 1},
+    {"id": "index_two_3d", "atoms": 1, "edges": [[0,0,1,1,0],[0,0,1,0,1],[0,0,0,1,1]], "rank": 3, "index": 2},
+    {"id": "dependent_generators", "atoms": 1, "edges": [[0,0,2,0,0],[0,0,3,0,0]], "rank": 1, "index": 1}
+  ],
+  "distance_cases": [
+    {"id": "skew_rounding_counterexample", "cell": [[1,0,0],["9/10","1/5",0],[0,0,1]], "delta": ["49/100","49/100",0], "squared": "2273/200000", "images": [[0,1,0]]},
+    {"id": "half_cell_tie", "cell": [[1,0,0],[0,1,0],[0,0,1]], "delta": ["1/2",0,0], "squared": "1/4", "images": [[0,0,0],[1,0,0]]}
+  ]
+}

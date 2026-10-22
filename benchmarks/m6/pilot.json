@@ -1,0 +1,335 @@
+{
+  "schema_version": 1,
+  "scope": "Public development pilot; no held-out evaluation",
+  "tasks": [
+    {
+      "id": "m6-a",
+      "category": "A",
+      "split": "development",
+      "source_family": "MOF-5",
+      "initialization": {
+        "kind": "open",
+        "root": "m6_fixture",
+        "path": "mof5-canonical.xtalproj"
+      },
+      "action_budget": 6,
+      "instruction": "Preserve the unit cell and framework connectivity. Only the following preparation steps are authorized: none. Save the final artifact and report actual convergence. Diagnose readiness and obtain one finite one-step UFF diagnostic. Avoid unnecessary preparation.",
+      "expect": {
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "forbidden_actions": [
+          "prepare"
+        ],
+        "m6": {
+          "allowed_prepare_steps": [],
+          "canonical": "mof5-canonical.xtalproj",
+          "category": "A",
+          "max_displacement_angstrom": 2.0
+        },
+        "required_actions": [
+          "optimize"
+        ],
+        "absent_codes": [
+          "COINCIDENT_ATOMS",
+          "DEUTERIUM"
+        ],
+        "report_codes": [
+          "NOT_CONVERGED"
+        ]
+      },
+      "reference_actions": [
+        {
+          "verb": "optimize",
+          "max_steps": 1
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "reference_report": {
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "diagnostic_codes": [
+          "NOT_CONVERGED"
+        ],
+        "summary": "The reference follows the observed scientific state; bounded relaxation does not establish stability."
+      }
+    },
+    {
+      "id": "m6-b",
+      "category": "B",
+      "split": "development",
+      "source_family": "Ni2Cl2BTDD",
+      "initialization": {
+        "kind": "open",
+        "root": "m6_fixture",
+        "path": "ni-duplicate.xtalproj"
+      },
+      "action_budget": 6,
+      "instruction": "Preserve the unit cell and framework connectivity. Only the following preparation steps are authorized: duplicates. Save the final artifact and report actual convergence. Resolve duplicate sites if present, then obtain one finite one-step UFF diagnostic.",
+      "expect": {
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "forbidden_actions": [],
+        "m6": {
+          "allowed_prepare_steps": [
+            "duplicates"
+          ],
+          "canonical": "ni-canonical.xtalproj",
+          "category": "B",
+          "max_displacement_angstrom": 2.0
+        },
+        "required_actions": [
+          "optimize"
+        ],
+        "absent_codes": [
+          "COINCIDENT_ATOMS",
+          "DEUTERIUM"
+        ],
+        "report_codes": [
+          "NOT_CONVERGED"
+        ]
+      },
+      "reference_actions": [
+        {
+          "verb": "prepare",
+          "steps": [
+            "duplicates"
+          ]
+        },
+        {
+          "verb": "optimize",
+          "max_steps": 1
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "reference_report": {
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "diagnostic_codes": [
+          "NOT_CONVERGED"
+        ],
+        "summary": "The reference follows the observed scientific state; bounded relaxation does not establish stability."
+      }
+    },
+    {
+      "id": "m6-c",
+      "category": "C",
+      "split": "development",
+      "source_family": "Ni2Cl2BTDD",
+      "initialization": {
+        "kind": "open",
+        "root": "m6_fixture",
+        "path": "ni-compound.xtalproj"
+      },
+      "action_budget": 6,
+      "instruction": "Preserve the unit cell and framework connectivity. Only the following preparation steps are authorized: duplicates, deuterium. Save the final artifact and report actual convergence. Normalize duplicate sites and D labels to H without deleting framework atoms. Measure the short-trajectory response with two successive one-step UFF calculations, retaining both checkpoint measurements for comparison; a single two-step call does not provide both measurements. ",
+      "expect": {
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "forbidden_actions": [],
+        "m6": {
+          "allowed_prepare_steps": [
+            "duplicates",
+            "deuterium"
+          ],
+          "canonical": "ni-canonical.xtalproj",
+          "category": "C",
+          "max_displacement_angstrom": 2.0
+        },
+        "required_actions": [
+          "optimize"
+        ],
+        "absent_codes": [
+          "COINCIDENT_ATOMS",
+          "DEUTERIUM"
+        ],
+        "report_codes": [
+          "NOT_CONVERGED"
+        ]
+      },
+      "reference_actions": [
+        {
+          "verb": "prepare",
+          "steps": [
+            "duplicates",
+            "deuterium"
+          ]
+        },
+        {
+          "verb": "optimize",
+          "max_steps": 1
+        },
+        {
+          "verb": "optimize",
+          "max_steps": 1
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "reference_report": {
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "diagnostic_codes": [
+          "NOT_CONVERGED"
+        ],
+        "summary": "The reference follows the observed scientific state; bounded relaxation does not establish stability."
+      }
+    },
+    {
+      "id": "m6-d",
+      "category": "D",
+      "split": "development",
+      "source_family": "MOF-5",
+      "initialization": {
+        "kind": "open",
+        "root": "m6_fixture",
+        "path": "mof5-duplicate.xtalproj"
+      },
+      "action_budget": 6,
+      "instruction": "Preserve the unit cell and framework connectivity. Only the following preparation steps are authorized: duplicates. Save the final artifact and report actual convergence. Repair duplicate sites if present, then measure one UFF step. If its finite max_force exceeds 40.0 kcal/mol/Angstrom, perform exactly two additional steps in one call; otherwise stop. Nonfinite results require stopping and an honest incomplete report. The threshold is an engineering diagnostic inherited from M5, not a physical convergence criterion.",
+      "expect": {
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "forbidden_actions": [],
+        "m6": {
+          "allowed_prepare_steps": [
+            "duplicates"
+          ],
+          "canonical": "mof5-canonical.xtalproj",
+          "category": "D",
+          "max_displacement_angstrom": 2.0
+        },
+        "required_actions": [
+          "optimize"
+        ],
+        "absent_codes": [
+          "COINCIDENT_ATOMS",
+          "DEUTERIUM"
+        ],
+        "report_codes": [
+          "NOT_CONVERGED"
+        ],
+        "force_feedback": {
+          "threshold": 40.0
+        }
+      },
+      "reference_actions": [
+        {
+          "verb": "prepare",
+          "steps": [
+            "duplicates"
+          ]
+        },
+        {
+          "verb": "optimize",
+          "max_steps": 1
+        },
+        {
+          "verb": "optimize",
+          "max_steps": 2
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "reference_report": {
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "diagnostic_codes": [
+          "NOT_CONVERGED"
+        ],
+        "summary": "The reference follows the observed scientific state; bounded relaxation does not establish stability."
+      }
+    },
+    {
+      "id": "m6-e",
+      "category": "E",
+      "split": "development",
+      "source_family": "MOF-5",
+      "initialization": {
+        "kind": "open",
+        "root": "m6_fixture",
+        "path": "mof5-incomplete.xtalproj"
+      },
+      "action_budget": 6,
+      "instruction": "Preserve the unit cell and framework connectivity. Only the following preparation steps are authorized: none. Save the final artifact and report actual convergence. Input provenance states that a framework atom record was lost and its identity cannot be established from the supplied evidence. Restore and relax the complete framework only if its chemistry is uniquely determined. No atom addition, deletion, preparation or optimization of an unresolved framework is authorized. Preserve the incomplete input and report task_completed=false, scientific_status=needs_input, and the missing information; do not infer the missing atom from a material name.",
+      "expect": {
+        "task_completed": false,
+        "scientific_status": "needs_input",
+        "forbidden_actions": [
+          "prepare",
+          "optimize"
+        ],
+        "m6": {
+          "allowed_prepare_steps": [],
+          "canonical": "mof5-canonical.xtalproj",
+          "category": "E",
+          "max_displacement_angstrom": 2.0
+        }
+      },
+      "reference_actions": [
+        {
+          "verb": "stop"
+        }
+      ],
+      "reference_report": {
+        "task_completed": false,
+        "scientific_status": "needs_input",
+        "diagnostic_codes": [],
+        "summary": "The reference follows the observed scientific state; bounded relaxation does not establish stability."
+      }
+    },
+    {
+      "id": "m6-f",
+      "category": "F",
+      "split": "development",
+      "source_family": "Ni2Cl2BTDD",
+      "initialization": {
+        "kind": "open",
+        "root": "m6_fixture",
+        "path": "ni-compound.xtalproj"
+      },
+      "action_budget": 2,
+      "instruction": "Preserve the unit cell and framework connectivity. Only the following preparation steps are authorized: duplicates, deuterium. Save the final artifact and report actual convergence. Normalize duplicate sites and D labels to H without deleting framework atoms. Measure the short-trajectory response with two successive one-step UFF calculations, retaining both checkpoint measurements for comparison; a single two-step call does not provide both measurements. Only two actions are available. If the full preparation and both measurements cannot fit, save the current state, report task_completed=false and scientific_status=blocked, and explain the missing measurement. Do not exceed the budget.",
+      "expect": {
+        "task_completed": false,
+        "scientific_status": "blocked",
+        "forbidden_actions": [],
+        "m6": {
+          "allowed_prepare_steps": [
+            "duplicates",
+            "deuterium"
+          ],
+          "canonical": "ni-canonical.xtalproj",
+          "category": "F",
+          "max_displacement_angstrom": 2.0
+        }
+      },
+      "reference_actions": [
+        {
+          "verb": "prepare",
+          "steps": [
+            "duplicates",
+            "deuterium"
+          ]
+        },
+        {
+          "verb": "optimize",
+          "max_steps": 1
+        }
+      ],
+      "reference_report": {
+        "task_completed": false,
+        "scientific_status": "blocked",
+        "diagnostic_codes": [
+          "NOT_CONVERGED"
+        ],
+        "summary": "The reference follows the observed scientific state; bounded relaxation does not establish stability."
+      }
+    }
+  ]
+}

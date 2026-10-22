@@ -1,0 +1,24 @@
+{
+  "id": "methane_gcmc_capacity",
+  "version": 2,
+  "contract": "methane-gcmc-capacity-v2",
+  "handler": "rsi.science.hub",
+  "description": "Absolute methane uptake isotherm points and pressure-swing working capacity of one rigid library framework with native RASPA3 GCMC. You choose the structure, a framework force field from the catalog, temperature, pressure points, the loading and unloading pressures, number of replicate seeds, cycle counts and per-job time limit. Each pressure x seed pair is one single-CPU job. Returns mmol/g of dry framework per pressure with seed statistics, working capacity, evidence and cost. The force field must type every element of the structure. Run zeopp_pore_geometry first: inaccessible pockets are not blocked here. Completion does not establish sampling convergence; compare seeds and cycle counts.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "structure_id": {"type": "string", "description": "CIF structure from the library."},
+      "force_field_id": {"type": "string", "description": "Framework/methane Lennard-Jones force field from the catalog."},
+      "temperature_k": {"type": "number", "description": "Temperature in K."},
+      "pressures_bar": {"type": "array", "items": {"type": "number"}, "description": "Distinct pressure points in bar (at least two); they must include the loading and unloading pressures."},
+      "loading_pressure_bar": {"type": "number", "description": "Adsorption pressure for working capacity."},
+      "unloading_pressure_bar": {"type": "number", "description": "Desorption pressure for working capacity; lower than loading."},
+      "num_seeds": {"type": "integer", "description": "Independent replicate seeds per pressure."},
+      "initialization_cycles": {"type": "integer", "description": "Equilibration cycles per job."},
+      "production_cycles": {"type": "integer", "description": "Averaging cycles per job; at least ten per block."},
+      "timeout_seconds_per_job": {"type": "number", "description": "Wall-time limit of each job; pressures x seeds x this value is reserved from the compute budget."}
+    },
+    "required": ["structure_id", "force_field_id", "temperature_k", "pressures_bar", "loading_pressure_bar", "unloading_pressure_bar", "num_seeds", "initialization_cycles", "production_cycles", "timeout_seconds_per_job"],
+    "additionalProperties": false
+  }
+}

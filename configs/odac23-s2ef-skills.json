@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "scope": "Guarded offline ODAC23 S2EF active-learning feasibility runs",
+  "skills": [
+    {"id": "blind-label-guard-v1", "trigger": "Before an acquisition selector reads a candidate extended-XYZ file.", "check": "Candidate structures contain no reference energy, force, or calculator-result fields.", "action": "Stop the run, regenerate the blind candidate file, and record the failed attempt if any label field is present.", "promotion_status": "restricted"},
+    {"id": "mace-mpa-dtype-v1", "trigger": "Fine-tuning an MPA checkpoint.", "check": "The model, optimizer inputs, and structure tensors share the checkpoint dtype.", "action": "Use float64 consistently for the verified MPA-0 checkpoint; do not silently cast selected tensors.", "promotion_status": "restricted"},
+    {"id": "mace-output-directory-v1", "trigger": "Launching MACE training from an orchestrated run directory.", "check": "Model, checkpoint, log, and results directories exist before the CLI starts.", "action": "Create the scoped directories and validate the expected model path after training.", "promotion_status": "restricted"},
+    {"id": "foundation-element-coverage-v1", "trigger": "Evaluating a fine-tuned foundation model on group-disjoint MOFs.", "check": "Every atomic number in validation and final-holdout structures is represented by the model element table.", "action": "Retain the complete foundation element table when a heldout element is absent from acquired labels; otherwise fail before scoring.", "promotion_status": "restricted"},
+    {"id": "energy-force-promotion-gate-v1", "trigger": "Promoting a candidate MLIP after S2EF evaluation.", "check": "Energy-per-atom and force-component errors both satisfy their predeclared non-regression thresholds on an untouched evaluation partition.", "action": "Reject the candidate when either target fails. A force-only gain cannot override energy-calibration failure.", "promotion_status": "promoted_within_odac23_protocol"}
+  ]
+}

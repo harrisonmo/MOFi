@@ -1,0 +1,55 @@
+{
+  "id": "uff_audit",
+  "version": 1,
+  "contract": "uff-result-audit-v1",
+  "origin": "outer_generated",
+  "outputs": {
+    "converged": {
+      "field": "converged"
+    },
+    "delta_kj_mol": {
+      "op": "convert",
+      "dimension": "energy",
+      "args": [
+        {
+          "op": "sub",
+          "args": [
+            {
+              "field": "energy"
+            },
+            {
+              "field": "initial_energy"
+            }
+          ]
+        },
+        {
+          "field": "energy_unit"
+        }
+      ]
+    },
+    "energy_kj_mol": {
+      "op": "convert",
+      "dimension": "energy",
+      "args": [
+        {
+          "field": "energy"
+        },
+        {
+          "field": "energy_unit"
+        }
+      ]
+    },
+    "max_force_kj_mol_nm": {
+      "op": "convert",
+      "dimension": "force",
+      "args": [
+        {
+          "field": "max_force"
+        },
+        {
+          "field": "force_unit"
+        }
+      ]
+    }
+  }
+}

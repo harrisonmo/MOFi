@@ -1,0 +1,88 @@
+{
+  "schema": "micro-mlip-rsi-cpu-admission-v1",
+  "campaign_id": "micro-mlip-rsi-cpu-admission-20261020",
+  "status": "READY_TO_EXECUTE",
+  "purpose": "A bounded one-seed admission pilot that verifies the full two-loop policy path before any formal GPU or publication comparison.",
+  "parent_benchmark": {
+    "benchmark_id": "micro-mlip-rsi-rmd17-v1",
+    "config_path": "configs/micro-mlip-rsi-v1.json",
+    "config_sha256": "792920b573438aa0c4754042d3ae254a4a60b7a8deec46c2e758a35701ce15e7",
+    "dataset_manifest_sha256": "1202260c4a740b1dad04471d7c3972fb7aefe5350ff9d74fae62fc91945ac242"
+  },
+  "runtime_boundary": {
+    "device": "cpu",
+    "reason": "Avoid contention with the active serial MOF A10G campaign.",
+    "interpretation": "CPU timings and results validate execution only; they are not formal GPU performance numbers."
+  },
+  "budget": {
+    "development_training_rounds": 8,
+    "holdout_training_rounds": 4,
+    "total_training_rounds": 12,
+    "outer_model_calls": 2,
+    "maximum_outer_model_calls": 2,
+    "maximum_cpu_wall_seconds": 1800,
+    "maximum_labels_per_round": 256,
+    "allow_retries": false
+  },
+  "development_design": {
+    "molecules": ["ethanol", "malonaldehyde"],
+    "selection_strategies": ["random", "geometry_coverage"],
+    "label_budgets": [128, 256],
+    "method": "scratch_micro",
+    "seed": 20261020,
+    "metrics_visible_to_outer_loop": [
+      "energy_mae_meV_per_atom",
+      "force_component_mae_meV_per_A",
+      "training_duration_seconds",
+      "evaluation_duration_seconds"
+    ]
+  },
+  "policy_generation": {
+    "requested_model": "gpt-6-astra",
+    "reasoning_effort": "high",
+    "timeout_seconds": 180,
+    "outer_generated": "One structured proposal after all eight development evaluation receipts are complete.",
+    "removed": "One structured proposal with the same action menu and call limit but without development metric feedback.",
+    "forbidden_inputs": [
+      "toluene labels",
+      "toluene metrics",
+      "toluene artifacts",
+      "unregistered model methods",
+      "unregistered selection strategies",
+      "unregistered label budgets"
+    ]
+  },
+  "pre_registered_controls": {
+    "fixed": {
+      "action": {"selection": "random", "label_budget": 128, "method": "scratch_micro"},
+      "rationale": "Smallest registered random baseline."
+    },
+    "manual_control": {
+      "action": {"selection": "geometry_coverage", "label_budget": 128, "method": "scratch_micro"},
+      "rationale": "Pre-registered coordinate-coverage heuristic, selected before toluene evaluation."
+    }
+  },
+  "holdout_design": {
+    "molecule": "toluene",
+    "seed": 20261020,
+    "arms": ["fixed", "outer_generated", "manual_control", "removed"],
+    "score_release": "Only after all four training and independent evaluation receipts are closed."
+  },
+  "claim_boundary": {
+    "promotion": "disabled",
+    "allowed_claim": "The pilot may establish execution feasibility and generate a paired directional observation.",
+    "forbidden_claims": [
+      "formal RSI improvement",
+      "statistical significance",
+      "GPU speed comparison",
+      "MOF or adsorption-energy transfer",
+      "foundation-adaptation ranking"
+    ]
+  },
+  "artifact_contract": {
+    "development": ["campaign_manifest.json", "development/summary.json", "all per-run receipts"],
+    "outer_loop": ["policy_generation/policies.json", "one receipt per outer model call"],
+    "holdout": ["holdout/summary.json", "all per-run receipts", "paired_summary.json"],
+    "failure": "Any failed run stops the campaign; no automatic rerun or replacement."
+  }
+}

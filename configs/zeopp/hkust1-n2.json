@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "structure": "../../Crystal-Builder/resources/samples/HKUST1.cif",
+  "probe_label": "N2 (1.86 A, half kinetic diameter)",
+  "probe_radius_angstrom": 1.86,
+  "channel_radius_angstrom": 1.86,
+  "psd_probe_radius_angstrom": 1.2,
+  "radii": "zeo-default",
+  "high_accuracy": true,
+  "samples": {"surface_per_atom": 2000, "volume": 50000, "psd": 20000, "block": 5000},
+  "block_pockets": true,
+  "grid_crosscheck": {"spacing_angstrom": 0.4},
+  "budget": {"timeout_seconds": 900, "max_cell_atoms": 2000}
+}

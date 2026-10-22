@@ -1,0 +1,9 @@
+{
+  "workflow": {
+    "plan_horizon": 4,
+    "replan_on": [],
+    "refill_on_empty": false,
+    "max_decisions": 1
+  },
+  "sha256": "c211336af55e427432b7f8279c90c997b537980c73c41a3da097e92d0438b33a"
+}

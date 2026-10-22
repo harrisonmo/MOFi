@@ -1,0 +1,20 @@
+{
+  "id": "mof_database_catalog",
+  "version": 1,
+  "contract": "mof-database-catalog-v1",
+  "handler": "rsi.science.hub",
+  "description": "Filter a survey table of external MOF databases (CoRE MOF, QMOF, hMOF, CSD and others): identifier scheme, source method, data type, size, coverage flags (negative data, topology, LCD/PLD, ASA/VF/density, stability, synthesis/activation, API), formats, license and link with a link_status. Free; it does not count as a tool call and launches nothing. Use it to decide which database could supply structures, labels or negative data for a task and how to cross-link them (MOFid, Refcode). The table is unverified metadata, not evidence: it contains no structures or property values, its sizes and flags were not checked, and only link_status 'doi' or 'website' rows have a usable locator. Pass null for any filter you do not need; all given filters must hold.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "name_contains": {"type": ["string", "null"], "description": "Case-insensitive substring of the database name, or null."},
+      "method": {"type": ["string", "null"], "description": "Keep databases whose source methods include this normalized method, or null."},
+      "data_type_contains": {"type": ["string", "null"], "description": "Case-insensitive substring of the data type column (for example 'Ads', 'Synth', 'Stability'), or null."},
+      "identifier": {"type": ["string", "null"], "description": "Keep databases that index entries by this identifier scheme, or null."},
+      "required_fields": {"type": ["array", "null"], "items": {"type": "string"}, "description": "Coverage flags that must all be Y, or null."},
+      "usable_link_only": {"type": ["boolean", "null"], "description": "true keeps only rows whose link is a complete DOI or a website; null or false keeps all."}
+    },
+    "required": ["name_contains", "method", "data_type_contains", "identifier", "required_fields", "usable_link_only"],
+    "additionalProperties": false
+  }
+}

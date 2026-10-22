@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "candidate_id": "qwen3-8b-qlora-pilot-v1",
+  "parent_id": "qwen3-8b-frozen",
+  "scientific_target": "Improve evidence-grounded MOF research decisions on curated development traces; assess unseen-family success separately with the frozen scientific evaluator.",
+  "model": "Qwen/Qwen3-8B",
+  "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+  "seed": 20261022,
+  "max_length": 2048,
+  "max_steps": 50,
+  "gradient_accumulation": 8,
+  "learning_rate": 0.0001,
+  "rank": 16,
+  "alpha": 32,
+  "dropout": 0.05,
+  "resources": {"cpus": 8, "gpus": 1, "memory_mb": 24000, "wall_seconds": 3600}
+}

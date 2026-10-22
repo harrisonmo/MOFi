@@ -1,0 +1,21 @@
+{
+  "id": "openmm_minimize",
+  "version": 1,
+  "contract": "openmm-minimize-v1",
+  "handler": "rsi.science.hub",
+  "description": "Local energy minimization with OpenMM of one controller-built molecular mechanics system (fixed force field and topology, listed with its force field in the catalog). You choose the system, force tolerance, iteration limit, platform and compute request. Returns initial and final energy (kJ/mol), maximum force on movable atoms (kJ/mol/nm), convergence under the rule max force <= tolerance, iterations, whether the wall-time limit stopped it, evidence and cost. A minimum is a local stationary point of that force field, not a validated structure; energies are not comparable across force fields or with DFT.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "system_id": {"type": "string", "description": "System from the OpenMM catalog."},
+      "tolerance_kj_mol_nm": {"type": "number", "description": "Convergence threshold on the largest per-atom force."},
+      "max_iterations": {"type": "integer", "description": "L-BFGS iteration limit."},
+      "platform": {"type": "string", "description": "OpenMM platform. Reference is slow but exact; CPU is the usual choice."},
+      "cpus": {"type": "integer", "description": "CPU threads (CPU platform) and cores reserved for the job."},
+      "wall_seconds": {"type": "number", "description": "Wall-time limit; cpus x wall_seconds is reserved from the compute budget."},
+      "return_positions": {"type": "boolean", "description": "Include final positions (nm) in the result."}
+    },
+    "required": ["system_id", "tolerance_kj_mol_nm", "max_iterations", "platform", "cpus", "wall_seconds", "return_positions"],
+    "additionalProperties": false
+  }
+}

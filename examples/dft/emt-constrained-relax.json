@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "backend": "emt",
+  "task": "optimize",
+  "structure": "cu19-cluster.xyz",
+  "charge": 0,
+  "spin_multiplicity": 1,
+  "calculator": {},
+  "constraints": {"fixed_atoms": [0, 1, 2], "fixed_cartesian": [{"index": 3, "mask": [false, false, true]}]},
+  "optimizer": {"name": "BFGS", "fmax_ev_per_angstrom": 0.02, "max_steps": 200, "maxstep_angstrom": 0.2},
+  "budget": {"timeout_seconds_per_attempt": 120, "max_wall_seconds": 300, "max_atoms": 64, "max_restarts": 2, "threads": 1}
+}

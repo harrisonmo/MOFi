@@ -1,0 +1,24 @@
+{
+  "workflow": {
+    "inspection_mode": "before_unobserved_optimization",
+    "repair_mode": "affordable_before_optimization",
+    "reserve_observed_completion": true,
+    "interrupt_after_inspect": "never",
+    "initial_plan_horizon": 4,
+    "initial_repair_reserve": 0,
+    "plan_horizon": 4,
+    "max_decisions": 3,
+    "refill_on_empty": true,
+    "candidate_order": "lowest_completion_cost",
+    "shortlist_size": 4,
+    "skip_incomplete": true,
+    "skip_observed_blockers": true,
+    "skip_calculated": true,
+    "interrupt_after_prepare": "new_blocker",
+    "interrupt_on_refusal": true,
+    "reserve_units": 3,
+    "avoid_unaffordable_repair": true
+  },
+  "sha256": "23b8f76a0711602c837cdea300712a3ee5e2ef70e40aa76527e080835cf02518",
+  "policy_schema": "m10-screening-v1"
+}

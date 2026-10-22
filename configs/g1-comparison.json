@@ -1,0 +1,36 @@
+{
+  "schema": "g1-comparison-v1",
+  "dataset_manifest_sha256": "514e0c5383cf91f7973f0ea975dae1ddbe08c261edea9cca22b2991c98b8a48e",
+  "seeds": [
+    17,
+    29,
+    43
+  ],
+  "max_epochs": 50,
+  "wall_seconds": 1800,
+  "early_stopping_patience": 10,
+  "batch_size": 16,
+  "gnn": {
+    "layers": 3,
+    "hidden_width": 64,
+    "radial_basis": 32,
+    "cutoff_angstrom": 5,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "pooling": "mean",
+    "target_scaling": "train_only_mean_std",
+    "loss": "MSE"
+  },
+  "extra_trees": {
+    "n_estimators": 300,
+    "min_samples_leaf": 2,
+    "max_features": 1.0,
+    "n_jobs": 4
+  },
+  "calibration_file_sha256": "964ca0bb524b1ce699f4fa69393ea92d2cb65a51f391b5f677f3eb5f1b666800",
+  "calibration_root_commit": "ca830cdf04d25c43c7e014aa0f066ee66ac9fd20",
+  "training_limit_basis": "Warm-up-inclusive 840.9 s extrapolation, approximately 2x margin within a 1800 s stage cap.",
+  "heldout_evaluation": false,
+  "hyperparameter_search_trials": 0
+}

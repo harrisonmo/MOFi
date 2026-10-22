@@ -1,0 +1,90 @@
+# Single uv project for the workspace. `uv sync` builds `.venv` with the
+# controller, Crystal-Builder and the test tools; optional stacks are extras.
+# See docs/ENVIRONMENT.md for the extras, platform notes and frozen legacy
+# lock files that historical audits still hash.
+
+[project]
+name = "mofi"
+version = "0.0.0"
+description = "Simulation-based MOF recursive self-improvement research workspace"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    # Crystal-Builder is a separate checkout at ./Crystal-Builder (see README).
+    "crystal-builder[ase,build]",
+    "ase>=3.23,<4",
+    "jsonschema==4.26.0",
+    "psutil==7.2.2",
+    "pywin32==312; sys_platform == 'win32'",
+]
+
+[project.optional-dependencies]
+# Opt-in provider API backends (rsi/backends/api.py).
+api = ["anthropic==2.1.0", "openai==3.36.1"]
+# MCP Bond client for Valency literature tools.
+valency = ["mcp==1.30.0"]
+# ARIA stdio MCP reasoning server, pinned to the admitted VCS revision
+# (rsi/aria_mcp/client.py checks it).
+aria = [
+    "mcp==1.30.0",
+    "aria-materials @ git+https://github.com/yicao-elina/ARIA.git@cff9080f57360b1e89509adb3f298824eeed809d",
+]
+# Crystal-Builder desktop GUI (Start-Crystal-Builder.cmd).
+gui = ["crystal-builder[gui]"]
+# G1-G4 GNN baselines and Qiankun Jarzynski models; direct pins match
+# requirements-gnn-lock.txt, and torch comes from the CUDA 12.8 index.
+gnn = [
+    "numpy==2.2.6",
+    "scipy==1.15.3",
+    "scikit-learn==1.7.2",
+    "ase==3.26.0",
+    "pymatgen==2025.6.14",
+    "networkx==3.5",
+    "rarfile==4.2",
+    "matplotlib==3.10.6",
+    "torch==2.8.0",
+]
+# OpenMM science engine (rsi/openmm_engine.py).
+openmm = ["openmm==8.6.1"]
+# RASPA3 GCMC engine (rsi/gcmc); raspalib wheels require Python 3.12+.
+gcmc = ["raspalib==3.1.0"]
+# Historical MOFs QLoRA environment (rsi/llm); intended for Linux/WSL CUDA.
+llm = [
+    "torch==2.6.0",
+    "transformers==4.51.3",
+    "peft==0.15.2",
+    "accelerate==1.6.0",
+    "bitsandbytes==0.45.5",
+    "huggingface-hub==0.30.2",
+    "safetensors==0.5.3",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.4"]
+
+[tool.uv]
+# Scripts and modules run from the workspace root; nothing is built.
+package = false
+conflicts = [
+    [{ extra = "gnn" }, { extra = "llm" }],
+]
+
+[tool.uv.sources]
+crystal-builder = { path = "Crystal-Builder", editable = true }
+torch = [
+    { index = "pytorch-cu128", extra = "gnn" },
+    { index = "pytorch-cu124", extra = "llm" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

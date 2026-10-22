@@ -1,0 +1,33 @@
+{
+  "schema": "g4-comparison-v1",
+  "dataset_manifest_sha256": "514e0c5383cf91f7973f0ea975dae1ddbe08c261edea9cca22b2991c98b8a48e",
+  "arms": [
+    "g3",
+    "g3_hard",
+    "g4_hybrid",
+    "g4_graph"
+  ],
+  "cutoff": 8.0,
+  "g4_graph_envelope": false,
+  "seeds": [
+    17,
+    29,
+    43
+  ],
+  "calibration_structures": 128,
+  "calibration_epochs": 3,
+  "calibration_seconds": 900,
+  "formal_seconds": 7200,
+  "trial_seconds": 1200,
+  "audit_seconds": 600,
+  "admission_overhead_factor": 1.25,
+  "admission_warmup_epochs_excluded": 1,
+  "max_peak_allocated_gib": 20,
+  "max_epochs": 150,
+  "patience": 10,
+  "batch_size": 16,
+  "lr": 0.001,
+  "weight_decay": 1e-05,
+  "heldout_evaluation": false,
+  "hyperparameter_search_trials": 0
+}

@@ -1,0 +1,18 @@
+{
+  "workflow": {
+    "plan_horizon": 4,
+    "max_decisions": 3,
+    "refill_on_empty": true,
+    "candidate_order": "lowest_completion_cost",
+    "shortlist_size": 4,
+    "skip_incomplete": true,
+    "skip_observed_blockers": true,
+    "skip_calculated": true,
+    "interrupt_after_prepare": "new_blocker",
+    "interrupt_on_refusal": false,
+    "reserve_units": 3,
+    "avoid_unaffordable_repair": true
+  },
+  "sha256": "2a00ef50bd6d4bbe6121658d5fbc86fe07716ac06ca1689c1b176a6094d8329e",
+  "policy_schema": "m8-screening-v1"
+}

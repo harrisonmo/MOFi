@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "catalog_path": "../runs/valency/catalog.json",
+  "allowed_tools": [],
+  "max_calls": 20,
+  "timeout_seconds": 60,
+  "max_response_bytes": 262144
+}

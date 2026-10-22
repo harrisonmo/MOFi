@@ -1,0 +1,139 @@
+{
+  "visibility": "public_engineering_validation",
+  "source_root_commit": "4f7f7a8e4117dc8297c38440b264dfba83258a43",
+  "crystal_builder_commit": "df014447f0812dd4f55ed60359b71a981c3eeb60",
+  "note": "Copied existing public M6 calibration observations; source_root_commit identifies the committed calibration implementation, not creation time of ignored traces. No new science, no hidden test, no independent material-generalization evidence.",
+  "tasks": [
+    {
+      "id": "m6-a-event-0",
+      "source_family": "MOF-5",
+      "split": "public_integration_only",
+      "event": {
+        "action": {
+          "verb": "optimize",
+          "max_steps": 1
+        },
+        "result": {
+          "verb": "optimize",
+          "ok": true,
+          "message": "NOT converged after 1 steps: energy 4455.9795 -> 4312.2633 kcal/mol, |F|max 42.8516 kcal/mol/A; the furthest atom moved 0.026 A",
+          "undo_label": "Optimise geometry",
+          "atoms_before": 424,
+          "atoms_after": 424,
+          "data": {
+            "converged": false,
+            "steps": 1,
+            "initial_energy": 4455.979483533576,
+            "energy": 4312.263293566352,
+            "max_force": 42.85158716842011,
+            "max_displacement": 0.025871000508871006
+          },
+          "diagnostics": [
+            {
+              "code": "NOT_CONVERGED",
+              "message": "stopped after 1 steps with |F|max 42.8516 kcal/mol/A",
+              "where": "",
+              "level": "warning",
+              "suggestion": "The geometry is where the optimiser stopped, not a minimum. Do not report its energy as one. More steps, or check the structure first."
+            }
+          ]
+        }
+      },
+      "event_sha256": "b814628dc9f2352d79d9a537d4ed8e9fa487ca8005e0b5486a64507580dd42b6",
+      "source_trace": "runs/m6-calibration-01/m6-a-reference/final-state.json",
+      "source_trace_sha256": "11c4cba69d47430c5d16c8197075ad5ca4492311f620a324c07d4304c60e0ded"
+    },
+    {
+      "id": "m6-c-event-1",
+      "source_family": "Ni2Cl2BTDD",
+      "split": "public_integration_only",
+      "event": {
+        "action": {
+          "verb": "optimize",
+          "max_steps": 1
+        },
+        "result": {
+          "verb": "optimize",
+          "ok": true,
+          "message": "NOT converged after 1 steps: energy 1606.3091 -> 1412.3070 kcal/mol, |F|max 116.1174 kcal/mol/A; the furthest atom moved 0.054 A",
+          "undo_label": "Optimise geometry",
+          "atoms_before": 102,
+          "atoms_after": 102,
+          "data": {
+            "converged": false,
+            "steps": 1,
+            "initial_energy": 1606.309125435873,
+            "energy": 1412.3070420014737,
+            "max_force": 116.11736809487319,
+            "max_displacement": 0.053910506960267765
+          },
+          "diagnostics": [
+            {
+              "code": "ENGINE_NOTE",
+              "message": "6 atom(s) have a type the typer is not sure of; look at them before trusting the numbers",
+              "where": "",
+              "level": "info",
+              "suggestion": "The engine's own note about how it read the structure (atom types it was unsure of, isotopes, markers)."
+            },
+            {
+              "code": "NOT_CONVERGED",
+              "message": "stopped after 1 steps with |F|max 116.1174 kcal/mol/A",
+              "where": "",
+              "level": "warning",
+              "suggestion": "The geometry is where the optimiser stopped, not a minimum. Do not report its energy as one. More steps, or check the structure first."
+            }
+          ]
+        }
+      },
+      "event_sha256": "3ab1521570c04a2ac14a8b7ed915cb2098b506d9ce3dba3fee7415986abbb0d9",
+      "source_trace": "runs/m6-calibration-01/m6-c-reference/final-state.json",
+      "source_trace_sha256": "38f0b8d5046d6e73540655cdfe8d7e96e60609399bfbc3d3f0bc5519e83654c9"
+    },
+    {
+      "id": "m6-c-event-2",
+      "source_family": "Ni2Cl2BTDD",
+      "split": "public_integration_only",
+      "event": {
+        "action": {
+          "verb": "optimize",
+          "max_steps": 1
+        },
+        "result": {
+          "verb": "optimize",
+          "ok": true,
+          "message": "NOT converged after 1 steps: energy 1412.3020 -> 1329.0080 kcal/mol, |F|max 111.4188 kcal/mol/A; the furthest atom moved 0.051 A",
+          "undo_label": "Optimise geometry",
+          "atoms_before": 102,
+          "atoms_after": 102,
+          "data": {
+            "converged": false,
+            "steps": 1,
+            "initial_energy": 1412.3020320422545,
+            "energy": 1329.0079588744445,
+            "max_force": 111.41881788150188,
+            "max_displacement": 0.05120468477404994
+          },
+          "diagnostics": [
+            {
+              "code": "ENGINE_NOTE",
+              "message": "6 atom(s) have a type the typer is not sure of; look at them before trusting the numbers",
+              "where": "",
+              "level": "info",
+              "suggestion": "The engine's own note about how it read the structure (atom types it was unsure of, isotopes, markers)."
+            },
+            {
+              "code": "NOT_CONVERGED",
+              "message": "stopped after 1 steps with |F|max 111.4188 kcal/mol/A",
+              "where": "",
+              "level": "warning",
+              "suggestion": "The geometry is where the optimiser stopped, not a minimum. Do not report its energy as one. More steps, or check the structure first."
+            }
+          ]
+        }
+      },
+      "event_sha256": "b8080a8b4d2b7072af168b989d50a27ef92d98a27badeed9f6ea249a2e31095f",
+      "source_trace": "runs/m6-calibration-01/m6-c-reference/final-state.json",
+      "source_trace_sha256": "38f0b8d5046d6e73540655cdfe8d7e96e60609399bfbc3d3f0bc5519e83654c9"
+    }
+  ]
+}

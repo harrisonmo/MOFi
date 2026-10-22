@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "hpc": {"config": "hpc-backends.json", "backend": "local", "capacity_timeout_seconds": 600},
+  "max_calls": 40,
+  "structures": {
+    "hkust1": {"path": "../Crystal-Builder/resources/samples/HKUST1.cif", "description": "HKUST-1 (Cu-BTC), Cu paddlewheel MOF"},
+    "mof5": {"path": "../Crystal-Builder/resources/samples/MOF-5.cif", "description": "MOF-5 (IRMOF-1), Zn4O carboxylate MOF"},
+    "uio66": {"path": "../Crystal-Builder/resources/samples/UIO66.cif", "description": "UiO-66, Zr6 cluster MOF"},
+    "zif8": {"path": "../Crystal-Builder/resources/samples/ZIF-8.cif", "description": "ZIF-8, Zn imidazolate framework (P1 Materials Studio export, origin not recorded)"},
+    "mfu4l": {"path": "../Crystal-Builder/resources/samples/MFU4l.cif", "description": "MFU-4l, Zn triazolate MOF"},
+    "acs-n134-hypothetical": {"path": "../Crystal-Builder/resources/samples/MIL53.cif", "description": "Hypothetical PORMAKE build on the acs net (node N134, benzene linker); not an experimental structure"},
+    "mfi-si": {"path": "../examples/gcmc/MFI_SI.cif", "description": "All-silica MFI zeolite; GCMC reference system with a matching force field"},
+    "cu19-cluster": {"path": "../examples/dft/cu19-cluster.xyz", "description": "19-atom Cu cluster in a vacuum box; small DFT test system"},
+    "water": {"path": "../examples/orca/water.xyz", "description": "H2O molecule, experimental gas-phase geometry; molecular (ORCA) test system"},
+    "co2": {"path": "../examples/orca/co2.xyz", "description": "CO2 molecule, experimental gas-phase geometry; adsorbate"},
+    "n2": {"path": "../examples/orca/n2.xyz", "description": "N2 molecule, experimental gas-phase geometry; adsorbate"},
+    "methane": {"path": "../examples/orca/methane.xyz", "description": "CH4 molecule, experimental gas-phase geometry; adsorbate"},
+    "benzene": {"path": "../examples/orca/benzene.xyz", "description": "C6H6 molecule, experimental D6h geometry; linker-core model"}
+  },
+  "force_fields": {
+    "raspa3-mfi-methane": "../examples/gcmc/mfi-force-field.json"
+  },
+  "openmm_systems": {},
+  "tools": {
+    "zeopp_pore_geometry": {"probe_radius_angstrom": [0.5, 3.0], "max_timeout_seconds": 1800, "max_cell_atoms": 5000},
+    "methane_gcmc_capacity": {
+      "temperature_k": [77, 500], "pressures_bar": [0.01, 300], "max_pressure_points": 8,
+      "num_seeds": [1, 5], "initialization_cycles": [100, 50000], "production_cycles": [100, 100000],
+      "timeout_seconds_per_job": [10, 7200], "blocks": 5, "cutoff_angstrom": 12.0, "max_supercell_atoms": 20000
+    },
+    "dft_calculation": {
+      "backends": {
+        "gpaw": {"cutoff_ev": [200, 1500],
+                 "defaults": {"occupations": {"name": "fermi-dirac", "width": 0.1},
+                              "convergence": {"energy": 0.0005, "density": 0.0001}, "maxiter": 300}},
+        "cp2k": {"cutoff_ev": [2000, 13600],
+                 "defaults": {"executable": "cp2k_shell.psmp", "basis_set": "DZVP-MOLOPT-SR-GTH",
+                              "pseudo_potential": "auto", "basis_set_file": "BASIS_MOLOPT",
+                              "potential_file": "GTH_POTENTIALS", "max_scf": 100}},
+        "emt": {"defaults": {}}
+      },
+      "xc": ["PBE", "PBEsol", "RPBE", "LDA"],
+      "max_atoms": 64, "max_kpts": 8, "max_cpus": 8, "max_wall_seconds": 14400, "max_steps": 300
+    },
+    "orca_calculation": {
+      "functionals": ["R2SCAN-3C", "B97-3C", "PBEH-3C", "PBE", "BP86", "TPSS", "R2SCAN", "B3LYP", "PBE0", "TPSSH", "WB97X-D3BJ", "WB97M-V"],
+      "basis_sets": ["def2-SVP", "def2-TZVP", "def2-TZVPP", "def2-QZVPP", "def2-TZVPD", "ma-def2-TZVP"],
+      "max_atoms": 60, "max_cpus": 8, "maxcore_mb": 2000, "max_wall_seconds": 14400, "max_opt_cycles": 200
+    },
+    "openmm_minimize": {"platforms": ["CPU", "Reference"], "max_cpus": 8, "max_wall_seconds": 3600, "max_iterations": 100000},
+    "mof_database_catalog": {"csv": "../datasets/catalogs/mofdb.csv", "annotations": "../datasets/catalogs/mofdb.annotations.json"}
+  }
+}

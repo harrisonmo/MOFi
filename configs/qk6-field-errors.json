@@ -1,0 +1,36 @@
+{
+  "experiment": "QK6-time-resolved-field-errors",
+  "seconds_limit": 300,
+  "seeds": [
+    17,
+    29,
+    43
+  ],
+  "sampling_seeds": [
+    307,
+    409
+  ],
+  "samples_per_graph": 256,
+  "times": [
+    0,
+    0.001,
+    0.01,
+    0.05,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    0.9,
+    0.95,
+    0.99,
+    0.999,
+    1
+  ],
+  "recipes": [
+    "parent",
+    "score4",
+    "endpoint"
+  ],
+  "diffusion": 0.25,
+  "gamma_scale": 0.5
+}

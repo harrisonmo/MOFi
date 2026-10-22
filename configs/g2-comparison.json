@@ -1,0 +1,29 @@
+{
+  "schema": "g2-representation-v1",
+  "dataset_manifest_sha256": "514e0c5383cf91f7973f0ea975dae1ddbe08c261edea9cca22b2991c98b8a48e",
+  "seeds": [
+    17,
+    29,
+    43
+  ],
+  "arms": [
+    "gnn",
+    "hybrid",
+    "mlp",
+    "tree"
+  ],
+  "calibration_seconds": 900,
+  "formal_seconds": 1800,
+  "neural_trial_seconds": 150,
+  "tree_trial_seconds": 30,
+  "audit_seconds": 300,
+  "max_epochs": 50,
+  "patience": 10,
+  "batch_size": 16,
+  "lr": 0.001,
+  "weight_decay": 1e-05,
+  "tree_estimators": 300,
+  "tree_min_samples_leaf": 2,
+  "heldout_evaluation": false,
+  "hyperparameter_search_trials": 0
+}

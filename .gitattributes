@@ -1,0 +1,5 @@
+* whitespace=cr-at-eol
+*.sh text eol=lf
+configs/micro-mlip-*.json text eol=lf
+datasets/catalogs/mofdb.csv -text
+*.csv whitespace=cr-at-eol

@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "report_protocol_version": 3,
+  "scope": "Calibrated public feedback branch cases; thresholds bracket observed forces and are not physical validity criteria.",
+  "tasks": [
+    {
+      "id": "feedback-mof5-40",
+      "split": "development",
+      "source_family": "MOF-5",
+      "instruction": "Run exactly one UFF optimization step first. Read its reported max_force in kcal/mol/Angstrom. If and only if this value is strictly greater than 40.0, run a second UFF optimization of exactly two steps on the resulting structure; otherwise stop optimization. Save the final structure and report the measured force, branch choice, and actual convergence. Do not prepare or change chemistry. This is an engineering stopping rule, not a physical convergence criterion. Do not claim the threshold was met unless observed.",
+      "initialization": {
+        "kind": "open",
+        "path": "resources/samples/MOF-5.cif"
+      },
+      "reference_actions": [
+        {
+          "verb": "optimize",
+          "max_steps": 1
+        },
+        {
+          "verb": "optimize",
+          "max_steps": 2
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "expect": {
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "atoms_unchanged": true,
+        "n_atoms": 424,
+        "formula": "C24H12O13Zn4",
+        "report_codes": [
+          "NOT_CONVERGED"
+        ],
+        "required_actions": [
+          "optimize"
+        ],
+        "forbidden_actions": [
+          "prepare"
+        ],
+        "force_feedback": {
+          "threshold": 40.0
+        }
+      },
+      "reference_report": {
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "diagnostic_codes": [
+          "NOT_CONVERGED"
+        ],
+        "summary": "The branch follows the measured force after one step; the final calculation remains unconverged."
+      }
+    },
+    {
+      "id": "feedback-mof5-50",
+      "split": "development",
+      "source_family": "MOF-5",
+      "instruction": "Run exactly one UFF optimization step first. Read its reported max_force in kcal/mol/Angstrom. If and only if this value is strictly greater than 50.0, run a second UFF optimization of exactly two steps on the resulting structure; otherwise stop optimization. Save the final structure and report the measured force, branch choice, and actual convergence. Do not prepare or change chemistry. This is an engineering stopping rule, not a physical convergence criterion. Do not claim the threshold was met unless observed.",
+      "initialization": {
+        "kind": "open",
+        "path": "resources/samples/MOF-5.cif"
+      },
+      "reference_actions": [
+        {
+          "verb": "optimize",
+          "max_steps": 1
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "expect": {
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "atoms_unchanged": true,
+        "n_atoms": 424,
+        "formula": "C24H12O13Zn4",
+        "report_codes": [
+          "NOT_CONVERGED"
+        ],
+        "required_actions": [
+          "optimize"
+        ],
+        "forbidden_actions": [
+          "prepare"
+        ],
+        "force_feedback": {
+          "threshold": 50.0
+        }
+      },
+      "reference_report": {
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "diagnostic_codes": [
+          "NOT_CONVERGED"
+        ],
+        "summary": "The branch follows the measured force after one step; the final calculation remains unconverged."
+      }
+    },
+    {
+      "id": "feedback-mil53-300",
+      "split": "validation",
+      "source_family": "MIL53",
+      "instruction": "Run exactly one UFF optimization step first. Read its reported max_force in kcal/mol/Angstrom. If and only if this value is strictly greater than 300.0, run a second UFF optimization of exactly two steps on the resulting structure; otherwise stop optimization. Save the final structure and report the measured force, branch choice, and actual convergence. Do not prepare or change chemistry. This is an engineering stopping rule, not a physical convergence criterion. Do not claim the threshold was met unless observed.",
+      "initialization": {
+        "kind": "open",
+        "path": "resources/samples/MIL53.cif"
+      },
+      "reference_actions": [
+        {
+          "verb": "optimize",
+          "max_steps": 1
+        },
+        {
+          "verb": "optimize",
+          "max_steps": 2
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "expect": {
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "atoms_unchanged": true,
+        "n_atoms": 104,
+        "formula": "C24H12Ni3O13",
+        "report_codes": [
+          "NOT_CONVERGED"
+        ],
+        "required_actions": [
+          "optimize"
+        ],
+        "forbidden_actions": [
+          "prepare"
+        ],
+        "force_feedback": {
+          "threshold": 300.0
+        }
+      },
+      "reference_report": {
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "diagnostic_codes": [
+          "NOT_CONVERGED"
+        ],
+        "summary": "The branch follows the measured force after one step; the final calculation remains unconverged."
+      }
+    },
+    {
+      "id": "feedback-mil53-400",
+      "split": "validation",
+      "source_family": "MIL53",
+      "instruction": "Run exactly one UFF optimization step first. Read its reported max_force in kcal/mol/Angstrom. If and only if this value is strictly greater than 400.0, run a second UFF optimization of exactly two steps on the resulting structure; otherwise stop optimization. Save the final structure and report the measured force, branch choice, and actual convergence. Do not prepare or change chemistry. This is an engineering stopping rule, not a physical convergence criterion. Do not claim the threshold was met unless observed.",
+      "initialization": {
+        "kind": "open",
+        "path": "resources/samples/MIL53.cif"
+      },
+      "reference_actions": [
+        {
+          "verb": "optimize",
+          "max_steps": 1
+        },
+        {
+          "verb": "stop"
+        }
+      ],
+      "expect": {
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "atoms_unchanged": true,
+        "n_atoms": 104,
+        "formula": "C24H12Ni3O13",
+        "report_codes": [
+          "NOT_CONVERGED"
+        ],
+        "required_actions": [
+          "optimize"
+        ],
+        "forbidden_actions": [
+          "prepare"
+        ],
+        "force_feedback": {
+          "threshold": 400.0
+        }
+      },
+      "reference_report": {
+        "task_completed": true,
+        "scientific_status": "not_converged",
+        "diagnostic_codes": [
+          "NOT_CONVERGED"
+        ],
+        "summary": "The branch follows the measured force after one step; the final calculation remains unconverged."
+      }
+    }
+  ]
+}

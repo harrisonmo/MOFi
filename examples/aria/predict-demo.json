@@ -1,0 +1,8 @@
+{
+  "material": "MoS2",
+  "target_property": "carrier mobility",
+  "processing": {
+    "temperature": "750C",
+    "method": "CVD"
+  }
+}

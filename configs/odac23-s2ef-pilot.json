@@ -1,0 +1,20 @@
+{
+  "experiment_id": "odac23-s2ef-offline-al-pilot-v5",
+  "scientific_scope": "A bounded offline active-learning simulation on frozen ODAC23 S2EF DFT labels. It measures energy and force prediction against that reference only, not adsorption thermodynamics or experimental adsorption.",
+  "source": {
+    "dataset": "ODAC23 S2EF validation 80-trajectory stratified derived subset",
+    "license": "CC-BY-4.0",
+    "expected_archive_md5": "09913759c6e0f8d649f7ec9dff9e0e8b",
+    "guest_filter": "CO2=1, H2O=0; other guests remain outside this first controlled pilot"
+  },
+  "group_split": {"unit": "parent MOF parsed from ODAC configuration name before _w_", "seed": 20261014, "final_holdout_parent_count": 3, "validation_parent_count": 2, "evaluation_frames_per_parent": 12},
+  "budget": {"initial_labels": 12, "candidate_pool": 48, "batch_size": 4, "rounds": 4, "labels_per_finetuned_arm": 28, "epochs_per_finetuned_arm": 5, "train_batch_size": 1},
+  "foundation": {"family": "MACE-MPA-0 medium", "mace_torch": "0.3.13", "checkpoint_sha256": "75428afe3a1d7d8062e19bcaabd5c433623cabf308242ec9fb493e38604fb638", "device": "cuda", "dtype": "float64", "retain_foundation_elements": true},
+  "arms": {
+    "A_random_frozen": "Freeze foundation model. Record random acquisition but perform no model update.",
+    "B_random_finetune": "Select equal-sized batches by a fixed seeded random policy and fine-tune after every acquisition batch.",
+    "C_diagnostic_frozen": "Use predeclared force-risk diagnostics to select equal-sized batches, but do not fine-tune.",
+    "D_diagnostic_finetune": "Use only predeclared foundation-model force-risk diagnostics to select equal-sized batches; fine-tune after every batch."
+  },
+  "promotion_gate": {"selection_visibility": "No ODAC reference energy or force may be read by an acquisition policy.", "model_selection": "Use group-disjoint validation parents only.", "final_reporting": "Read final-holdout labels only once after arm configurations are frozen.", "interpretation": "This small single-seed pilot is feasibility evidence, not a statistical performance claim."}
+}

@@ -1,0 +1,13 @@
+{
+  "id": "zeopp_pore_geometry",
+  "version": 1,
+  "contract": "zeopp-pore-geometry-v1",
+  "handler": "rsi.zeopp",
+  "description": "Characterize the pore geometry of one controller-approved rigid framework with Zeo++ (one Voronoi decomposition, Zeo++ built-in radii). Returns largest included/free sphere diameters (Angstrom), channel count and dimensionality, accessible and non-accessible surface area (m2/g, m2/cm3), probe-occupiable pore volume (cm3/g, cell fraction), pore size distribution mode/mean, the RASPA pocket-blocking sphere count, an optional independent grid cross-check, caution flags, evidence paths and cost. Geometry only: it does not predict adsorption, and results depend on the fixed probe and radii.",
+  "parameters": {
+    "type": "object",
+    "properties": {"task_id": {"type": "string", "description": "Identifier from the controller-approved task catalog."}},
+    "required": ["task_id"],
+    "additionalProperties": false
+  }
+}

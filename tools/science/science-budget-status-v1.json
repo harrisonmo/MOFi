@@ -1,0 +1,8 @@
+{
+  "id": "science_budget_status",
+  "version": 1,
+  "contract": "science-budget-status-v1",
+  "handler": "rsi.science.hub",
+  "description": "Remaining compute budget for this session (jobs, CPU-seconds, GPU-seconds, wall-seconds, tool calls) and the cost of every call so far. Free; it does not count as a tool call. Check it before planning expensive calculations.",
+  "parameters": {"type": "object", "properties": {}, "required": [], "additionalProperties": false}
+}

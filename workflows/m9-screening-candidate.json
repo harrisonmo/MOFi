@@ -1,0 +1,20 @@
+{
+  "workflow": {
+    "initial_plan_horizon": 3,
+    "initial_repair_reserve": 6,
+    "plan_horizon": 4,
+    "max_decisions": 3,
+    "refill_on_empty": true,
+    "candidate_order": "lowest_completion_cost",
+    "shortlist_size": 8,
+    "skip_incomplete": true,
+    "skip_observed_blockers": true,
+    "skip_calculated": true,
+    "interrupt_after_prepare": "new_blocker",
+    "interrupt_on_refusal": true,
+    "reserve_units": 3,
+    "avoid_unaffordable_repair": true
+  },
+  "sha256": "0ff3ffdee5b9bcc8d1f000691ea79eeac15979eda58933ac4e3fcb88bb13faae",
+  "policy_schema": "m9-screening-v1"
+}

@@ -1,0 +1,33 @@
+{
+  "experiment": "QK4-step-convergence",
+  "source_commit": "bce0ffe801040a78442140b28f3d07963eafe598",
+  "training_seeds": [
+    17,
+    29,
+    43
+  ],
+  "sampling_seeds": [
+    101,
+    211
+  ],
+  "paths": [
+    128
+  ],
+  "steps": [
+    32,
+    64,
+    128
+  ],
+  "arms": [
+    "learned",
+    "zero_exact",
+    "learned_exact",
+    "analytic_exact",
+    "analytic_learned",
+    "physical"
+  ],
+  "gpu_seconds_limit": 900,
+  "beta": 1.0,
+  "gamma_scale": 0.5,
+  "diffusion": 0.25
+}

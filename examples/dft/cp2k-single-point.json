@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "backend": "cp2k",
+  "task": "single_point",
+  "structure": "cu19-cluster.xyz",
+  "charge": 0,
+  "spin_multiplicity": 2,
+  "calculator": {
+    "executable": "cp2k_shell.psmp",
+    "xc": "PBE",
+    "cutoff_ev": 5442,
+    "basis_set": "DZVP-MOLOPT-SR-GTH",
+    "pseudo_potential": "auto",
+    "basis_set_file": "BASIS_MOLOPT",
+    "potential_file": "GTH_POTENTIALS",
+    "max_scf": 100,
+    "poisson_solver": "MT"
+  },
+  "budget": {"timeout_seconds_per_attempt": 3600, "max_wall_seconds": 7200, "max_atoms": 64, "max_restarts": 1, "threads": 4}
+}

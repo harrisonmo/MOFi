@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "backend": "gpaw",
+  "task": "optimize",
+  "structure": "cu19-cluster.xyz",
+  "charge": 0,
+  "spin_multiplicity": 2,
+  "calculator": {
+    "mode": {
+      "name": "pw",
+      "ecut": 400
+    },
+    "xc": "PBE",
+    "kpts": [
+      1,
+      1,
+      1
+    ],
+    "occupations": {
+      "name": "fermi-dirac",
+      "width": 0.1
+    },
+    "convergence": {
+      "energy": 0.0005,
+      "density": 0.0001
+    },
+    "maxiter": 300,
+    "spinpol": true
+  },
+  "constraints": {
+    "fixed_atoms": [
+      0,
+      1,
+      2
+    ]
+  },
+  "optimizer": {
+    "name": "BFGS",
+    "fmax_ev_per_angstrom": 0.05,
+    "max_steps": 100,
+    "maxstep_angstrom": 0.2
+  },
+  "budget": {
+    "timeout_seconds_per_attempt": 7200,
+    "max_wall_seconds": 28800,
+    "max_atoms": 64,
+    "max_restarts": 3,
+    "threads": 4
+  },
+  "initial_magmoms": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ]
+}

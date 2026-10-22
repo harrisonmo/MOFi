@@ -1,0 +1,65 @@
+{
+  "schema": "micro-mlip-model-method-extension-contract-v1",
+  "benchmark_id": "micro-mlip-rsi-model-method-extension-v1",
+  "parent_benchmark_id": "micro-mlip-rsi-rmd17-five-round-v1",
+  "parent_five_round_config_sha256": "43ce04582e6a02c4684a098b10f92b7d2e24dfe8d3d87ee49f27df484448bceb",
+  "purpose": "Compare model adaptation methods only after the P/D/T/W policy is selected from validation-only development evidence. The selected policy, data split, independent evaluator, five-round label budget, and seed plan stay fixed across methods.",
+  "methods": {
+    "scratch_micro": {
+      "role": "matched scratch reference",
+      "foundation_required": false
+    },
+    "foundation_naive": {
+      "role": "naive full foundation fine tuning",
+      "foundation_required": true,
+      "e0s": "estimated"
+    },
+    "lora_rank4": {
+      "role": "low-rank foundation adaptation",
+      "foundation_required": true,
+      "e0s": "estimated",
+      "lora_rank": 4,
+      "lora_alpha": 1.0
+    },
+    "layer_freeze5": {
+      "role": "foundation adaptation with five frozen layers",
+      "foundation_required": true,
+      "e0s": "estimated",
+      "freeze": 5
+    },
+    "multihead_pseudolabel_replay": {
+      "role": "multihead fine tuning with audited foundation pseudo-label replay",
+      "foundation_required": true,
+      "replay_required": true,
+      "e0s": "estimated"
+    }
+  },
+  "admission_requirements": {
+    "all_foundation_methods": [
+      "immutable foundation-model path",
+      "foundation-model SHA256",
+      "MACE version/runtime receipt",
+      "method-specific CPU dry-run using the same rMD17 train/validation split",
+      "fresh shared-resource gate before any real training"
+    ],
+    "multihead_pseudolabel_replay": [
+      "immutable replay extxyz file",
+      "replay file SHA256",
+      "pseudo-label generator model/version receipt",
+      "replay sampling/provenance manifest",
+      "forgetting metric measured on the foundation-domain validation set"
+    ]
+  },
+  "analysis_contract": {
+    "primary": "paired final independent force and energy error relative to the fixed scratch reference",
+    "secondary": [
+      "five-round validation force/energy AUC",
+      "labels to validation threshold",
+      "cumulative wall time",
+      "parameter/update cost where available",
+      "foundation-domain forgetting metric for replay"
+    ],
+    "prohibited_interpretation": "Do not attribute a model-method difference to the RSI policy or workflow when either was not held fixed."
+  },
+  "status": "BLOCKED_PENDING_FOUNDATION_AND_REPLAY_ADMISSION"
+}

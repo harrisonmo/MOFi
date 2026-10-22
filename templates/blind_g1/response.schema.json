@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Blind GNN candidate response",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["packet_id", "hypothesis", "files", "session"],
+  "properties": {
+    "packet_id": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "hypothesis": {"type": "string", "minLength": 1, "maxLength": 2000},
+    "files": {
+      "type": "object", "minProperties": 1, "maxProperties": 16,
+      "required": ["train.py"],
+      "propertyNames": {"pattern": "^[A-Za-z][A-Za-z0-9_]{0,63}\\.py$"},
+      "additionalProperties": {"type": "string"}
+    },
+    "session": {
+      "type": "object",
+      "required": ["fresh_context", "tools_disabled", "external_materials_used", "model", "usage"],
+      "properties": {
+        "fresh_context": {"const": true},
+        "tools_disabled": {"const": true},
+        "external_materials_used": {"const": false},
+        "model": {"type": "string", "minLength": 1},
+        "usage": {"type": ["object", "null"]}
+      },
+      "additionalProperties": false
+    }
+  }
+}

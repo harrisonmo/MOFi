@@ -1,0 +1,30 @@
+{
+  "protocol": "q2-uff-audit-v1",
+  "status": "awaiting_target_and_budget_confirmation",
+  "visibility": "public_engineering_validation",
+  "scientific_target": "Audit real bounded UFF optimization results without changing scientific actions",
+  "evolver": {"backend": "authenticated_codex_cli", "requested_model": "gpt-6-astra", "reasoning": "high", "actual_model": null},
+  "research_agent": {"backend": "authenticated_codex_cli", "requested_model": "gpt-6-astra", "reasoning": "high", "actual_model": null},
+  "approved_new_experiment_budget": {"model_calls": 0, "tokens": 0, "uff_steps": 0},
+  "proposed_budget": {
+    "candidate_count": 1,
+    "generation_and_debug_calls": 3,
+    "research_calls": 48,
+    "total_model_calls": 51,
+    "observed_token_soft_limit": 1275000,
+    "tokens_per_call_soft_limit": 25000,
+    "new_scientific_trajectories": 4,
+    "total_uff_requested_steps": 4,
+    "uff_steps_per_trajectory": 1,
+    "science_timeout_seconds": 120,
+    "model_timeout_seconds": 180,
+    "tool_requests_per_episode": 4
+  },
+  "arms": ["fixed", "outer_generated", "manual_control", "removed"],
+  "episodes": {"tasks": 6, "arms": 4, "calls_per_episode": 2, "repeats": 1},
+  "split": {
+    "development_sources": ["MOF-5", "Ni2Cl2BTDD"],
+    "evaluation_sources": ["MIL53", "MIL88B"],
+    "note": "Source labels are provisional; verify chemistry, eligibility and provenance before freezing. Unsupported calculations remain failures, not substitute successes."
+  }
+}

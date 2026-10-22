@@ -1,0 +1,25 @@
+{
+  "experiment": "QK5-time-sampling",
+  "seeds": [
+    17,
+    29,
+    43
+  ],
+  "updates": 1200,
+  "paths": 128,
+  "steps": 32,
+  "evaluation_stream_offsets": [
+    101000,
+    211000
+  ],
+  "total_seconds_limit": 900,
+  "calibration_updates": 20,
+  "promotion": "At least 5% paired mean MAE reduction on each reused development split; no seed/split regression above 10%; no increase in low-ESS count. Otherwise retain parent.",
+  "source_commit": "bce0ffe801040a78442140b28f3d07963eafe598",
+  "recipes": [
+    "uniform",
+    "endpoint"
+  ],
+  "time_min": 0.001,
+  "transform": "t = eps + (1-2eps) * sin(pi*u/2)^2; no importance correction"
+}

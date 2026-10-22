@@ -1,0 +1,43 @@
+{
+  "schema": "micro-mlip-five-axis-screen-v1",
+  "benchmark_id": "micro-mlip-rsi-five-axis-screen-v1",
+  "parent_benchmark_id": "micro-mlip-rsi-rmd17-five-round-v1",
+  "parent_five_round_config_sha256": "43ce04582e6a02c4684a098b10f92b7d2e24dfe8d3d87ee49f27df484448bceb",
+  "design": "A pre-registered 2^(5-1) resolution-V screen with negative generator Model = -(Prompt x Data x Tool x Workflow). The negative sign preserves resolution V while placing both the all-low baseline and the all-high P/D/T/W core loop in the scratch half-fraction.",
+  "generator": "model = -(prompt * data * tool * workflow)",
+  "defining_relation": "prompt * data * tool * workflow * model = -I",
+  "five_axes": {
+    "prompt": {
+      "low": "generic finite-table instruction with no mechanism wording",
+      "high": "structured residual-evidence instruction with an explicit non-causal interpretation boundary"
+    },
+    "data": {
+      "low": "random acquisition only from the pre-materialized label-blind tree",
+      "high": "random-or-geometry-coverage acquisition from the same label-blind tree with source-index provenance"
+    },
+    "tool": {
+      "low": "raw validation-metric receipt; no typed residual-class tool",
+      "high": "registered validation_residual_v1 diagnostic with a typed finite action interface"
+    },
+    "workflow": {
+      "low": "static five-stage schedule fixed before the first training round",
+      "high": "five-stage observation -> finite decision -> retraining workflow, with no test feedback"
+    },
+    "model": {
+      "low": "scratch_micro MACE",
+      "high": "pinned foundation adaptation; the binary factorial screen uses naive full fine-tuning, while LoRA, freeze-5, and replay form a separately paired model-method extension"
+    }
+  },
+  "execution_contract": {
+    "unit": "Each factorial cell is a matched four-arm five-round episode on one development molecule and seed. The four policy arms are controls inside a cell, not substitutes for the five axes.",
+    "core_alignment": {
+      "all_low_reference": "P0D0T0W0M0",
+      "g0_core_loop": "P1D1T1W1M0",
+      "rationale": "Both are runnable scratch cells under the negative generator and define the clearest baseline-to-full-loop contrast."
+    },
+    "primary_screening_response": "For each cell, estimate the outer-generated policy effect against its matched information-removed control using final independent error, five-round validation area-under-curve, labels-to-threshold, and cumulative wall time.",
+    "promotion_rule": "Only development results choose a promotion configuration. Toluene remains a policy holdout and cannot select a cell or update a policy.",
+    "model_high_admission": "Require a pinned foundation artifact hash, a method-specific CPU dry run, the same rMD17 split and evaluator, E0s=estimated unless explicit same-level isolated-atom DFT values are admitted, and a separately audited replay source for multihead replay."
+  },
+  "status": "PRE_REGISTERED_NOT_EXECUTED"
+}

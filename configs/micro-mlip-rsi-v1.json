@@ -1,0 +1,172 @@
+{
+  "schema": "micro-mlip-rsi-v1",
+  "benchmark_id": "micro-mlip-rsi-rmd17-v1",
+  "status": "IMPLEMENTATION_COMPLETE_NOT_EXECUTED",
+  "scientific_question": "Under equal label, wall-time, GPU, model-call, and training-recipe budgets, can a bounded RSI policy improve independent rMD17 energy-and-force accuracy or time-to-threshold over fixed, manual, and ablated controls?",
+  "source_dataset": {
+    "name": "revised MD17 (rMD17)",
+    "version": "predefined train/test split 01 from andersx/rmd17-npz",
+    "source_url": "https://github.com/andersx/rmd17-npz",
+    "original_record": "https://figshare.com/articles/dataset/Revised_MD17_dataset_rMD17_/12672038",
+    "electronic_structure_level": "PBE/def2-SVP",
+    "input_energy_unit": "kcal/mol",
+    "input_force_unit": "kcal/(mol Angstrom)",
+    "license": "CC0-1.0",
+    "scope_boundary": "Phase A fast-loop molecular potential benchmark only; it is not an adsorption-energy benchmark and it does not mix level-of-theory sources."
+  },
+  "molecule_roles": {
+    "ethanol": "development",
+    "malonaldehyde": "development",
+    "toluene": "policy_holdout"
+  },
+  "raw_files": {
+    "ethanol": {
+      "train": {
+        "filename": "rmd17_ethanol_train_01.npz",
+        "sha256": "096946747b8d9dcfa042b44f8debbd3da387dfe1586b659e3be789cc4927316a"
+      },
+      "test": {
+        "filename": "rmd17_ethanol_test_01.npz",
+        "sha256": "c3594a0f93d5992e02f9eb671392fb2e5021b3fa4f902417886966d1e4f64e1e"
+      }
+    },
+    "malonaldehyde": {
+      "train": {
+        "filename": "rmd17_malonaldehyde_train_01.npz",
+        "sha256": "95723385cdfd7f8446a84cdff607f14901e4c2b3949db7a965147dc5098d8ee1"
+      },
+      "test": {
+        "filename": "rmd17_malonaldehyde_test_01.npz",
+        "sha256": "147404574d4fe3204dea7eb3799426d264e36b7900012f27fd2d26a26832fdaf"
+      }
+    },
+    "toluene": {
+      "train": {
+        "filename": "rmd17_toluene_train_01.npz",
+        "sha256": "24d0642f897a1da1fdc4dbdd0a9c2a7f6082dd88e02954b12896a45a7a5fbac7"
+      },
+      "test": {
+        "filename": "rmd17_toluene_test_01.npz",
+        "sha256": "8a658b9bf1b7a5c1abaa03846ee6302725e02bdcd2ab720ef94da0be55625faa"
+      }
+    }
+  },
+  "data_protocol": {
+    "split_seed": 20261020,
+    "source_train_frames": 1000,
+    "source_test_frames": 1000,
+    "train_pool_size": 768,
+    "validation_size": 128,
+    "reserve_size": 104,
+    "label_budgets": [128, 256, 512],
+    "selection_strategies": ["random", "geometry_coverage"],
+    "selection_information": "Atomic numbers and coordinates only. Reference energy and force labels outside a selected batch are not admissible selection inputs.",
+    "test_feedback_policy": "The Research Loop cannot read policy-holdout test labels, metrics, logs, or score artifacts before policy freeze."
+  },
+  "scientific_environment": {
+    "target_round_wall_minutes": 10,
+    "maximum_calibration_round_wall_minutes": 30,
+    "device_policy": "One isolated GPU process; no concurrent training with an active formal MOF campaign.",
+    "mace_runtime_policy": "Use the already smoke-tested isolated MACE 0.3.16 site and its narrow PyTorch 2.2 compatibility runner; record exact artifact hashes before each run.",
+    "training": {
+      "max_num_epochs": 20,
+      "early_stopping_patience": 5,
+      "batch_size": 32,
+      "valid_batch_size": 32,
+      "default_dtype": "float32",
+      "energy_key": "REF_energy",
+      "forces_key": "REF_forces",
+      "loss": "weighted",
+      "energy_weight": 1.0,
+      "forces_weight": 10.0,
+      "seeds": [20261020, 20261021, 20261022],
+      "checkpoint_policy": "retain best model and final receipt; do not save every epoch in Phase A"
+    },
+    "methods": {
+      "scratch_micro": {
+        "status": "READY_FOR_CALIBRATION",
+        "foundation": false,
+        "e0s": "average",
+        "r_max_A": 5.0,
+        "num_interactions": 2,
+        "hidden_irreps": "32x0e + 32x1o",
+        "lr": 0.01,
+        "ema": true,
+        "ema_decay": 0.99,
+        "clip_grad": 10.0
+      },
+      "foundation_naive": {
+        "status": "READY_AFTER_FOUNDATION_ARTIFACT_IS_PINNED",
+        "foundation": true,
+        "e0s": "estimated",
+        "lr": 0.001,
+        "ema": true,
+        "ema_decay": 0.999,
+        "clip_grad": 1.0
+      },
+      "lora_rank4": {
+        "status": "READY_AFTER_FOUNDATION_ARTIFACT_IS_PINNED",
+        "foundation": true,
+        "e0s": "estimated",
+        "lr": 0.005,
+        "ema": true,
+        "ema_decay": 0.995,
+        "clip_grad": 10.0,
+        "lora_rank": 4,
+        "lora_alpha": 1.0
+      },
+      "layer_freeze5": {
+        "status": "READY_AFTER_FOUNDATION_ARTIFACT_IS_PINNED",
+        "foundation": true,
+        "e0s": "estimated",
+        "lr": 0.001,
+        "ema": true,
+        "ema_decay": 0.999,
+        "clip_grad": 1.0,
+        "freeze": 5
+      },
+      "multihead_pseudolabel_replay": {
+        "status": "DEFERRED_UNTIL_PSEUDOLABEL_PROTOCOL_IS_AUDITED",
+        "foundation": true,
+        "reason": "A replay source, pseudo-label generator version, forgetting metric, and evaluation boundary have not yet been frozen."
+      }
+    }
+  },
+  "rsi_protocol": {
+    "development_tasks": ["ethanol", "malonaldehyde"],
+    "policy_holdout_tasks": ["toluene"],
+    "arms": ["fixed", "outer_generated", "manual_control", "removed"],
+    "allowed_research_actions": [
+      "choose_random_or_geometry_coverage",
+      "choose_128_256_or_512_label_budget",
+      "choose_registered_ready_training_method",
+      "stop_when_budget_is_exhausted"
+    ],
+    "forbidden_research_actions": [
+      "read_test_labels_or_metrics",
+      "change_reference_split",
+      "change_evaluator_or_score",
+      "change_global_budget",
+      "use_unregistered_hyperparameter_search",
+      "use_energy_or_force_labels_to_rank_unqueried_frames"
+    ],
+    "promotion_rule": "An outer-generated policy is eligible only after frozen development evidence, then is evaluated once on the untouched policy-holdout molecule under the same per-task budgets as all controls."
+  },
+  "evaluator": {
+    "primary_metrics": [
+      "test_energy_mae_meV_per_atom",
+      "test_force_component_mae_meV_per_A",
+      "wall_seconds",
+      "labels_consumed"
+    ],
+    "secondary_metrics": ["test_energy_rmse_meV_per_atom", "test_force_component_rmse_meV_per_A", "time_to_threshold"],
+    "threshold_status": "TO_BE_FROZEN_AFTER_FIRST_CALIBRATION_ONLY",
+    "independence_rule": "Training commands receive validation data only. A separate evaluator loads the frozen model and test set after the run is closed."
+  },
+  "artifact_contract": {
+    "dataset": ["dataset_manifest.json", "raw-hash audit", "extxyz SHA256 values"],
+    "round": ["run.json", "command.txt", "environment.json", "train.log", "result.json", "best model hash"],
+    "evaluation": ["independent_evaluation.json", "evaluator command", "test-source hash", "metric receipt"],
+    "comparison": ["frozen-policy manifest", "budget ledger", "paired task table", "figure-ready summary"]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "seeds": [17, 29, 43],
+  "streams": [101000, 211000],
+  "arms": {"PP": ["parent", "parent"], "PJ": ["parent", "joint"], "JP": ["joint", "parent"], "JJ": ["joint", "joint"], "PS": ["parent", "score_only"]},
+  "paths": 128,
+  "steps": 32,
+  "chunk_graphs": 2,
+  "seconds_limit": 900
+}

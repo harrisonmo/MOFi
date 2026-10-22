@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "backends": {
+    "local": {
+      "type": "local",
+      "max_cpus": 16,
+      "gpu_ids": ["0"],
+      "max_memory_mb": 24000
+    },
+    "slurm-example": {
+      "type": "slurm",
+      "partition": "REPLACE_WITH_PARTITION",
+      "account": null,
+      "max_cpus": 48,
+      "max_gpus": 1,
+      "max_memory_mb": 192000,
+      "max_wall_seconds": 14400,
+      "max_queue_seconds": 7200,
+      "poll_seconds": 60,
+      "python": "python3",
+      "env": {},
+      "setup": [],
+      "extra_directives": []
+    }
+  },
+  "session_budget": {
+    "max_jobs": 50,
+    "max_cpu_seconds": 576000,
+    "max_gpu_seconds": 14400,
+    "max_wall_seconds": 86400
+  }
+}

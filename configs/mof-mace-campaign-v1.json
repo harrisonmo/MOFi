@@ -1,0 +1,183 @@
+{
+  "campaign_id": "mof-mace-adsorption-campaign-20261017",
+  "status": "EXECUTING_BOUNDED_FORMAL_TRAINING_AND_REFERENCE_AUDIT",
+  "question": "Does foundation-model adaptation improve DFT-referenced CO2 adsorption-energy accuracy and physical robustness over a matched from-scratch MACE model on unseen parent MOFs?",
+  "runtime": {
+    "screening_mace_torch": "0.3.13",
+    "formal_mace_torch_target": "0.3.16",
+    "formal_environment_policy": "install 0.3.16 in an isolated site/venv; never mutate the active 0.3.13 environment",
+    "formal_torch_compatibility": "narrow wrapper supplies torch.compiler.is_compiling=False for torch 2.2.0; smoke-tested before launch",
+    "formal_multihead_foundation_artifact": "isolated float32 copy of the cached medium foundation model; used because direct torch.load preserves float64 under this runtime",
+    "python": "3.10.14",
+    "torch": "2.2.0",
+    "device": "NVIDIA A10G",
+    "foundation_model_family": "MACE medium",
+    "active_screening_is_formal": false
+  },
+  "estimands": {
+    "s2ef": {
+      "target": "ODAC23 total energy and atomic forces",
+      "energy_unit": "eV per structure with RMSE reported per atom",
+      "force_unit": "eV per Angstrom",
+      "primary_observation_unit": "parent-MOF-disjoint frame split",
+      "primary_metrics": ["energy_mae", "energy_rmse", "force_mae", "force_rmse"]
+    },
+    "adsorption_energy": {
+      "equation": "E_ads = E(host+CO2) - E(host) - E(CO2)",
+      "sign_convention": "negative values indicate favorable adsorption",
+      "primary_observation_unit": "one independently paired system, not a trajectory frame",
+      "required_reference": "same-protocol DFT PBE+D3/VASP host-only, guest-only, and complex structures",
+      "required_final_count": [50, 100],
+      "current_status": "BLOCKED_RELAXED_HOST_AND_COMPLEX_LINKAGE"
+    }
+  },
+  "source_and_provenance": {
+    "dataset": "ODAC23 S2EF derived 17,691-frame subset",
+    "canonical_archive": "/home/yi/data/mof_adsorption_rsi/raw/mlip/odac23/extxyz_val.tar.gz",
+    "canonical_archive_md5": "09913759c6e0f8d649f7ec9dff9e0e8b",
+    "canonical_archive_sha256": "1519ca8dae1b6f63477788761cccf413511e1e23b035c4fd0fc4936b36f71e68",
+    "derived_subset_member_audit": "80/80 source extxyz files SHA256-match canonical archive members",
+    "derived_manifest": "benchmarks/mof_adsorption/source_manifest.json",
+    "binding_reference_manifest": "benchmarks/mof_adsorption/odac23_adsorption_reference_manifest.json",
+    "reference_provenance": "ODAC23 official documentation and paper state VASP PBE+D3 total-energy/force labels; row-level scalar files do not embed all method metadata",
+    "materials_project_policy": "auxiliary structure search only; no approximate MP energy or structure may enter the strict benchmark"
+  },
+  "split": {
+    "manifest": "benchmarks/mof_adsorption/split_manifest.json",
+    "train_frames": 14536,
+    "valid_frames": 1655,
+    "test_frames": 1500,
+    "parent_disjoint": true,
+    "family_disjoint": false,
+    "all_28_global_elements_in_train": true,
+    "final_adsorption_holdout": "separately audited 50-100 parent/family-disjoint systems"
+  },
+  "screening_protocol": {
+    "seeds": [20261017, 20261018, 20261019],
+    "screening_epochs": 5,
+    "production_epochs": "until validation patience or 50 epochs, whichever is earlier",
+    "batch_size": 1,
+    "valid_batch_size": 1,
+    "r_max_A": [5.0, 6.0, 7.0],
+    "paired_same_split_and_seeds": true,
+    "stopping": {
+      "patience_epochs": 8,
+      "minimum_epochs": 5,
+      "fail_on_nan_inf": true,
+      "retain_best_validation_checkpoint": true
+    }
+  },
+  "methods": [
+    {
+      "id": "scratch",
+      "foundation": false,
+      "e0s": "average",
+      "lr": 0.01,
+      "ema_decay": 0.99,
+      "clip_grad": 10.0,
+      "trainable_parameter_fraction": 1.0,
+      "screening_ranks": ["r_max_5", "r_max_6", "r_max_7"]
+    },
+    {
+      "id": "naive_estimated",
+      "foundation": "medium",
+      "multiheads_finetuning": false,
+      "e0s": "estimated",
+      "lr": 0.001,
+      "ema_decay": 0.999,
+      "clip_grad": 1.0,
+      "trainable_parameter_fraction": 1.0,
+      "screening_ranks": ["r_max_6"]
+    },
+    {
+      "id": "lora_rank4",
+      "foundation": "medium",
+      "lora": true,
+      "lora_rank": 4,
+      "lora_alpha": 1.0,
+      "e0s": "estimated",
+      "lr": 0.005,
+      "ema_decay": 0.995,
+      "clip_grad": 10.0,
+      "screening_ranks": ["r_max_6"]
+    },
+    {
+      "id": "lora_rank16",
+      "foundation": "medium",
+      "lora": true,
+      "lora_rank": 16,
+      "lora_alpha": 4.0,
+      "e0s": "estimated",
+      "lr": 0.005,
+      "ema_decay": 0.995,
+      "clip_grad": 10.0,
+      "screening_ranks": ["r_max_6"]
+    },
+    {
+      "id": "lora_rank64",
+      "foundation": "medium",
+      "lora": true,
+      "lora_rank": 64,
+      "lora_alpha": 16.0,
+      "e0s": "estimated",
+      "lr": 0.005,
+      "ema_decay": 0.995,
+      "clip_grad": 10.0,
+      "screening_ranks": ["r_max_6"]
+    },
+    {
+      "id": "layer_freeze5",
+      "foundation": "medium",
+      "freeze": 5,
+      "e0s": "estimated",
+      "lr": 0.001,
+      "ema_decay": 0.999,
+      "clip_grad": 1.0,
+      "screening_ranks": ["r_max_6"]
+    },
+    {
+      "id": "multihead_pseudolabel_replay",
+      "foundation": "medium",
+      "multiheads_finetuning": true,
+      "replay_labels": "foundation_pseudolabels",
+      "e0s": "estimated",
+      "lr": 0.0001,
+      "ema_decay": 0.99999,
+      "clip_grad": 1.0,
+      "screening_ranks": ["r_max_6"]
+    }
+  ],
+  "physical_validation": {
+    "required": true,
+    "guards": [
+      "initial_dataset_energy_error_below_500_meV_per_atom",
+      "no_nan_or_inf",
+      "short_nvt_langevin_md_300K_0.5fs_200_steps_on_three_unseen_parents",
+      "temperature_and_energy_stability",
+      "no_short_range_PES_hole_or_atom_overlap",
+      "force_norm_and_structure_sanity",
+      "model_ensemble_disagreement"
+    ],
+    "md_status": "NOT_STARTED"
+  },
+  "failure_taxonomy": [
+    "e0_mismatch",
+    "energy_calibration_regression",
+    "force_regression",
+    "overfit_or_trajectory_leakage",
+    "catastrophic_forgetting",
+    "short_range_repulsive_wall_failure",
+    "pes_hole",
+    "md_instability",
+    "family_ood_failure",
+    "host_guest_protocol_mismatch"
+  ],
+  "decision_rule": {
+    "promotion": "choose the lowest mean adsorption-energy MAE among methods that pass S2EF, MD, and OOD guards; use paired seed uncertainty and cost as tie breakers",
+    "rsi_next_step": "prioritize DFT labels for high ensemble disagreement + OOD novelty + strong predicted adsorption relevance, with force-error and geometry-sanity gates"
+  },
+  "artifact_contract": {
+    "per_run": ["config.json", "environment.json", "command.txt", "train.log", "best_model.model", "validation_metrics.json", "exit_code", "sha256sums.txt"],
+    "campaign": ["design_contract.json", "run_manifest.csv", "pairing_verification.json", "campaign_summary.json", "error_taxonomy.json", "figures", "heartbeat_receipts"]
+  }
+}
