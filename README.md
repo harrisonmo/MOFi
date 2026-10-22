@@ -13,6 +13,10 @@
   <a href="docs/README.md"><strong>Documentation</strong></a>
   &nbsp;&nbsp;&middot;&nbsp;&nbsp;
   <a href="#setup"><strong>Setup</strong></a>
+  &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+  <a href="#mcp-tools"><strong>MCP Tools</strong></a>
+  &nbsp;&nbsp;&middot;&nbsp;&nbsp;
+  <a href="#python-package"><strong>Python Package</strong></a>
 </p>
 
 <p align="center">
@@ -113,29 +117,37 @@ Freeze tasks, scientific targets, budgets and promotion criteria before each com
 | `Crystal-Builder/` | Separate dependency checkout, not bundled|
 | `runs/`, `artifacts/` | Ignored local raw logs and generated artifacts|
 
-### MCP tools and Python package
+### Setup
 
-MOFi can expose its tools to **Codex, Claude Code and Claude Desktop** through a
-local stdio MCP server. The separate `mofi-tools` distribution is prepared for
-PyPI packaging and is **not yet published**; the unrelated PyPI package named
-`mofi` is not this project. Install from this repository:
+#### One-command installation
+
+With Git and Bash available (Linux, macOS, WSL or Git Bash), clone the repository
+and run [setup.sh](setup.sh):
 
 ```bash
-python -m pip install ./packages/mofi-tools
-mofi-tools catalog
-mofi-tools query --arguments '{"name_contains":"QMOF"}'
-mofi-mcp
+git clone https://github.com/harrisonmo/MOFi.git
+cd MOFi
+bash setup.sh
 ```
 
-The standalone package bundles the pinned MOF database survey and its metadata
-query tool. Supply `--workspace`, `--science-python`, `--hub-config` and a
-client-specific `--session` to expose available scientific hub tools with their
-existing budgets and evidence checks. Engines and Crystal-Builder remain
-separate installations. See [MCP configuration and packaging](docs/MCP_TOOLS.md)
-for client registration, tool availability, build validation and future release
-steps. No public PyPI or MCP Registry publication is performed by this setup.
+The installer reuses uv, or installs it under `.tools/uv` without changing shell
+profiles. It prepares the pinned Crystal-Builder checkout and installs Python
+3.12 with the frozen dependency lock. Existing dependency changes are preserved:
+setup stops when the Crystal-Builder checkout is dirty or its remotes differ.
+External scientific engines and model authentication remain separate.
 
-### Setup
+```bash
+bash setup.sh --dry-run                       # Preview without making changes
+bash setup.sh --extra api --extra gnn          # Select optional stacks
+bash setup.sh --with-mcp                      # Also install the standalone MCP package
+```
+
+Pass all desired extras each time; `gnn` and `llm` cannot be combined. The MCP
+option creates a separate `.venv-mcp`, keeping the science environment locked.
+Use separate environments when switching between Windows and WSL; see
+[Environment](docs/ENVIRONMENT.md). No model calls or simulations run during setup.
+
+#### Manual installation
 
 Current process containment targets Windows. The workspace is a single [uv](https://docs.astral.sh/uv/) project on Python 3.12 (`pyproject.toml`, `uv.lock`) with a separate Crystal-Builder checkout installed editable. In PowerShell:
 
@@ -153,6 +165,42 @@ uv run --no-sync pytest tests/test_q2b_v21.py tests/test_q2b_recovery.py tests/t
 This test subset makes no model calls. Other tests may execute scientific calculations or need historical local artifacts. Optional stacks (API SDKs, Valency, GUI, GNN/PyTorch, OpenMM, GCMC, LLM fine-tuning) are uv extras, e.g. `uv sync --extra api --extra gnn`; see [Python environment](docs/ENVIRONMENT.md). `uv.lock` pins the environment; historical manifests are maintained separately.
 
 For model experiments, use your existing Codex CLI login; opt-in OpenAI, OpenAI-compatible and Claude API backends are described in [API backends](docs/API_BACKENDS.md). Read the relevant protocol, document a specific target and budget, pass calibration, and use a fresh output directory. Never silently resume a stopped ledger or count unknown usage as zero. Raw logs and historical absolute paths in summaries are not portable bundled assets; retrospective audits may need the original local `runs/` directories.
+
+### MCP tools
+
+MOFi exposes its tools to **Codex, Claude Code and Claude Desktop** through a local
+stdio MCP server. Install the adapter with `bash setup.sh --with-mcp`, then run:
+
+```bash
+.venv-mcp/bin/python -m mofi_tools serve
+```
+
+On Git Bash/Windows, use `.venv-mcp/Scripts/python.exe` instead. The default
+profile provides the database survey query and tool catalog. Supply `--workspace`,
+`--science-python`, `--hub-config` and a client-specific `--session` to expose
+available scientific tools with their existing budgets and evidence checks.
+Engines and Crystal-Builder remain separate installations. See the
+[MCP configuration guide](docs/MCP_TOOLS.md#register-with-codex) for Codex,
+[Claude setup](docs/MCP_TOOLS.md#register-with-claude) and tool availability.
+Local registration does not publish a server to the public MCP Registry.
+
+### Python package
+
+The standalone [`mofi-tools`](packages/mofi-tools/README.md) distribution contains
+the pinned MOF database survey and MCP adapter. It is prepared for packaging and
+is **not yet published to PyPI**; the unrelated PyPI package named `mofi` is not
+this project. Install it into a Python environment from this repository:
+
+```bash
+python -m pip install ./packages/mofi-tools
+mofi-tools catalog
+mofi-tools query --arguments '{"name_contains":"QMOF"}'
+```
+
+See [Python package details](packages/mofi-tools/README.md) and
+[building and verification](docs/MCP_TOOLS.md#build-and-verify-without-publishing)
+for wheel/source builds, isolated installation checks and later release steps.
+No PyPI upload is performed by setup or package installation.
 
 Start with [Architecture](docs/ARCHITECTURE.md), [Documentation index](docs/README.md), [Component and input boundaries](docs/COMPONENTS.md), and [Contributing](CONTRIBUTING.md).
 

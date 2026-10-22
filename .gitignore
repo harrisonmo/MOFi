@@ -34,6 +34,8 @@ Thumbs.db
 
 # Optional ARIA runtime
 .venv-aria/
+.venv-mcp/
+.tools/
 
 # Python distribution build products
 build/

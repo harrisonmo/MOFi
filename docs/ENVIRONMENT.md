@@ -1,5 +1,29 @@
 # Environment
 
+## Automatic installation
+
+From a complete checkout, `bash setup.sh` prepares the pinned Crystal-Builder
+dependency and runs `uv sync --frozen --python 3.12`. Git and Bash are required;
+the script uses an existing uv or downloads the official installer into a
+temporary file, installing uv under `.tools/uv` without editing shell profiles.
+Git Bash uses the official PowerShell uv installer when needed. See the
+[uv installer options](https://docs.astral.sh/uv/reference/installer/).
+
+Use `--dry-run` to preview without network access or writes. Repeat `--extra NAME`
+for every desired optional stack. Conflicting `gnn`/`llm` extras, dirty dependency
+checkouts, unexpected dependency remotes and incompatible existing environment
+directories stop installation. The script does not reset repositories or discard
+changes. It adds the JulesOpp upstream when missing and pins a clean dependency
+checkout to the documented revision.
+
+`--with-mcp` installs the portable adapter into `.venv-mcp`, independently of the
+science environment. Existing environments are reused only on the matching
+platform. Set `UV_PROJECT_ENVIRONMENT` to a separate absolute path when using
+WSL alongside an existing Windows workspace environment. External engines,
+model login and MCP client registration are separate steps.
+
+## Manual installation
+
 The project uses Python 3.12 and uv. Clone Crystal-Builder alongside the source
 as `Crystal-Builder/` at commit `df014447f0812dd4f55ed60359b71a981c3eeb60`,
 then run `uv sync --frozen`. The virtual project imports `rsi` from the working
