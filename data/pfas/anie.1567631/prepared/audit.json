@@ -1,0 +1,902 @@
+{
+  "schema_version": 1,
+  "models": [
+    {
+      "atom_count": 1056,
+      "composition": {
+        "C": 528,
+        "H": 336,
+        "N": 24,
+        "O": 144,
+        "Zr": 24
+      },
+      "formal_charge_e": 0,
+      "severe_nonbonded_contacts": 0,
+      "zr_o_coordination_cutoff_angstrom": 2.65,
+      "zr_o_coordination_histogram": {
+        "8": 24
+      },
+      "hydrogens_have_one_covalent_bond": true,
+      "formal_charge_ledger_matches_structure": true,
+      "periodic_connectivity_rank": 3,
+      "bond_length_ranges_angstrom": {
+        "C-C:AROMATIC": [
+          1.3471714201335998,
+          1.3654054609987785
+        ],
+        "C-C:SINGLE": [
+          1.4792642980216029,
+          1.566408593400994
+        ],
+        "C-H:SINGLE": [
+          1.0829805100474317,
+          1.0867856556173758
+        ],
+        "C-N:AROMATIC": [
+          1.3628723855937566,
+          1.3688073375683483
+        ],
+        "C-O:DOUBLE": [
+          1.2616615412074377,
+          1.2694633589937558
+        ],
+        "C-O:SINGLE": [
+          1.261471657979627,
+          1.2701873332755438
+        ],
+        "H-O:SINGLE": [
+          0.9699999999999979,
+          0.9700000000000027
+        ]
+      },
+      "name": "Zr-PTA1-paper-neutral-A",
+      "file": "Zr-PTA1-paper-neutral-A.cif",
+      "sha256": "aad17e8977c2e73055d0d5fb742f9c9e0f22bbe7c4e60ee84d143608a0f48c6f",
+      "organic_fragments": [
+        {
+          "component": "organic_00",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.4835936885113339,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_01",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.4835874625474792,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_02",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.48359636773856224,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_03",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.48353946324955965,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_04",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.4835917237027486,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_05",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.48356937315658033,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_06",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.48354715296807144,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_07",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.4835968519828138,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_08",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 4,
+          "max_heavy_displacement_angstrom": 0.762720358506359,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_09",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 4,
+          "max_heavy_displacement_angstrom": 0.7627147332989008,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_10",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 4,
+          "max_heavy_displacement_angstrom": 0.7627450922960405,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_11",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 4,
+          "max_heavy_displacement_angstrom": 0.7627225762052847,
+          "organic_mmff_converged": true
+        }
+      ],
+      "formal_charge_ledger": [
+        {
+          "species": "Zr(IV)",
+          "count": 24,
+          "charge_each": 4
+        },
+        {
+          "species": "mu3-oxide",
+          "count": 16,
+          "charge_each": -2
+        },
+        {
+          "species": "mu3-hydroxide",
+          "count": 16,
+          "charge_each": -1
+        },
+        {
+          "species": "PTA4-",
+          "count": 12,
+          "charge_each": -4
+        },
+        {
+          "species": "coordinated water",
+          "count": 16,
+          "charge_each": 0
+        }
+      ],
+      "assumptions": [
+        "Zr(IV), four mu3-oxide and four mu3-hydroxide per Zr6 node",
+        "Core hydroxides assigned to the four longer-Zr-O faces (O5 in PTA1; O004 in PTA2)",
+        "Pyridyl N remains neutral; framework PTA is fully deprotonated (4-)",
+        "Organic geometry repaired with constrained isolated-fragment MMFF94s; metal-bound O fixed",
+        "No metal potential, partial charges, bulk solvent or pH-dependent equilibrium assigned",
+        "Paper-stoichiometry hypothesis; whole extra-linker choices (0, 1, 2, 3) of 8 expanded candidates",
+        "16 unit-cell orderings satisfy local site constraints; A/B are two complementary representatives, not an exhaustive ensemble",
+        "N2 is coupled to its selected half-occupied whole linker despite source N2 occupancy=1",
+        "This yields N6 per Zr6, whereas the published empirical formula implies N8; source composition needs clarification",
+        "Monodentate extra PTA is assumed fully deprotonated to match the paper formula; neutral H4PTA/hydroxide alternatives require a separate model"
+      ],
+      "ready_for_geometry_relaxation": true,
+      "ready_for_capacity_simulation": false,
+      "pending": [
+        "periodic Zr-framework relaxation",
+        "aqueous node-speciation validation",
+        "validated force field and partial charges",
+        "bulk water/counterion packing and equilibration"
+      ]
+    },
+    {
+      "atom_count": 1056,
+      "composition": {
+        "C": 528,
+        "H": 336,
+        "N": 24,
+        "O": 144,
+        "Zr": 24
+      },
+      "formal_charge_e": 0,
+      "severe_nonbonded_contacts": 0,
+      "zr_o_coordination_cutoff_angstrom": 2.65,
+      "zr_o_coordination_histogram": {
+        "8": 24
+      },
+      "hydrogens_have_one_covalent_bond": true,
+      "formal_charge_ledger_matches_structure": true,
+      "periodic_connectivity_rank": 3,
+      "bond_length_ranges_angstrom": {
+        "C-C:AROMATIC": [
+          1.3471714201335998,
+          1.365407322994931
+        ],
+        "C-C:SINGLE": [
+          1.4792642980216029,
+          1.5664094089757723
+        ],
+        "C-H:SINGLE": [
+          1.0829806026985471,
+          1.0867856556173758
+        ],
+        "C-N:AROMATIC": [
+          1.36287168347708,
+          1.3688073375683483
+        ],
+        "C-O:DOUBLE": [
+          1.2616615412074377,
+          1.2694628592271668
+        ],
+        "C-O:SINGLE": [
+          1.261471657979627,
+          1.2701875312333113
+        ],
+        "H-O:SINGLE": [
+          0.9699999999999979,
+          0.9700000000000026
+        ]
+      },
+      "name": "Zr-PTA1-paper-neutral-B",
+      "file": "Zr-PTA1-paper-neutral-B.cif",
+      "sha256": "0d5cf85d8038c2139f4a659e673aee138afb96995e5386058350feec871abf0a",
+      "organic_fragments": [
+        {
+          "component": "organic_00",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.4835936885113339,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_01",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.4835874625474792,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_02",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.48359636773856224,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_03",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.48353946324955965,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_04",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.4835917237027486,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_05",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.48356937315658033,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_06",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.48354715296807144,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_07",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.4835968519828138,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_12",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 4,
+          "max_heavy_displacement_angstrom": 0.7627608780417037,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_13",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 4,
+          "max_heavy_displacement_angstrom": 0.7627218831959657,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_14",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 4,
+          "max_heavy_displacement_angstrom": 0.7627306269296447,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_15",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 4,
+          "max_heavy_displacement_angstrom": 0.7627012224641262,
+          "organic_mmff_converged": true
+        }
+      ],
+      "formal_charge_ledger": [
+        {
+          "species": "Zr(IV)",
+          "count": 24,
+          "charge_each": 4
+        },
+        {
+          "species": "mu3-oxide",
+          "count": 16,
+          "charge_each": -2
+        },
+        {
+          "species": "mu3-hydroxide",
+          "count": 16,
+          "charge_each": -1
+        },
+        {
+          "species": "PTA4-",
+          "count": 12,
+          "charge_each": -4
+        },
+        {
+          "species": "coordinated water",
+          "count": 16,
+          "charge_each": 0
+        }
+      ],
+      "assumptions": [
+        "Zr(IV), four mu3-oxide and four mu3-hydroxide per Zr6 node",
+        "Core hydroxides assigned to the four longer-Zr-O faces (O5 in PTA1; O004 in PTA2)",
+        "Pyridyl N remains neutral; framework PTA is fully deprotonated (4-)",
+        "Organic geometry repaired with constrained isolated-fragment MMFF94s; metal-bound O fixed",
+        "No metal potential, partial charges, bulk solvent or pH-dependent equilibrium assigned",
+        "Paper-stoichiometry hypothesis; whole extra-linker choices (4, 5, 6, 7) of 8 expanded candidates",
+        "16 unit-cell orderings satisfy local site constraints; A/B are two complementary representatives, not an exhaustive ensemble",
+        "N2 is coupled to its selected half-occupied whole linker despite source N2 occupancy=1",
+        "This yields N6 per Zr6, whereas the published empirical formula implies N8; source composition needs clarification",
+        "Monodentate extra PTA is assumed fully deprotonated to match the paper formula; neutral H4PTA/hydroxide alternatives require a separate model"
+      ],
+      "ready_for_geometry_relaxation": true,
+      "ready_for_capacity_simulation": false,
+      "pending": [
+        "periodic Zr-framework relaxation",
+        "aqueous node-speciation validation",
+        "validated force field and partial charges",
+        "bulk water/counterion packing and equilibration"
+      ]
+    },
+    {
+      "atom_count": 808,
+      "composition": {
+        "C": 384,
+        "H": 256,
+        "N": 16,
+        "O": 128,
+        "Zr": 24
+      },
+      "formal_charge_e": 0,
+      "severe_nonbonded_contacts": 0,
+      "zr_o_coordination_cutoff_angstrom": 2.65,
+      "zr_o_coordination_histogram": {
+        "8": 24
+      },
+      "hydrogens_have_one_covalent_bond": true,
+      "formal_charge_ledger_matches_structure": true,
+      "periodic_connectivity_rank": 3,
+      "bond_length_ranges_angstrom": {
+        "C-C:AROMATIC": [
+          1.346634570678929,
+          1.360158928892296
+        ],
+        "C-C:SINGLE": [
+          1.47561381530453,
+          1.5725758062984738
+        ],
+        "C-H:SINGLE": [
+          1.0838790143188537,
+          1.094157054927555
+        ],
+        "C-N:AROMATIC": [
+          1.3682183498817506,
+          1.3682241895826837
+        ],
+        "C-O:DOUBLE": [
+          1.2779383904227744,
+          1.3280605610326148
+        ],
+        "C-O:SINGLE": [
+          1.2780307874891206,
+          1.3280605781976123
+        ],
+        "H-O:SINGLE": [
+          0.9699999999999988,
+          0.9700000000000008
+        ]
+      },
+      "name": "Zr-PTA2-acetate-neutral",
+      "file": "Zr-PTA2-acetate-neutral.cif",
+      "sha256": "e2995475a5ac3e67ad3ee8ea8bbae19832f839ed818f480bb2c66a22d0416069",
+      "organic_fragments": [
+        {
+          "component": "organic_00",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.41775813493566755,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_01",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.41774506705693226,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_02",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.4178271419472048,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_03",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.4178176024627492,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_04",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.41777185731539856,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_05",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.4177651339099811,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_06",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.4177852347789721,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_07",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.41777470702900804,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_08",
+          "formula": "C2H3O2-",
+          "formal_charge": -1,
+          "fixed_metal_bound_oxygens": 2,
+          "max_heavy_displacement_angstrom": 0.2541634794000651,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_09",
+          "formula": "C2H3O2-",
+          "formal_charge": -1,
+          "fixed_metal_bound_oxygens": 2,
+          "max_heavy_displacement_angstrom": 0.25416343039355055,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_10",
+          "formula": "C2H3O2-",
+          "formal_charge": -1,
+          "fixed_metal_bound_oxygens": 2,
+          "max_heavy_displacement_angstrom": 0.254163430393524,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_11",
+          "formula": "C2H3O2-",
+          "formal_charge": -1,
+          "fixed_metal_bound_oxygens": 2,
+          "max_heavy_displacement_angstrom": 0.2541614088943326,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_12",
+          "formula": "C2H3O2-",
+          "formal_charge": -1,
+          "fixed_metal_bound_oxygens": 2,
+          "max_heavy_displacement_angstrom": 0.2541634794000735,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_13",
+          "formula": "C2H3O2-",
+          "formal_charge": -1,
+          "fixed_metal_bound_oxygens": 2,
+          "max_heavy_displacement_angstrom": 0.25416343039385214,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_14",
+          "formula": "C2H3O2-",
+          "formal_charge": -1,
+          "fixed_metal_bound_oxygens": 2,
+          "max_heavy_displacement_angstrom": 0.2541634303935173,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_15",
+          "formula": "C2H3O2-",
+          "formal_charge": -1,
+          "fixed_metal_bound_oxygens": 2,
+          "max_heavy_displacement_angstrom": 0.2541634794001761,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_16",
+          "formula": "C2H3O2-",
+          "formal_charge": -1,
+          "fixed_metal_bound_oxygens": 2,
+          "max_heavy_displacement_angstrom": 0.2541634303935153,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_17",
+          "formula": "C2H3O2-",
+          "formal_charge": -1,
+          "fixed_metal_bound_oxygens": 2,
+          "max_heavy_displacement_angstrom": 0.2541634794001003,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_18",
+          "formula": "C2H3O2-",
+          "formal_charge": -1,
+          "fixed_metal_bound_oxygens": 2,
+          "max_heavy_displacement_angstrom": 0.2541634794000118,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_19",
+          "formula": "C2H3O2-",
+          "formal_charge": -1,
+          "fixed_metal_bound_oxygens": 2,
+          "max_heavy_displacement_angstrom": 0.2541634303935395,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_20",
+          "formula": "C2H3O2-",
+          "formal_charge": -1,
+          "fixed_metal_bound_oxygens": 2,
+          "max_heavy_displacement_angstrom": 0.25416343039351585,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_21",
+          "formula": "C2H3O2-",
+          "formal_charge": -1,
+          "fixed_metal_bound_oxygens": 2,
+          "max_heavy_displacement_angstrom": 0.25416347940003986,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_22",
+          "formula": "C2H3O2-",
+          "formal_charge": -1,
+          "fixed_metal_bound_oxygens": 2,
+          "max_heavy_displacement_angstrom": 0.25416347939997863,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_23",
+          "formula": "C2H3O2-",
+          "formal_charge": -1,
+          "fixed_metal_bound_oxygens": 2,
+          "max_heavy_displacement_angstrom": 0.2541634303935195,
+          "organic_mmff_converged": true
+        }
+      ],
+      "formal_charge_ledger": [
+        {
+          "species": "Zr(IV)",
+          "count": 24,
+          "charge_each": 4
+        },
+        {
+          "species": "mu3-oxide",
+          "count": 16,
+          "charge_each": -2
+        },
+        {
+          "species": "mu3-hydroxide",
+          "count": 16,
+          "charge_each": -1
+        },
+        {
+          "species": "PTA4-",
+          "count": 8,
+          "charge_each": -4
+        },
+        {
+          "species": "acetate",
+          "count": 16,
+          "charge_each": -1
+        }
+      ],
+      "assumptions": [
+        "Zr(IV), four mu3-oxide and four mu3-hydroxide per Zr6 node",
+        "Core hydroxides assigned to the four longer-Zr-O faces (O5 in PTA1; O004 in PTA2)",
+        "Pyridyl N remains neutral; framework PTA is fully deprotonated (4-)",
+        "Organic geometry repaired with constrained isolated-fragment MMFF94s; metal-bound O fixed",
+        "No metal potential, partial charges, bulk solvent or pH-dependent equilibrium assigned",
+        "Deposited acetates retained; no naked open Zr site implied"
+      ],
+      "ready_for_geometry_relaxation": true,
+      "ready_for_capacity_simulation": false,
+      "pending": [
+        "periodic Zr-framework relaxation",
+        "aqueous node-speciation validation",
+        "validated force field and partial charges",
+        "bulk water/counterion packing and equilibration"
+      ]
+    },
+    {
+      "atom_count": 776,
+      "composition": {
+        "C": 352,
+        "H": 256,
+        "N": 16,
+        "O": 128,
+        "Zr": 24
+      },
+      "formal_charge_e": 0,
+      "severe_nonbonded_contacts": 0,
+      "zr_o_coordination_cutoff_angstrom": 2.65,
+      "zr_o_coordination_histogram": {
+        "8": 24
+      },
+      "hydrogens_have_one_covalent_bond": true,
+      "formal_charge_ledger_matches_structure": true,
+      "periodic_connectivity_rank": 3,
+      "bond_length_ranges_angstrom": {
+        "C-C:AROMATIC": [
+          1.346634570678929,
+          1.360158928892296
+        ],
+        "C-C:SINGLE": [
+          1.47561381530453,
+          1.5725758062984738
+        ],
+        "C-H:SINGLE": [
+          1.0838790143188537,
+          1.0867431227014381
+        ],
+        "C-N:AROMATIC": [
+          1.3682183498817506,
+          1.3682241895826837
+        ],
+        "C-O:DOUBLE": [
+          1.2779383904227744,
+          1.2779416265777834
+        ],
+        "C-O:SINGLE": [
+          1.2780307874891206,
+          1.278034209001342
+        ],
+        "H-O:SINGLE": [
+          0.9699999999999985,
+          0.9700000000000015
+        ]
+      },
+      "name": "Zr-PTA2-hydrolyzed-neutral",
+      "file": "Zr-PTA2-hydrolyzed-neutral.cif",
+      "sha256": "1ff31beb1446d4432186362b6ec0df0bfcae831f2e19dad0eb979bd0734123f7",
+      "organic_fragments": [
+        {
+          "component": "organic_00",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.41775813493566755,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_01",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.41774506705693226,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_02",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.4178271419472048,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_03",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.4178176024627492,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_04",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.41777185731539856,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_05",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.4177651339099811,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_06",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.4177852347789721,
+          "organic_mmff_converged": true
+        },
+        {
+          "component": "organic_07",
+          "formula": "C44H24N2O8-4",
+          "formal_charge": -4,
+          "fixed_metal_bound_oxygens": 8,
+          "max_heavy_displacement_angstrom": 0.41777470702900804,
+          "organic_mmff_converged": true
+        }
+      ],
+      "formal_charge_ledger": [
+        {
+          "species": "Zr(IV)",
+          "count": 24,
+          "charge_each": 4
+        },
+        {
+          "species": "mu3-oxide",
+          "count": 16,
+          "charge_each": -2
+        },
+        {
+          "species": "mu3-hydroxide",
+          "count": 16,
+          "charge_each": -1
+        },
+        {
+          "species": "PTA4-",
+          "count": 8,
+          "charge_each": -4
+        },
+        {
+          "species": "terminal hydroxide",
+          "count": 16,
+          "charge_each": -1
+        },
+        {
+          "species": "coordinated water",
+          "count": 16,
+          "charge_each": 0
+        }
+      ],
+      "assumptions": [
+        "Zr(IV), four mu3-oxide and four mu3-hydroxide per Zr6 node",
+        "Core hydroxides assigned to the four longer-Zr-O faces (O5 in PTA1; O004 in PTA2)",
+        "Pyridyl N remains neutral; framework PTA is fully deprotonated (4-)",
+        "Organic geometry repaired with constrained isolated-fragment MMFF94s; metal-bound O fixed",
+        "No metal potential, partial charges, bulk solvent or pH-dependent equilibrium assigned",
+        "Sensitivity hypothesis: each acetate is replaced by one OH- and one H2O at its original two O positions; not experimentally established speciation"
+      ],
+      "ready_for_geometry_relaxation": true,
+      "ready_for_capacity_simulation": false,
+      "pending": [
+        "periodic Zr-framework relaxation",
+        "aqueous node-speciation validation",
+        "validated force field and partial charges",
+        "bulk water/counterion packing and equilibration"
+      ]
+    }
+  ],
+  "pfas_templates": [
+    {
+      "name": "PFOA",
+      "file": "PFOA-anion.sdf",
+      "smiles": "O=C([O-])C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F",
+      "formula": "C8F15O2-",
+      "formal_charge_e": -1,
+      "counterion_rule": "one Na+ per PFAS anion; user-selected pH-7 target with no added background salt",
+      "partial_charges_assigned": false
+    },
+    {
+      "name": "PFOS",
+      "file": "PFOS-anion.sdf",
+      "smiles": "O=S(=O)([O-])C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F",
+      "formula": "C8F17O3S-",
+      "formal_charge_e": -1,
+      "counterion_rule": "one Na+ per PFAS anion; user-selected pH-7 target with no added background salt",
+      "partial_charges_assigned": false
+    },
+    {
+      "name": "PFBA",
+      "file": "PFBA-anion.sdf",
+      "smiles": "O=C([O-])C(F)(F)C(F)(F)C(F)(F)F",
+      "formula": "C4F7O2-",
+      "formal_charge_e": -1,
+      "counterion_rule": "one Na+ per PFAS anion; user-selected pH-7 target with no added background salt",
+      "partial_charges_assigned": false
+    },
+    {
+      "name": "PFBS",
+      "file": "PFBS-anion.sdf",
+      "smiles": "O=S(=O)([O-])C(F)(F)C(F)(F)C(F)(F)C(F)(F)F",
+      "formula": "C4F9O3S-",
+      "formal_charge_e": -1,
+      "counterion_rule": "one Na+ per PFAS anion; user-selected pH-7 target with no added background salt",
+      "partial_charges_assigned": false
+    }
+  ],
+  "versions": {
+    "gemmi": "0.7.5",
+    "numpy": "2.5.4",
+    "rdkit": "2026.09.1"
+  },
+  "source_hashes": {
+    "Zr-PTA1": "4749e07f196b008516d2e1ca6fd93bbed2a4db06be62b22e6621da48657a3634",
+    "Zr-PTA2": "d2199d09660c56a259a9746a6552933c0fa8fcf8c59055fb32087ac965ec5561"
+  },
+  "capacity_simulations_run": false
+}
