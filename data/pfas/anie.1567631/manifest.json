@@ -1,0 +1,140 @@
+{
+  "paper_doi": "10.1002/anie.1567631",
+  "downloaded_at_utc": "2026-10-30T20:22:01.403277+00:00",
+  "download_method": "Wiley supporting-file links through the open in-app browser",
+  "source_files": [
+    {
+      "file": "anie72255-sup-0002-data.zip",
+      "sha256": "b5ce293ad7c0aa693cbfc6c9c90028f5c78ec7aacb42842c12123105ea38b298",
+      "url": "https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2Fanie.1567631&file=anie72255-sup-0002-Data.zip"
+    },
+    {
+      "file": "anie72255-sup-0001-suppmat.pdf",
+      "sha256": "7b2554c53bbc78715d9a557e3b9db803cc340a705255915445614e4844bc506a",
+      "url": "https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2Fanie.1567631&file=anie72255-sup-0001-SuppMat.pdf"
+    }
+  ],
+  "archive_member": "SI_Crystal data_2.cif",
+  "archive_member_sha256": "eb6245e1bbb9e72cbb7ea6446570851cb877d0aee158f9b59b36c4330b18e168",
+  "structures": [
+    {
+      "name": "Zr-PTA1",
+      "file": "Zr-PTA1.cif",
+      "source_block": "data_Zr-PPTA1",
+      "ccdc_deposition_number": "2453981",
+      "deposition_mapping_source": "SI S3",
+      "formula_as_deposited": "C66 H42 N4 O18 Zr3",
+      "space_group": "I 41/a m d",
+      "cell": {
+        "length_a": "20.5378(4)",
+        "length_b": "20.5378(4)",
+        "length_c": "67.313(2)",
+        "angle_alpha": "90",
+        "angle_beta": "90",
+        "angle_gamma": "90",
+        "volume": "28392.5(14)"
+      },
+      "asymmetric_unit_atom_site_rows": 67,
+      "partial_occupancy_rows": 56,
+      "partial_occupancy_labels": [
+        "O3",
+        "N1",
+        "C3",
+        "H3",
+        "C4",
+        "H4",
+        "C7",
+        "H7",
+        "C6",
+        "H6A",
+        "C5",
+        "C10",
+        "C8",
+        "C9",
+        "H9",
+        "C11",
+        "C12",
+        "H12",
+        "O4",
+        "C15",
+        "H15",
+        "C16",
+        "H16",
+        "C18",
+        "H18",
+        "C14",
+        "C13",
+        "C19",
+        "H19",
+        "C17",
+        "C21",
+        "H21",
+        "C23",
+        "C20",
+        "C22",
+        "C24",
+        "C7A",
+        "H7A",
+        "C3A",
+        "H3A",
+        "C4A",
+        "H4A",
+        "C5A",
+        "C6A",
+        "H6AA",
+        "C8A",
+        "N1A",
+        "C9A",
+        "H9A",
+        "C10A",
+        "C11A",
+        "C12A",
+        "H12A",
+        "O3A",
+        "H3AA",
+        "H3AB"
+      ],
+      "sha256": "4749e07f196b008516d2e1ca6fd93bbed2a4db06be62b22e6621da48657a3634",
+      "simulation_ready": false,
+      "transformation": "Exact byte slice of published CIF block; no changes to coordinates, occupancies or symmetry."
+    },
+    {
+      "name": "Zr-PTA2",
+      "file": "Zr-PTA2.cif",
+      "source_block": "data_Zr-PPTA-2",
+      "ccdc_deposition_number": "2453980",
+      "deposition_mapping_source": "SI S3",
+      "formula_as_deposited": "C48 H30 N2 O16 Zr3",
+      "space_group": "I 41/a m d",
+      "cell": {
+        "length_a": "20.55(10)",
+        "length_b": "20.55(10)",
+        "length_c": "66.6(3)",
+        "angle_alpha": "90",
+        "angle_beta": "90",
+        "angle_gamma": "90",
+        "volume": "28125(299)"
+      },
+      "asymmetric_unit_atom_site_rows": 31,
+      "partial_occupancy_rows": 3,
+      "partial_occupancy_labels": [
+        "H1A",
+        "H1B",
+        "H1C"
+      ],
+      "sha256": "d2199d09660c56a259a9746a6552933c0fa8fcf8c59055fb32087ac965ec5561",
+      "simulation_ready": false,
+      "transformation": "Exact byte slice of published CIF block; no changes to coordinates, occupancies or symmetry."
+    }
+  ],
+  "checks_performed": [
+    "ZIP successfully opened; two CIF data blocks found",
+    "Consistent atom-site column counts; numeric coordinates and occupancies",
+    "Cell parameters and formulas match SI Tables S1 and S2",
+    "Split files verified byte-identical to original blocks"
+  ],
+  "limitations": [
+    "No symmetry expansion or chemical model validation performed",
+    "No PFAS capacity simulation performed"
+  ]
+}
